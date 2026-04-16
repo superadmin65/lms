@@ -160,7 +160,7 @@ const Navbar = (props) => {
                     )}
                   >
                     <Row>
-                      <Col lg={4}>
+                      {/* <Col lg={4}>
                         <div>
                           <Link to="/ui-alerts" className="dropdown-item">
                             {props.t("Alerts")}
@@ -187,8 +187,8 @@ const Navbar = (props) => {
                             {props.t("Lightbox")}
                           </Link>
                         </div>
-                      </Col>
-                      <Col lg={4}>
+                      </Col> */}
+                      {/* <Col lg={4}>
                         <div>
                           <Link to="/ui-modals" className="dropdown-item">
                             {props.t("Modals")}
@@ -211,9 +211,9 @@ const Navbar = (props) => {
                           <Link to="/ui-placeholders" className="dropdown-item">
                             {props.t("Placeholders")}
                           </Link>
-                          {/* <Link to="/ui-sweet-alert" className="dropdown-item">
+                          <Link to="/ui-sweet-alert" className="dropdown-item">
                               {props.t("Sweet-Alert")}
-                            </Link> */}
+                            </Link>
                           <Link
                             to="/ui-tabs-accordions"
                             className="dropdown-item"
@@ -221,8 +221,8 @@ const Navbar = (props) => {
                             {props.t("Tabs & Accordions")}
                           </Link>
                         </div>
-                      </Col>
-                      <Col lg={4}>
+                      </Col> */}
+                      {/* <Col lg={4}>
                         <div>
                           <Link to="/ui-typography" className="dropdown-item">
                             {props.t("Typography")}
@@ -252,7 +252,7 @@ const Navbar = (props) => {
                             {props.t("Utilities")}
                           </Link>
                         </div>
-                      </Col>
+                      </Col> */}
                     </Row>
                   </div>
                 </li>
