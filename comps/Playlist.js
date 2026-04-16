@@ -351,7 +351,17 @@ export default function Playlist(props) {
       const activityId = String(item.id);
       const res = await apiService.getActivityDetail(activityId);
       let data = res.data;
-      if (typeof data === "string") data = JSON.parse(data);
+      if (!data) {
+        console.error("Empty API response");
+        data = {};
+      } else if (typeof data === "string") {
+        try {
+          data = JSON.parse(data);
+        } catch (e) {
+          console.error("Invalid JSON:", data);
+          data = {};
+        }
+      }
 
       setState((prev) => ({
         ...prev,
