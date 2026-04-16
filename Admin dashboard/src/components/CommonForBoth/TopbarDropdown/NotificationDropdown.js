@@ -47,8 +47,8 @@ const NotificationDropdown = (props) => {
             </Row>
           </div>
 
-          <SimpleBar style={{ height: "230px" }}>
-            <Link to="" className="text-reset notification-item">
+          <SimpleBar style={{ height: "30px" }}>
+            {/* <Link to="" className="text-reset notification-item">
               <div className="d-flex">
                 <div className="avatar-xs me-3">
                   <span className="avatar-title bg-primary rounded-circle font-size-16">
@@ -70,8 +70,8 @@ const NotificationDropdown = (props) => {
                   </div>
                 </div>
               </div>
-            </Link>
-            <Link to="" className="text-reset notification-item">
+            </Link> */}
+            {/* <Link to="" className="text-reset notification-item">
               <div className="d-flex">
                 <img
                   src={avatar3}
@@ -138,7 +138,7 @@ const NotificationDropdown = (props) => {
                   </div>
                 </div>
               </div>
-            </Link>
+            </Link> */}
           </SimpleBar>
           <div className="p-2 border-top d-grid">
             <Link

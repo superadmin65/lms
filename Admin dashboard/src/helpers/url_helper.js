@@ -30,6 +30,11 @@ export const DELETE_ACTIVITY = "/admin/delete";
 // --- Profile Endpoints ---
 export const POST_USER_PROFILE = "/user-api/profile";
 
+// --- Manage Cards Endpoints ---
+// --- Card Image & Upload Endpoints ---
+export const GET_CARD_ICON = "/v1/konzeptes/image/icon";
+export const GET_CARD_BG = "/v1/konzeptes/image/bg";
+
 // -----------------   end of recently edited files   -----------------
 //REGISTER
 export const POST_FAKE_REGISTER = "/post-fake-register";
