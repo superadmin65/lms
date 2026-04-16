@@ -175,10 +175,27 @@ const Styled = styled.div`
   }
 
   @media only screen and (max-width: 800px) {
+    // ol {
+    //   position: absolute;
+    //   left: 0;
+    //   top: 0;
+    // }
     ol {
-      position: absolute;
+      position: fixed;
       left: 0;
       top: 0;
+      width: 260px;
+      height: 100vh;
+      background: white;
+      z-index: 1000;
+      overflow-y: auto;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    /* when visible */
+    .showSidebar ol {
+      transform: translateX(0);
     }
   }
 
@@ -190,6 +207,9 @@ const Styled = styled.div`
 `;
 
 const splTypes = ["pdf", "link", "pLink", "mvid", "youtube"];
+
+//sidebar
+// const [showSidebar, setShowSidebar] = useState(false);
 
 export default function Playlist(props) {
   const router = useRouter();
@@ -327,17 +347,11 @@ export default function Playlist(props) {
 
     try {
       //  FIXED: Replace with empty string, not space
-      const activityId = String(item.id); /*.replace("act-", "");*/
+      // const activityId = String(item.id).replace("act-", "");
+      const activityId = String(item.id);
       const res = await apiService.getActivityDetail(activityId);
       let data = res.data;
-      if (typeof data === "string") {
-        try {
-          data = data.trim() ? JSON.parse(data) : {};
-        } catch (e) {
-          console.error("❌ Invalid JSON from API:", data);
-          data = {};
-        }
-      }
+      if (typeof data === "string") data = JSON.parse(data);
 
       setState((prev) => ({
         ...prev,
@@ -529,7 +543,10 @@ export default function Playlist(props) {
   }
 
   return (
-    <Styled $hideTOC={state.hideTOC}>
+    <Styled
+      $hideTOC={state.hideTOC}
+      className={!state.hideTOC ? "showSidebar" : ""}
+    >
       {props.toc.type === "curriculumIcon" && <IconView data={props.toc} />}
       {(!props.toc.type || props.toc.type === "nested") && !state.hideTOC && (
         <div style={{ maxHeight: "100vh", overflow: "auto" }}>
@@ -698,8 +715,17 @@ export default function Playlist(props) {
         <PIconView data={props.toc} appType="small" />
       )}
 
-      {state.hideTOC && state.activeChap !== -1 && (
-        <div style={{ marginTop: 50 }}>
+      {/* {state.hideTOC && state.activeChap !== -1 && ( */}
+      {state.hideTOC && (
+        // <div style={{ marginTop: 50 }}>
+        <div
+          style={{
+            position: "fixed",
+            top: "10px",
+            left: "10px",
+            zIndex: 1100,
+          }}
+        >
           <Svg
             size="32"
             d={playlistIconSvgPath}
@@ -930,7 +956,7 @@ function displayResource(item, onClose, onChapterNext, bgImage) {
           <InformationProcessingAct data={payload} />
         </div>
       );
-    case "dragAndDrop": // Ensure this matches your database payload type!
+    case "dragAndDrop":
       return (
         <div style={containerStyle}>
           <DragDropAct data={payload} />
@@ -951,6 +977,7 @@ function displayResource(item, onClose, onChapterNext, bgImage) {
       );
     }
     case "completePuzzle":
+      // return <JoinWords data={item} />;
       return (
         <div style={containerStyle}>
           <JoinWords data={item} />
