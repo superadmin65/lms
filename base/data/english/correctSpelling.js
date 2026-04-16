@@ -1,0 +1,12 @@
+const data = `CAT KAT
+APPLE APLE
+BOX BOK
+CAN CAAN
+BALL BAL
+EGG EG
+GRAPES	GRAPS
+HOME	HOM
+ICE	ICC
+ZEBRA	ZIBRA`
+
+export default data;

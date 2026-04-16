@@ -1,0 +1,139 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.box {
+  padding: 10px 15px;
+  background: #dbeafe;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 120px;
+  text-align: center;
+  font-weight: bold;
+    background: rgba(219, 234, 254, 0.8);
+}
+
+.box:hover {
+  background: #bfdbfe;
+}
+
+.selected {
+  background: #a78bfa;
+  color: white;
+}
+
+.used {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.lines line {
+  stroke-width: 4;
+}
+
+.lines .lineDefault {
+  stroke: #3b82f6;
+}
+
+.lines .correct {
+  stroke: #22c55e;
+}
+
+.lines .wrong {
+  stroke: #ef4444;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.matchContainer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* important */
+  gap: 80px; /* 🔥 adds space between columns */
+  margin-top: 40px; /* 🔥 adds top space like puzzle */
+}
+.mainCard {
+  --accent: #0b4f71;
+  --pill: #ffffff;
+  --text: #222;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  width: 85%;
+  max-width: 900px;
+  height: 96%;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 15px auto;
+  background-color: rgba(255, 255, 255, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  overflow-y: auto;
+}
+
+.footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+}
+
+.nextBtn {
+  background: #0b4f71;
+  color: white;
+  padding: 0 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: 15px;
+  height: 40px;
+  min-width: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.nextBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.small {
+  font-size: 14px;
+  color: #555;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complete the Word</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-card">
+      <div class="header">
+        <div id="activity-title" class="title-text"></div>
+      </div>
+
+      <div id="game-area">
+        <div class="word-display-container">
+          <div id="word-puzzle" class="word-puzzle"></div>
+        </div>
+
+        <div class="options-container" id="options-container"></div>
+
+        <div class="game-footer">
+          <div id="score-box" class="score-badge">Score : 0 / 0</div>
+        </div>
+      </div>
+
+      <div id="summary-area" class="hidden">
+        <h2 style="text-align: center; color: #333">
+          You have completed this activity.
+        </h2>
+        <div id="summary-title" class="summary-sub"></div>
+        <div id="summary-list" class="summary-list"></div>
+
+        <div class="summary-footer">
+          <div id="final-score" class="score-badge">Final Score: 0 / 0</div>
+          <button id="final-next-btn" class="next-btn">Next</button>
+        </div>
+      </div>
+
+      <button id="next-q-btn" class="next-btn float-next hidden">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

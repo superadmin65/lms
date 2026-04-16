@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Search</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-card">
+      <div class="header">
+        <div id="activity-title" class="title-text">Find the given words</div>
+      </div>
+
+      <div id="game-area">
+        <div class="grid-wrapper">
+          <div id="word-grid" class="word-grid"></div>
+        </div>
+      </div>
+
+      <div class="word-strip">
+        <div id="word-list" class="word-list"></div>
+      </div>
+
+      <div class="game-footer">
+        <div id="score-box" class="score-badge">Score: 0 / 0</div>
+
+        <div class="footer-buttons">
+          <button id="hint-btn" class="action-btn hint-btn">Hint 💡</button>
+          <button id="next-q-btn" class="action-btn next-btn hidden">
+            Next ➜
+          </button>
+        </div>
+      </div>
+      <div id="victory-toast" class="victory-toast hidden">
+        <span>🎉 Great Job! Click Next to continue.</span>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

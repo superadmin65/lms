@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Classify Sentence Activity</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="title" id="actTitle">Pick the right option</div>
+
+      <div class="card" id="cardRoot">
+        <div id="content"></div>
+
+        <div style="height: 18px"></div>
+
+        <div class="controlsRow">
+          <div class="score" id="scoreBox">Score: 0 / 0</div>
+          <div>
+            <button class="hintBtn" id="hintBtn" style="display: none">
+              Hint
+            </button>
+            <button class="nextBtn" id="nextBtn" disabled>Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="finalWrap"
+        class="card summaryCard"
+        style="display: none; margin-top: 18px"
+      >
+        <div style="font-size: 18px; font-weight: 600">
+          You have completed this activity.
+        </div>
+        <div class="summary" id="summaryList"></div>
+
+        <div
+          style="
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          ">
+          <div class="small" id="finalScore"></div>
+          <button class="nextBtn" id="doneBtn">Next</button>
+        </div>
+      </div>
+    </div>
+    <div class="tick" id="tick">✔</div>
+    <div class="cross" id="cross">✖</div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js"></script> 
+    <script src="app.js"></script>     
+    </script>
+  </body>
+</html>

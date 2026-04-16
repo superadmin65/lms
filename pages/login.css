@@ -1,0 +1,319 @@
+/* ========================================= */
+/* BASE LAYOUT & TRANSITIONS                 */
+/* ========================================= */
+.auth-page {
+  background: url('/first_bg.png') no-repeat center center/cover;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.auth-card-container {
+  background: #c7d8b2;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: auto;
+  overflow: hidden;
+  /* Smoothly animates the resize when switching modes */
+  transition:
+    max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    padding 0.4s ease;
+}
+
+/* ========================================= */
+/* MODE SPECIFIC SIZING                      */
+/* ========================================= */
+
+/* Login page stays exactly at your requested size */
+.login-mode {
+  max-width: 400px;
+  padding: 40px;
+}
+
+/* Register page is decreased to fit better on screen without scrolling */
+.register-mode {
+  max-width: 580px; /* Decreased from 680px */
+  padding: 20px 25px; /* Decreased padding */
+}
+
+/* Animation for content appearance */
+.transition-fade {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================= */
+/* BRANDING & TITLES                         */
+/* ========================================= */
+.auth-logo {
+  width: 175px; /* Slightly smaller to save vertical space */
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.auth-title {
+  color: #1b5e20;
+  font-weight: 700;
+  margin-bottom: 15px; /* Reduced from 25px */
+  font-size: 1.3rem; /* Slightly smaller title */
+}
+
+/* ========================================= */
+/* REGISTRATION GRID & GROUPS                */
+/* ========================================= */
+.field-group {
+  margin-bottom: 10px; /* Tighter grouping */
+  text-align: left;
+  border-bottom: 1px solid #c5e1a5;
+  padding-bottom: 6px;
+}
+
+.field-group:last-of-type {
+  border-bottom: none;
+}
+
+.group-label {
+  display: block;
+  font-size: 0.7rem; /* Smaller sub-labels */
+  font-weight: 700;
+  color: #388e3c;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #388e3c;
+  text-align: left;
+  margin-bottom: 3px;
+}
+
+.registration-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px; /* Tighter gap between fields */
+  width: 100%;
+}
+
+.col-3 {
+  grid-column: span 3;
+}
+.col-4 {
+  grid-column: span 4;
+}
+.col-5 {
+  grid-column: span 5;
+}
+.col-12 {
+  grid-column: span 12;
+}
+
+.full-width-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* ========================================= */
+/* INPUT & SELECT STYLING                    */
+/* ========================================= */
+input,
+select {
+  padding: 8px 12px; /* Slimmer padding */
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  font-size: 0.85rem; /* Smaller text size */
+  width: 100%;
+  box-sizing: border-box;
+  height: 43px; /* Reduced height from 43px to eliminate scrolling */
+}
+
+input:focus {
+  outline: 2px solid #4caf50;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 5;
+  font-size: 0.9rem;
+}
+
+.pass-warning {
+  color: #d32f2f;
+  font-size: 9.5px;
+  font-weight: 600;
+  text-align: left;
+  margin-top: 4px;
+}
+
+/* ========================================= */
+/* BUTTON STYLING (SEPARATE CLASSES)         */
+/* ========================================= */
+
+/* Login Button - Full Width */
+.main-submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #33691e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.main-submit-btn:hover {
+  background: #1b5e20;
+}
+
+/* Register Button - Compact Width (40%) */
+.main-submit-btn-register {
+  width: 40%;
+  padding: 10px;
+  background: #33691e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  transition: background 0.3s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-submit-btn-register:hover {
+  background: #1b5e20;
+}
+
+.toggle-view {
+  margin-top: 12px;
+  color: #1b5e20;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ========================================= */
+/* SWEETALERT STYLING                        */
+/* ========================================= */
+.swal2-popup {
+  background: #f1f8e9 !important;
+  border-radius: 20px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.swal2-title {
+  color: #1b5e20 !important;
+}
+
+.swal2-styled.swal2-confirm {
+  padding: 8px 24px !important;
+  font-weight: 600;
+  color: #fff !important;
+  background-color: #33691e !important;
+  border-radius: 8px !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+  border: 4px solid #2e7d32 !important;
+}
+
+.swal2-icon.swal2-success [class^='swal2-success-line'] {
+  background-color: #33691e !important;
+}
+
+/* ========================================= */
+/* RESPONSIVE SAFETY                         */
+/* ========================================= */
+@media (max-width: 600px) {
+  .registration-grid > * {
+    grid-column: span 12 !important;
+  }
+  .register-mode {
+    max-width: 95%;
+    padding: 15px;
+  }
+  .main-submit-btn-register {
+    width: 80%; /* Wider on small mobile screens for accessibility */
+  }
+}
+
+/* Container for Email and Password fields */
+.input-with-icon,
+.password-container {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+/* Ensure icons don't overlap the text */
+.input-with-icon input,
+.password-container input {
+  padding-right: 40px !important;
+}
+
+/* Shared Icon Styling */
+.input-icon,
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666666; /* Match your professional gray */
+  z-index: 5;
+}
+
+/* Email icon is just for show, so it shouldn't block clicks */
+.input-icon {
+  pointer-events: none;
+  color: #33691e;
+}
+
+/* Eye button needs to be clickable */
+.eye-btn {
+  cursor: pointer;
+  transition: color 0.2s ease;
+  color: #33691e;
+}
+
+.eye-btn:hover {
+  /* color: #33691e; */
+}

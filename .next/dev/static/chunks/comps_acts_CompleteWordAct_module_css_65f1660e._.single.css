@@ -1,0 +1,206 @@
+/* [project]/comps/acts/CompleteWordAct.module.css [client] (css) */
+.CompleteWordAct-module__QcFl0a__wrapper {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.CompleteWordAct-module__QcFl0a__mainCard {
+  --btn-blue: #a8d0e6;
+  --btn-blue-hover: #91c2dc;
+  --purple-box: #d099e6;
+  --text-color: #333;
+  --green-correct: #2e7d32;
+  --red-wrong: #d32f2f;
+  --next-btn-color: #00334e;
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  width: 85%;
+  max-width: 100%;
+  height: 96%;
+  color: var(--text-color);
+  border: 1px solid #fff9;
+  border-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  position: relative;
+  box-shadow: 0 8px 32px #0000001a;
+}
+
+.CompleteWordAct-module__QcFl0a__titleText {
+  color: #555;
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.CompleteWordAct-module__QcFl0a__gameArea {
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__wordDisplayContainer {
+  background-color: #f0f0e899;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  margin-bottom: 40px;
+  padding: 40px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__wordPuzzle {
+  color: #555;
+  align-items: center;
+  gap: 8px;
+  font-size: 2.5rem;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__missingBox {
+  background-color: var(--purple-box);
+  color: #fff;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px;
+  height: 60px;
+  margin: 0 5px;
+  padding-bottom: 4px;
+  font-weight: bold;
+  display: inline-flex;
+}
+
+.CompleteWordAct-module__QcFl0a__optionsContainer {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__optionBtn {
+  background-color: var(--btn-blue);
+  color: var(--text-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  min-width: 60px;
+  padding: 10px 20px;
+  font-size: 1.8rem;
+  transition: transform .1s;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.CompleteWordAct-module__QcFl0a__optionBtn:active {
+  transform: scale(.95);
+}
+
+.CompleteWordAct-module__QcFl0a__optionBtn:disabled {
+  opacity: .7;
+  cursor: default;
+}
+
+.CompleteWordAct-module__QcFl0a__gameFooter, .CompleteWordAct-module__QcFl0a__summaryFooter {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: auto;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__scoreBadge {
+  color: #555;
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  padding: 5px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
+}
+
+.CompleteWordAct-module__QcFl0a__nextBtn {
+  background-color: var(--next-btn-color);
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+}
+
+.CompleteWordAct-module__QcFl0a__floatNext {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.CompleteWordAct-module__QcFl0a__summaryArea {
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__summaryList {
+  flex-grow: 1;
+  max-height: 350px;
+  margin-top: 20px;
+  padding-right: 10px;
+  font-size: 1.2rem;
+  overflow-y: auto;
+}
+
+.CompleteWordAct-module__QcFl0a__summaryItem {
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+.CompleteWordAct-module__QcFl0a__sNum {
+  color: var(--red-wrong);
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.CompleteWordAct-module__QcFl0a__sCorrectNum {
+  color: var(--green-correct);
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.CompleteWordAct-module__QcFl0a__sWrongText {
+  color: var(--red-wrong);
+}
+
+.CompleteWordAct-module__QcFl0a__sCorrectText {
+  color: var(--green-correct);
+}
+
+.CompleteWordAct-module__QcFl0a__sBracket {
+  color: var(--green-correct);
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=comps_acts_CompleteWordAct_module_css_65f1660e._.single.css.map*/

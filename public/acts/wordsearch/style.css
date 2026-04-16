@@ -1,0 +1,244 @@
+:root {
+  --highlight-border: #ff4081; /* Color of border while dragging */
+  --text-color: #333;
+  --btn-blue: #00334e;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Glass Card */
+.main-card {
+  backdrop-filter: blur(8px);
+  width: 98%;
+  height: 96%;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Header */
+.header {
+  padding: 10px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.title-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+}
+
+/* Game Area */
+#game-area {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 5px;
+}
+
+.grid-wrapper {
+  background: white;
+  padding: 10px; /* Outer padding */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  display: inline-block;
+}
+
+/* --- UPDATED: Grid Container --- */
+.word-grid {
+  display: grid;
+  gap: 0;
+  position: relative; /* CRITICAL: Allows absolute positioning of lines */
+  z-index: 1;
+}
+
+/* --- UPDATED: Cells --- */
+.cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* font-weight: bold; */
+  font-size: 1.2rem;
+
+  /* UPDATED: Transparent so the line behind shows through */
+  background-color: transparent;
+
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #444;
+
+  /* UPDATED: Positioning for layers */
+  position: relative;
+  z-index: 5; /* Text sits ON TOP of the colored line */
+
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* --- NEW: The Smooth Line Overlay --- */
+.highlight-line {
+  position: absolute;
+  height: 30px; /* Slightly smaller than cell height (34px) for look */
+  border-radius: 15px; /* Fully rounded ends (Capsule) */
+  pointer-events: none; /* Clicks pass through to cells */
+  z-index: 2; /* Sits behind text (5) but above grid */
+  opacity: 0.8;
+  transform-origin: center center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+/* --- STATES --- */
+
+/* 1. Dragging: Border Only */
+.cell.selected {
+  border: 2px solid var(--highlight-border);
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 10;
+}
+
+/* 2. Found Word: Text Color Only */
+.cell.found {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Makes white text pop */
+  border: none;
+  /* Note: Background color is now handled by .highlight-line */
+}
+
+/* Hint Animation */
+.cell.hint-active {
+  background-color: #ffeb3b !important;
+  color: black !important;
+  transform: scale(1.3);
+  z-index: 100;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 235, 59, 0.8);
+}
+
+/* Word List Strip */
+.word-strip {
+  background-color: white;
+  padding: 5px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.word-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-height: 80px;
+  overflow-y: auto;
+}
+
+.word-item {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.word-item.found {
+  text-decoration: line-through;
+  color: #ccc;
+  background-color: #f9f9f9;
+}
+
+/* Footer */
+.game-footer {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(245, 245, 240, 0.5);
+  border-radius: 0 0 15px 15px;
+  flex-shrink: 0;
+}
+
+.score-badge {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #555;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.action-btn {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: white;
+}
+
+.hint-btn {
+  background-color: #81d4fa;
+  color: #01579b;
+  font-weight: bold;
+}
+.next-btn {
+  background-color: var(--btn-blue);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Victory Toast */
+.victory-toast {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.5s ease;
+  z-index: 50;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}

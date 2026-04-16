@@ -1,0 +1,221 @@
+{
+  "label": "Typing Lessons & Practice",
+  "id": "typing-practice",
+  "loadFirstAct": false,
+  "type": "nested",
+  "cardView": true,
+  "collapseRest": true,
+  "list": [
+    {
+      "type": "chapter",
+      "label": "Typing Lessons",
+      "id": "chap-1",
+      "desc": "Through the structured typing lessons, get amazing typing speed and accuracy. The process begins with learning correct finger placement on the home row keys and gradually introducing all keys systematically. Learn to type without seeing the keyboard.",
+      "style": {
+        "backgroundColor": "#8eccf5"
+      },
+      "list": [
+        {
+          "id": "100",
+          "type": "typing",
+          "label": "Home Row - 1",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "aaa aaa aaa sss sss sss lll lll lll ;;; ;;; ;;;\nddd ddd ddd fff fff fff kkk kkk kkk jjj jjj jjj\naaa sss lll ;;; aaa sss lll ;;; aaa sss lll ;;;\naaa sss ddd fff aaa sss ddd fff aaa sss ddd fff\njjj kkk lll ;;; jjj kkk lll ;;; jjj kkk lll ;;;\nasdf asdf asdf asdf fdsa fdsa fdsa fdsa asdf fdsa\njkl; jkl; jkl; ;lkj ;lkj ;lkj jkl; jkl; ;lkj ;lkj\nasjk asjk asjk asjk dfl; dfl; dfl; dfl; asdf jkl;\nassa assa assa sdds sdds sdds dffd dffd dffd\nffdd ffdd ddss ddss ddss ssaa sasa aass jklk"
+          }
+        },
+        {
+          "id": "200",
+          "type": "typing",
+          "label": "Home Row - 2",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "gghh gghh gghh ghgh ''' l;l; hjk hjk gghh\nfad fads lad lads lass alas salad salads dad dads lad lads salads alas\nad add ads adds as ask asks la lad lads lass da dad dada dada sa sad salad\nall fall falls alf alfa alfas fad fads salsa ska skald skalds flak flask flasks"
+          }
+        },
+        {
+          "id": "300",
+          "type": "typing",
+          "label": "Upper Row",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "deed frrf deer reed red deed frrf deer reed red deed frrf deer reed red\nfree freed fred feed fed free freed fred feed fed free freed fred feed fed\nreef reef ref ref refer refer defer defer referred deferred refereed\njuuj juuj juju juju kiik kiik kiki kiki juki juki kiju kiju jiku jiku juik juik ijku\njj uu kk ii jj uu kk ii jk jk ui ui jk jk ui ui jk ui jk ui ijku ujik ukij ujik ikij ikiu\njkjlj jkjljl liku liku liku jilk jilk julk julk lulu lulu julu julu iklu ilku ilkj ilkj\njude jude dud dud dude dude rude rude due due rudder rudder\nfur fur fir fir fire fire fired fired ride ride fried fried rider rider\nkid kid did did die die died died dried dried ride ride drier drier\nudder judder jerked dried rife dune kidder kiddie dire drier jeer jeered\nreek reeked tried tire retire retired kirk june feud fuji deride juried"
+          }
+        },
+        {
+          "id": "400",
+          "type": "typing",
+          "label": "Upper Row - 2",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "red deer feeder; feed freddie; red fire; free feed; fried deer; dier ride;\neddie died; free ride; eddie fired fred; did eddie die; dier rider fried;\nedifier rider dude freed red fur deer; kidder eddie rudder fed red deer;\nfreed fed red deer died; referrer fred fuji fried freed fed red deer;\nduke jeered rude referee jed; did irked kirk fire rude jerk; jude dried;\ndid freddie duke feed jeff kirk free fried red deer; fed rider dude;\nrude eddie kerr jeered duke kirk; kidder eddie rudder fed red deer;"
+          }
+        },
+        {
+          "id": "500",
+          "type": "typing",
+          "label": "T, G & H",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "fg fg fg fgf fgt fg ft ft ft dfg dfgt dft dft\nfrt frt frt frtg frtg frtg fgt fgt fgt\ndfrt dfrt dfrt dfrt dert dert dert dert\njhj jhj jhj jhj jujhj jujhj jujhj jujhj hijk hujk hijk hujk\njhjkik jhjkik jhjkik kikjuj kikjuj kikjuj jujkik jujkik\njhik jhik jhik jihk jihk jihi jihi jihi kih kih kih huhi huhi\nfg jh fg jh ft jh fgt fgt fgt ght ght ght th th th\ngrit gritted thrift drift thru true fudge \ntrig trigger hike trike kite true truth\nfeet fret get greet regret regretted rift drift \ngift gifted fig figure hit fit fitter\ndirt diet tire tired retire retired tried he \nher here the thee these there their\njut jutted jud jug judge judged hug huge hugged dug drug drugged grudge\nugh high higher thigh tight fight right \nfright tight height eighth hut hurt\nfreddie tried the fridge; the right fridge; \nkeith agreed; the huge free feed;\nred jug; guide the tight red kite higher; the hired \nguide urged the rugged hiker;\nthe right judge; the third huge tiger tried; true \nruth tried the third free gift;"
+          }
+        },
+        {
+          "id": "600",
+          "type": "typing",
+          "label": "W, S, L, O, Y",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "fff ddd sss www fff ddd sss www fff ddd sss www\nfds fds fdsw fdsw frf ded sws frf ded sws frf ded sws\nfdd fss ree rww rww rew rew rews rews dew dews\nffds ffds ffdsw fdsw fds fdsw wsdf wsdf sdf fdsdf fdsdf\nffss ffss ffsf ff ssf ff ssf fdsdf fdsdf frf ded sws\njuj juj jujyj jujyj jyj jhj jhj jhjyj jhjyj jujhj jujhj ujh ujh\njklol jklol jklol lol lol lol lol jujhj klol jujhj klol kol kol\njhyhj jhyhj jhjyj juj jyj jhj jyj jyj jij jij jklkjyj jklkjyj\nsweet sweets sweeter swede tweed tweet tweets tweeted street streets\newe ewes sew sews resew sewed stew stewed strew strewed grew\nfew fewer fewest free frees freer fret fretted fest fester test tester\nwe wee were wet wets west wrest rests wed rewed weed weeds\ndew dews drew deer dreg wed weds wedge wedges dress dresses dresser\nlo lo oh oh yo yo oi oil oily hoy yuk you ilk joy yolk killjoy kook kooky\nlull hull hulk hulky loo look hoy holy holly jolly lolly hook hooky hullo\nill ill kill kill hill jill jill jill ilk ilk ilk oil oily joy joy lily lily jokily jokily"
+          }
+        },
+        {
+          "id": "700",
+          "type": "typing",
+          "label": "W, S, L, O, Y - 2",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "juj jyyj joy toy roy try fry juj jyyj joy toy roy try fry juj jyyj joy toy roy try fry fly why\nsoy soil silly soul souls well wells yell yells swell swells wile wily while sty stye style stole\nwet wets jet jets jest jester yes let lets letters wet wets jet jets jest jester yes let lets letters\ndestroy westerly folly golly holly jolly swilly you your dirty dusty rusty yell yelled yellow\nhole whole while whist whistle when trolley trill thrill\nrolls tolls folds holds shoulders sisters swifter sword\nfull fuller drill driller toll tolls roll rolls folders holdersy\ntry jury hurry hurt hut shut shutter shy fly flier joyous\nsky fry grey fry shy dry why shy hilly lilly frilly dolly\neighty joyful judges foiled the witty jokers with two wise words;\nthis is why sly joy wilson just took the first july flight out;\nyes tough wily willis fought foolishly to destroy freddy kelly;\nwhile wise freddy hurriedly hid when his witty jokes died horridly;\njills silly white dog juke liked toy dolls hiding them in his woody dog house;\njolly jerry juggled two yellow sticks while he rode two wild horses;\nthe rest of the rowdy lost yodellers followed terry out of the west forest; "
+          }
+        },
+        {
+          "id": "800",
+          "type": "typing",
+          "label": "V, B, M, N",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "home, newest, mother. love, verify, west, justly, oven, bike\nhome, newest, mother. love, verify, west, justly, oven, bike \nfvf frfvf fbf frfbf rev vet fvf frfvf fbf frfbf rev vet\nfive fiver fib fibber fibre very every five fiver fib fibber fibre very every everyone\njmj jujmj jnj jujnj jmj jujmj jnj jujnj\njim him kim tim rim trim hem them jim him kim tim rim trim hem them\njnj jujnj tin fin din dint tint jnj jujnj tin fin din dint dinted tin tint tinted\nten tent often den dent over oven ten tent often den dent over oven\nmen mend mended mine mind moment remember mend mended mine mind;\nou ough rough tough trough enough ou ough rough tough trough enough\nthough thought through thorough though thought through thorough\nmouse mousey mount mound mounds mouse mousey mount mound mounds\nround rounds sound resounded round rounds sound resounded bound rebound\nion lion mention vision visions ion lion mention vision visions enliven enlivens\niou ious conscious envious mission missions iou ious conscious envious missions\nblows blues blown blume blouse ebony elbows bones boney bonus boils bile bitten\nsavvy john johnston bravely mentioned the lions and tigers; they looked very tough;\nthe little brown mouse went round the house which stood beside the high mound;\ni remember the big mission home which is built on the high ground beyond the valley;\ni rested in my house before playing two rounds of golf; would love to win; "
+          }
+        },
+        {
+          "id": "900",
+          "type": "typing",
+          "label": "Exercise",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "ded dcd ded cdc dedcd dedcd decided deck decks decked check checks cheese chest\ncheek check checked creek creeks dice diced slice sliced twice nice mince minced\ntype slowly with correct fingers; check the colours in the finger columns;\nnotice concisely which finger should type the correct letter key you need;\nwhen you come to tricky words type them more times; then check them twice\nThe full stop is on the bottom row. Find the ring finger on your right hand.\nCommas get you thinking, believing. Reach to the left of the full stop. Good.\nStretch your longest finger. When beginning new lines, hit the Enter key once.\nFind and hold the Right Shift key for these left hand capitals.\nBe careful. Try to keep your fingers curved. Very nice.\nDo not let your wrists rest on the desk. That is not good use of energy.\nWhich brings us close, very, very close, to the end of this beginner lesson.\nDo not type for too long without stretching your shoulders, neck, wrists, fingers.\nKeep your legs Uncrossed while doing these drills. It is good ergonomics.\nKeep both of your feet firmly on the vinyl floor. Get your body in mint condition.\nIt helps if you remember which finger is for which key. Every one counts.\nOtherwise you might finish with clumsy, unnecessary errors.\nLook before you cross the street or you might get knocked down.\nJimmy Colven drove Henry Dempsy to town to buy some new comic books.\nHe bought forty five mind thrilling editions to review for his collection."
+          }
+        },
+        {
+          "id": "1000",
+          "type": "typing",
+          "label": "Exercise - 2",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "faf far fat fatter far farmer faf far fat fatter far farmer frame fame famine fade\nfan ran tan jan land hand band fan ran tan jan land hand band sand banner\npot port pit put pop pup puppy pot port pit put pop pup puppy poppy pappy\npurr top rope romp trap tramp trumpet purr top rope romp trap tramp trumpet\nfig rig tig pig got grip grab grasp green fig rig tig pig got grip grab grasp green\nring ding dong song sang singer arrange ring ding dong song sang singer range\nquit quite quiet quill queen quilt quest quit quite quiet quill queen quilt quest\nquote quoted equate equation equal quack quaint quote quoted equate equation\nzoo zulu zigzag fax tax text exit mix fix zoo zulu zigzag fax tax text exit mix fix\nsix zoom boxes gizmo mixed maze raze lax flax size mixes zit sox zany lazy yax\nWe took the children to see zebras and giraffes at the zoo last Friday. They had fun.\nMake sure you type the correct text in your document or it will not make sense.\nI hope the Learn Typing course has made your typing experience so much better.\nIf you enjoyed this typing course please tell others who would find it helpful."
+          }
+        },
+        {
+          "id": "1100",
+          "type": "typing",
+          "label": "Punctuation",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "For the question mark, hold down the left Shift key while you type the / key.\nFor the exclamation mark, hold down the right Shift key while you type the 1 key.\nThe colon is on the semi-colon key and needs the left Shift key held.\nFor the dash and for the hyphen use the same upper row key, between 0 and =\nThe single quotation mark (beside the colon) is also used for the apostrophe.\nFor the double quotation mark first hold down the Left Shift key.\nIf you practise your typing each day, it will soon become easy.\nInstead of a comma - you could use the dash - above the P key.\nJoin for hyphen. First-class. Did you enjoy this typing course? I hope so!\n\"Hullo,\" said Julia to George. \"Isn't it a really lovely day?\"\n\"Stop! There's too much noise! It's giving me a headache!\"\nPress down the Caps Lock (above the Left Shift key) for full capitals headings.\nPress to release.\nPress the Tab key (above the Caps Lock) to jump across the page to line up lists.\nBrackets. ( ) are above 9 and 0 - hold the Shift key while you type these.\nAnd these { } are beside P near the Shift key. { } P { } P { } P { } P { }\nHold the {Shift} key while you type these { }.\n[ ] do not need the Shift key so are easier. [ ] Just [RIGHT] of the [P] key.\nThey are on the same keys as { } to the right of [P].\nTo Underline words first click the mouse on the U on the toolbar.\nYou can also click on B for Bold, or I for Italics.\nYou can also click on B for Bold, or I for Italics.\nRepeat this action (with the mouse) when you want this feature to stop. "
+          }
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "label": "Typing Practice",
+      "id": "chap-2",
+      "desc": "Take a 30 days challenge to practice 1 hr of typing on daily basis, and you would be surprised by the  amazing improvement in your typing speed. It strengthens muscle memory and adaptability. Tracking progress motivates learners and highlights improvement areas.",
+      "style": {
+        "backgroundColor": "#6ffaff"
+      },
+      "list": [
+        {
+          "id": "p100",
+          "type": "typing",
+          "label": "The Nose-Jewel",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "Ramayya was a simple man living in the town. He lived with his wife in a nice house made of tiled roof. He was not rich but he could take care of his family. Two sparrows built a nest in a nice spot on the roof of Ramayya's house. The mother bird laid her eggs in it. The bird dropped the diamond stud on the floor and went out in search of little worms for the young ones. Ramayya's wife noticed the jewel as she was sweeping the floor. She picked it up with delight and wore it. The loss of the jewel had to be admitted. Soon the whole village knew about it. The maid-servant Kuppayi was suspected to have stolen it by everyone. The police came and searched her hut, but could find nothing. Ramayya and his wife spend the rest of life in fear of being caught. The diamond nose-jewel may still be with them, but the fear of getting caught was ever lasting."
+          }
+        },
+        {
+          "id": "p200",
+          "type": "typing",
+          "label": "The Woman on Platform 8",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "It was my second year at boarding school, and I was sitting on platform no. 8 at Ambala station waiting for the northern bound train. I think I was about twelve at the time. My parents considered me old enough to travel alone and I had arrived by bus at Ambala early in the evening. Now there was a wait till midnight before my train arrived. Most of the time I had been pacing up and down the platform, browsing at the bookstall, or feeding broken biscuits to stray dogs: trains came and went, and the platform would be quiet for a while and then, when a train arrived it would be an inferno of heaving, shouting, agitated human bodies. As the carriage doors opened, a tide of people would sweep down upon the nervous little ticketcollector at the gate and every time this happened I would be caught in the rush and swept outside the station. Now tired of this game and of ambling about the platform, I sat down on my suitcase and gazed dismally across the railway tracks."
+          }
+        },
+        {
+          "id": "p300",
+          "type": "typing",
+          "label": "Hobby Turns into a Successful Career",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "Once there was a boy named Mani. He was studying at the school in his village. He found it difficult to read and write. His grandfather noticed it and helped him by reading bedtime stories. Gradually, he started reading on his own. Now, he not only enjoyed reading but also has started writing his own stories. Let us read an essay written by Mani. Hobbies are the activities that we do in our spare time. Hobbies are unique to people. Some like gardening, a few like photography, many have book reading as their hobby. While other hobbies are swimming, collecting stamps, playing video games, and many more. People have hobbies not only to pass their free time but also to do something useful. Hobbies help people learn new things, relax after a day of tiring work and to energise their body and mind. Same is the case with me. I love writing, so it is my hobby. Writing is a unique hobby because most people don't want to exhaust themselves in their spare time. Many feel that writing is tough, but I do not think so. I feel writing is like painting our voice. When I get free time, I pick a pen and a notebook and start painting my ideas in words. I write stories, poems and sometimes, about my feelings. My mind relaxes when I pour my thoughts as words. So, writing energises me."
+          }
+        },
+        {
+          "id": "p400",
+          "type": "typing",
+          "label": "A Hunter Turned Naturalist",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "Jim Corbett was a British wild life photographer, hunter, tracker, naturalist, and writer. He has hunted a number of man-eating tigers and leopards in India. He had a lot of experience with tigers and other wild animals to shoot with his cine film camera. Corbett always preferred to hunt alone and on foot. He often hunted with Robin, his dog. Though he was an expert hunter, he admired wild life. He did not like to kill wild animals for pleasure or sport. But he did not hesitate to kill man-eating tigers or leopards. He hunted these animals only to help people and only at the request of the Government. He took no joy from the kill. He often said that not against the law of nature, but against the laws of human. According to his theory, a tiger starts eating humans, when they grow old or get hurt. As, they can not run fast, they start killing humans. People can not run as fast as animals, so they become easy prey. After eating human flesh once, a tiger will not eat any other flesh. These tigers are called man-eaters."
+          }
+        },
+        {
+          "id": "p500",
+          "type": "typing",
+          "label": "Sir Issac Newton - The Ingenious Scientist",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "Isaac possessed a wonderful faculty of acquiring knowledge by the simplest means. For instance, what method do you suppose he took, to find out the strength of the wind?. He jumped against the wind; and by the length of his jump, he could calculate the force of a gentle breeze, a brisk gale, or a tempest. Thus, even in his boyish sports, he was continually searching out the secrets of philosophy. Not far from his grandmother's residence there was a windmill, which operated on a new plan. Isaac was in the habit of going thither frequently, and would spend whole hours in examining its various parts. While the mill was at rest, he pried into its internal machinery. When its broad sails were set in motion by the wind, he watched the process by which the mill-stones were made to revolve, and crush the grain that was put into the hopper. After gaining a thorough knowledge of its construction, he was observed to be unusually busy with his tools."
+          }
+        },
+        {
+          "id": "p600",
+          "type": "typing",
+          "label": "The Three Questions",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "There was a king who had three questions in his mind that if he always knew the right time to begin everything; if he knew who were the right people to listen to, and whom to avoid; and, above all, if he always knew what was the most important thing to do, he would never fail in anything he might undertake. And this thought having occurred to him, he had it proclaimed throughout his kingdom that he would give a great reward to anyone who would teach him what was the right time for every action, and who were the most necessary people, and how he might know what was the most important thing to do. And learned men came to the king, but they all answered his questions differently. In reply to the first question, some said that to know the right time for every action, one must draw up in advance a table of days, months, and years, and must live strictly according to it. Only thus, said they, could everything be done at its proper time."
+          }
+        },
+        {
+          "id": "p700",
+          "type": "typing",
+          "label": "My Reminiscence",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "When I returned home from the outset of my second voyage to England, my brother Jyotirindra and sister-in-law were living in a river-side villa at Chandernagore, and there I went to stay with them. The Ganges again! Again those ineffable days and nights, languid with joy, sad with longing, attuned to the plaintive babbling of the river along the cool shade of its wooded banks. This Bengal sky-full of light, this south breeze, this flow of the river, this right royal laziness, this broad leisure stretching from horizon to horizon and from green earth to blue sky, all these were to me as food and drink to the hungry and thirsty. Here it felt indeed like home, and in these I recognised the ministrations of a Mother. That was not so very long ago, and yet time has wrought many changes. Our little riverside nests, clustering under their surrounding greenery, have been replaced by mills which now, dragon-like, everywhere rear their hissing heads, belching forth black smoke."
+          }
+        },
+        {
+          "id": "p800",
+          "type": "typing",
+          "label": "Crossing the River",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "The celebrated pundit had many disciples and admirers. Among them was the landlord of the area who lived on the other side of the river. The landlord had commissioned a poor milkmaid, Moti, to supply a tumblerful of milk to the Pundit, everyday in the morning. The milkmaid discharged her duty faithfully, day after day. She crossed the river by the help of a ferry boat and returned home in the same way after delivering the milk at the Pundit’s household. Often the Pundit himself received the milk. Moti prostrated before him. She did not fail in her duty even if on smoke days it retained heavily. “What a great privilege it is to serve a great Pundit!” she would tell those who would sympathise with her for her continuous toil. The Pundit was an eloquent speaker. Whenever he gave a discourse, hundreds of people gathered to listen to him. The milkmaid too made it a point to stand behind the audience."
+          }
+        },
+        {
+          "id": "p900",
+          "type": "typing",
+          "label": "When Instinct Works",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "One morning in the autumn, my master had to go on a long journey, John harnessed me to the new cart. I liked to pull as it was very light and the high wheels rolled along so smoothly. It was about to rain, the weather was very windy and dry leaves blew across the road. Master, John and I went along merrily till we came to the toll gate at the entrance to the low wooden bridge. The river banks were fairly high so the bridge, instead of raising in the arc over the river, went across just level. In the middle, if the river was full, the water would be nearly up to the foot of the bridge. There were good sturdy rails on both sides so people were not afraid. The man at the toll gate said that the river was rising fast. He feared it would be a bad night. Many of the fields were already under water. In one low part of the road, the water was halfway up to my knees. But the cart was so good and master drove gently, so it did not matter."
+          }
+        },
+        {
+          "id": "p1000",
+          "type": "typing",
+          "label": "The Development of the Alphabet",
+          "onlyBigScreen": true,
+          "data": {
+            "text": "Before we turn specifically to the new world of the west, it remains to take note of what may perhaps be regarded as the very greatest achievement of ancient science. This was the analysis of speech sounds, and the resulting development of a system of alphabetical writing. To comprehend the series of scientific inductions which led to this result, we must go back in imagination and trace briefly the development of the methods of recording thought by means of graphic symbols. In other words, we must trace the evolution of the art of writing. In doing so we cannot hold to national lines as we have done in the preceding two chapters, though the efforts of the two great scientific nations just considered will enter prominently into the story. The familiar Greek legend assures us that a Phoenician named Kadmus was the first to bring a knowledge of letters into Europe. An elaboration of the story, current throughout classical times, offered the further explanation that the Phoenicians had in turn acquired the art of writing from the Egyptians or Babylonians. Knowledge as to the true origin and development of the art of writing did not extend in antiquity beyond such vagaries as these. Nineteenth-century studies gave the first real clews to an understanding of the subject. These studies tended to authenticate the essential fact on which the legend of Kadmus was founded; to the extent, at least, of making it probable that the later Grecian alphabet was introduced from hoenicia--though not, of course, by any individual named Kadmus, the latter being, indeed, a name of purely Greek origin. Further studies of the past generation tended to corroborate the ancient belief as to the original source of the Phoenician alphabet, but divided scholars between two opinions: the one contending that the Egyptian hieroglyphics were the source upon which the Phoenicians drew; and the other contending with equal fervor that the Babylonian wedge character must be conceded that honor."
+          }
+        }
+      ]
+    }
+  ]
+}

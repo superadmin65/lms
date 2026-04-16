@@ -1,0 +1,130 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.container {
+  width: 85%;
+  max-width: 800px;
+  margin: 15px auto;
+  padding: 30px;
+  border-radius: 15px;
+  background-color: transparent;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.main {
+  background: rgba(255, 255, 255, 0.4);
+ 
+  padding: 30px;
+  border-radius: 12px;
+
+}
+
+.titleContainer {
+  margin-bottom: 40px;
+  border-left: 5px solid #0b4f71;
+  padding-left: 20px;
+}
+
+.hindiTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0b4f71;
+  line-height: 1.4;
+}
+
+.englishTitle {
+  font-size: 16px;
+  color: #555;
+  margin-top: 8px;
+}
+
+.sentenceDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.word {
+  font-size: 24px;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  background: white;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.word:hover:not(.highlightCorrect):not(.highlightWrong) {
+  background: #0b4f71;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.highlightCorrect {
+  background: #2ecc71 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.highlightWrong {
+  background: #e74c3c !important;
+  color: white !important;
+}
+
+.iconMark {
+  margin-left: 8px;
+  font-weight: 900;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 20px;
+}
+
+.progress {
+  color: #666;
+  font-weight: 600;
+}
+
+.nextBtn {
+  background: #0b4f71;
+  color: white;
+   padding: 0 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: 15px;
+  height: 40px;
+  min-width: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.nextBtn:hover {
+  opacity: 0.9;
+}
+
+.selectedWord {
+  background: #d6eaf8;   /* light blue */
+  color: #0b4f71;
+  font-weight: 600;
+  transform: scale(1.05);
+}
