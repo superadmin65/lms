@@ -47,10 +47,8 @@ export default function DragDropAct({ data }) {
       console.error("Invalid DragDrop Data");
       return;
     }
-    useEffect(() => {
-      initializeActivity();
-    }, [data]);
 
+    // setTitle(d.title || data.label || "Drag the words to the correct place");
     setTitle(
       (d.title || data.label || "Drag the words to the correct place").replace(
         /\s*\(/,
@@ -115,6 +113,10 @@ export default function DragDropAct({ data }) {
     setAppState("PLAYING");
   };
 
+  useEffect(() => {
+    initializeActivity();
+  }, [data]);
+
   // GLOBALLY LOCK BODY SCROLL DURING DRAG FOR MOBILE UX
   useEffect(() => {
     if (isDragging) {
@@ -172,6 +174,13 @@ export default function DragDropAct({ data }) {
     } catch (e) {}
   };
 
+  const resetActivity = () => {
+    if (!window.confirm("Are you sure you want to reset this activity?"))
+      return;
+
+    initializeActivity();
+  };
+
   // --- Render Helpers ---
   const renderZone = (index) => {
     const zone = zones[index];
@@ -186,12 +195,7 @@ export default function DragDropAct({ data }) {
     if (isHovered) boxClass += ` ${styles.dropZoneHover}`;
     if (isCorrect) boxClass += ` ${styles.correct}`;
     if (isWrong) boxClass += ` ${styles.wrong}`;
-    const resetActivity = () => {
-      if (!window.confirm("Are you sure you want to reset this activity?"))
-        return;
 
-      initializeActivity();
-    };
     return (
       <React.Fragment key={`zone-${index}`}>
         <span
