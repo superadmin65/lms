@@ -1,0 +1,55 @@
+export default {
+  label: "Grammar",
+  type: "nested",
+  list: [
+    {
+      type: "chapter",
+      label: "संज्ञा",
+      altLabel: "Noun",
+      id: "chap-1",
+      list: "https://pschool.in/1755028309190",
+    },
+    {
+      type: "chapter",
+      label: "सर्वनाम",
+      altLabel: "Pronoun",
+      id: "chap-2",
+      list: "https://pschool.in/1755032598579",
+    },
+    {
+      type: "chapter",
+      label: "विशेषण",
+      altLabel: "Adjective",
+      id: "chap-3",
+      list: "https://pschool.in/1755033980553",
+    },
+    {
+      type: "chapter",
+      label: "क्रिया",
+      altLabel: "Verb",
+      id: "chap-4",
+      list: "https://pschool.in/1755033980553",
+    },
+    {
+      type: "chapter",
+      label: "काल",
+      altLabel: "Tense",
+      id: "chap-5",
+      list: "https://pschool.in/1755035519052",
+    },
+    {
+      type: "chapter",
+      label: "लिंग",
+      altLabel: "Gender",
+      id: "chap-6",
+      list: "https://pschool.in/1755037116324",
+    },
+    {
+      type: "chapter",
+      label: "वचन",
+      altLabel: "Plural",
+      id: "chap-7",
+      list: "https://pschool.in/1754540697638",
+    },
+  ],
+};

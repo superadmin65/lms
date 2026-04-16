@@ -1,0 +1,731 @@
+{
+    "label": "Grammar",
+    "id": "grammar-p4",
+    "type": "nested",
+    "cardView": true,
+    "collapseRest": true,
+    "iconStyle": {
+        "width": 120,
+        "height": 120
+    },
+    "cardStyle": {
+        "width": 430,
+        "margin": "15px",
+        "padding": "15px",
+        "borderRadius": 10,
+        "boxShadow": "var(--shadow)",
+        "border": "1px solid #999"
+    },
+    "list": [
+        {
+            "type": "chapter",
+            "label": "संज्ञा",
+            "altLabel": "Noun",
+            "id": "chap-1",
+            "desc": "Identify names of people, places, and things correctly.",
+            "icon": "kon/noun.png",
+            "style": {
+                "backgroundColor": "#8eccf5"
+            },
+            "list": [
+                {
+                    "label": "Pick the right option",
+                    "id": "noun",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "title": "वाक्य पढ़ो और रेखांकित शब्द की संज्ञा का प्रकार बताओ।",
+                        "imageType": "stockimg",
+                        "text": "j1 | मेरा <u>पड़ोसी</u> हमेशा बड़ों का आदर करता है। | जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा, भाववाचक संज्ञा\nj2 | हमारे <u>विद्यालय</u> में विज्ञान प्रयोगशाला है। | जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा, भाववाचक संज्ञा\nj3 | हमारा <u>गाँव</u> पहाड़ों से घिरा हुआ है। | जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा, भाववाचक संज्ञा\nj4 | <u>उद्यान</u> में बच्चे झूले झूल रहे थे। | जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा, भाववाचक संज्ञा\n\np1 | <u>सीमा</u> बहुत अच्छा गाना गाती है। | व्यक्तिवाचक संज्ञा, जातिवाचक संज्ञा, भाववाचक संज्ञा\np2 | <u>जयपुर</u> सुंदर शहर है। | व्यक्तिवाचक संज्ञा, जातिवाचक संज्ञा, भाववाचक संज्ञा\np3 | <u>हिमालय</u> भारत का सबसे ऊँचा पर्वत है। | व्यक्तिवाचक संज्ञा, जातिवाचक संज्ञा, भाववाचक संज्ञा\np4 | दफ़्तर में <u>रविवार</u> को अवकाश रहता है। | व्यक्तिवाचक संज्ञा, जातिवाचक संज्ञा, भाववाचक संज्ञा\n\nb1 | हमें हमेशा <u>सच्चाई</u> का साथ देना चाहिए। | भाववाचक संज्ञा, जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा\nb2 | उसके मन में बहुत <u>ख़ुशी</u> है। | भाववाचक संज्ञा, जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा\nb3 | बड़ों का <u>सम्मान</u> करना चाहिए। | भाववाचक संज्ञा, जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा\nb4 | राम में बहुत <u>साहस</u> है। | भाववाचक संज्ञा, जातिवाचक संज्ञा, व्यक्तिवाचक संज्ञा"
+                    }
+                },
+                {
+                    "label": "Pick and Fill",
+                    "id": "1756062837382",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "fontSize": "1rem",
+                        "text": "कल मैंने *आम* खाया।\nनेहा के पास नई *किताब* है।\nपेड़ पर हरा *फल* लटका है।\nरानी बहुत सुंदर *पोशाक* पहनती है।\nमोहन के पास बड़ा *घर* है।\nशिक्षक हमें अच्छी *सलाह* देते हैं।\nपार्क में लाल रंग का *फूल* खिला है।",
+                        "title": "रिक्त स्थान में सही संज्ञा लिखो।\n(Fill in the blank with the correct noun)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+                {
+                    "label": "Sort the Noun",
+                    "id": "1756062897496",
+                    "type": "group",
+                    "data": {
+                        "title": "दिए गए शब्दों को सही संज्ञा से जोड़ो।\n(Match the given words with the correct nouns)",
+                        "types": [
+                            {
+                                "name": "जातिवाचक संज्ञा",
+                                "text": "लड़का, नदी, पर्वत, शहर, पुस्तक, कुत्ता"
+                            },
+                            {
+                                "name": "भाववाचक संज्ञा ",
+                                "text": "मिठास, बुढ़ापा, मित्रता, चढ़ाई, थकावट"
+                            }
+                        ]
+                    },
+                    "btnLabel": "Group"
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "सर्वनाम",
+            "altLabel": "Pronoun",
+            "id": "chap-2",
+            "desc": "Replace nouns with pronouns to avoid repetition.",
+            "icon": "kon/pronoun.png",
+            "style": {
+                "backgroundColor": "#b9ffe1"
+            },
+            "list": [
+
+                {
+                    "label": "Pick the Right Word",
+                    "id": "1757388849396",
+                    "type": "fillup",
+                    "data": {
+                        "text": "*वह (यह)* मेरा सबसे अच्छा मित्र है। \n\nक्या *तुम (वे)* स्कूल जा रहे हो? \n\nयह किताब  *उसकी (उसका)* की है।\n\n*हम (तुम)* सब मिलकर खेलेंगे। \n\n*मैं (वह)* रोज़ पढ़ाई करता हूँ।\n\nवे सब *हमारे (उनके)* गाँव से आए।",
+                        "type": "variableOptions",
+                        "lang": "hi",
+                        "title": "रिक्त स्थान भरें। (Fill in the Blank)"
+                    },
+                    "btnLabel": "Fill Up"
+                }
+                ,
+                {
+                    "label": " MCQ challenge",
+                    "id": "1757389681026",
+                    "type": "mcq",
+                    "data": {
+                        "title": "सही सर्वनाम का चयन करें। (Choose the correct pronoun)",
+                        "questions": [
+                            {
+                                "options": "*वह*\nयह\nवे",
+                                "qText": "____ एक लड़का है।\n"
+                            },
+                            {
+                                "options": "*हम*\nउसे\nवह",
+                                "qText": "_______ सभी घूमने जा रहे हैं।\n"
+                            },
+                            {
+                                "options": "*मैं* \nतुम\nवह",
+                                "qText": "____ आज खुश हूँ। आज मेरा जन्मदिन है!"
+                            },
+                            {
+                                "options": "*हम* \nतुम\nवह",
+                                "qText": "______ दोस्त हैं।"
+                            },
+                            {
+                                "options": "*मैंने* \nहम\nतुम",
+                                "qText": "_______ अपना गृहकार्य पूरा कर लिया है।"
+                            }
+                        ]
+                    },
+                    "btnLabel": "MCQ"
+                },
+                {
+                    "label": "Find the Hidden Pronoun",
+                    "id": "1757390609594",
+                    "type": "selectWord",
+                    "data": {
+                        "title": "सर्वनाम की पहचान कीजिए। (Identify the Pronoun)",
+                        "text": "*हमारा* घर बड़ा है।\n*हम* सब मिलकर सफाई करेंगे।\n*आप* कल कार्यक्रम में आएँगे। \n*वे* लोग क्रिकेट खेल रहे हैं। \n*वह* परीक्षा में पास हो गया। \n*तुम* कब लौटोगे? \n*मैं* विद्यालय जाऊँगा। "
+                    },
+                    "btnLabel": "Select Word"
+                },
+                {
+                    "label": "Pick the Pronoun",
+                    "id": "1757505238868",
+                    "type": "rightOne",
+                    "data": {
+                        "title": "सर्वनाम चुनें। (Pick the Pronoun)",
+                        "text": "मैंने, मेज़\nतुम,तबला\nहम,होमवर्क\nउसने,ऊपर\nमैं,मैदान\nआप, अपमान\n"
+                    },
+                    "btnLabel": "Right Option"
+                },
+                {
+                    "label": "Pick the right option",
+                    "id": "tense",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "text": "apple |  _____ सेब खा रहा हूँ। | मैं, हम\n        key | अगर ____ चाबी खो देगा तो घर में नहीं जा पाएगा। | वह,उस\n        sweets | ____ मिठाई पसंद है। | उसे ,उन्होंने\nbat2 |  ______ बल्ला मेरा है। | यह, ये\ncake | आज _____ जन्मदिन है। | उसका, उन्होंने",
+                        "title": "Pick the right option that fills the blank",
+                        "imageType": "stockimg"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "विशेषण",
+            "altLabel": "Adjective",
+            "id": "chap-3",
+            "desc": "Describe nouns using words for qualities, colours, and numbers.",
+            "icon": "kon/think.png",
+            "style": {
+                "backgroundColor": "#efd284"
+            },
+            "list": [
+                {
+                    "label": "Fill in Adjective",
+                    "id": "1756092970425",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "fontSize": "1rem",
+                        "text": "यह फूल बहुत *खूबसूरत* है।\nमेरा बैग बहुत *भारी* है।\nवह लड़का बहुत *तेज़* दौड़ता है।\nयह आम बहुत *मीठा* है।\nपापा की गाड़ी *नई* है।\nकुत्ता बहुत *भूखा* है।\nआज का दिन बहुत *सुहावना* है।\nदूध बहुत *गर्म* है।",
+                        "title": "कोष्ठक में उपयुक्त विशेषण का प्रयोग करके रिक्त स्थान की पूर्ति कीजिए।\n(Fill in the blanks using the appropriate adjective)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+                {
+                    "label": "Choose the Adjective",
+                    "id": "1756093848658",
+                    "type": "selectWord",
+                    "data": {
+                        "title": "वाक्यों में विशेषण का चयन करें।\n(Select the adjectives in the sentences)",
+                        "text": "बगीचे में *हरे-भरे* पौधे हैं।\nमोहन का कमरा *बड़ा* है।\nयह बच्चा बहुत *चंचल* है।\nयह पंखा *पुराना* है।\nआसमान में *काले* बादल हैं।\nगिलहरी बहुत *फुर्तीली* है।\nयह पेड़ बहुत* ऊँचा* है।"
+                    },
+                    "btnLabel": "Select Word"
+                },
+                {
+                    "authored": true,
+                    "id": "1756094375441",
+                    "label": "Match Adjective to Picture",
+                    "type": "dragAndDrop",
+                    "data": {
+                        "width": 400,
+                        "words": [
+                            {
+                                "x": 234,
+                                "word": "ठंडी",
+                                "y": 41
+                            },
+                            {
+                                "x": 234,
+                                "word": "शरारती",
+                                "y": 123
+                            },
+                            {
+                                "x": 237,
+                                "word": "छोटी",
+                                "y": 197
+                            },
+                            {
+                                "x": 243,
+                                "word": "दयालु",
+                                "y": 288
+                            },
+                            {
+                                "x": 246,
+                                "word": "लाल",
+                                "y": 355
+                            }
+                        ],
+                        "wordWidth": 50,
+                        "title": "चित्रों को उनके विशेषण से मिलाओ।\n(Match the pictures with their adjective)",
+                        "svg": {
+                            "paths": [
+                                {
+                                    "rotate": 0,
+                                    "src": "/img/images/ice-cream.jpeg",
+                                    "x": 5,
+                                    "width": 43.22222222222223,
+                                    "y": 20,
+                                    "maintainAR": true,
+                                    "type": "image",
+                                    "fill": "none",
+                                    "stroke": "#0d3756",
+                                    "height": 58.444444444444436
+                                },
+                                {
+                                    "rotate": 0,
+                                    "src": "/img/images/monkey.jpeg",
+                                    "x": 5,
+                                    "width": 50.333333333333336,
+                                    "y": 92,
+                                    "maintainAR": true,
+                                    "type": "image",
+                                    "fill": "none",
+                                    "stroke": "#0d3756",
+                                    "height": 64.55555555555556
+                                },
+                                {
+                                    "rotate": 0,
+                                    "src": "/img/images/sparrow.jpeg",
+                                    "x": 6,
+                                    "width": 69,
+                                    "y": 170,
+                                    "maintainAR": true,
+                                    "type": "image",
+                                    "fill": "none",
+                                    "stroke": "#0d3756",
+                                    "height": 64
+                                },
+                                {
+                                    "rotate": 0,
+                                    "src": "/img/images/doctor.jpeg",
+                                    "x": 8,
+                                    "width": 51.88888888888888,
+                                    "y": 250,
+                                    "maintainAR": true,
+                                    "type": "image",
+                                    "fill": "none",
+                                    "stroke": "#0d3756",
+                                    "height": 72.44444444444446
+                                },
+                                {
+                                    "rotate": 0,
+                                    "src": "/img/images/tomato.jpeg",
+                                    "x": 3,
+                                    "width": 85.33333333333333,
+                                    "y": 336,
+                                    "maintainAR": true,
+                                    "type": "image",
+                                    "fill": "none",
+                                    "stroke": "#0d3756",
+                                    "height": 47.666666666666686
+                                }
+                            ],
+                            "props": {
+                                "fill": "none",
+                                "strokeWidth": 1,
+                                "stroke": "black"
+                            }
+                        },
+                        "height": 400
+                    }
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "क्रिया",
+            "altLabel": "Verb",
+            "id": "chap-4",
+            "desc": "Recognize action words and use them in sentences.",
+            "icon": "kon/verb.png",
+            "style": {
+                "backgroundColor": "#f993a5"
+            },
+            "list": [
+                {
+                    "id": "drag-vowels",
+                    "label": "Match the verb with Noun",
+                    "type": "dragDropImgLabel",
+                    "data": {
+                        "title": "क्रिया को संज्ञा से मिलाएँ।(Match the verb with Noun)",
+                        "text": "\nwasherman|धोना\ndoor|खोलना\nmilk|पीना\ncycle|चलाना\nhelicoptor|उड़ाना\n"
+                    }
+                },
+{
+  "label": "Identify Verb",
+  "id": "1756095528570",
+  "type": "selectWord",
+  "data": {
+    "title": "नीचे दिए गए वाक्यों में क्रिया को पहचानिए। (Identify the Verb)",
+    "text": "शिक्षक ब्लैकबोर्ड पर  *लिख * है।\nभाई साइकिल *चला* रहा है।\n माँ सब्ज़ी *काट* रही हैं।\n दादा जी अख़बार *पढ़* रहे हैं।\nछोटी बच्ची गुड़िया से *खेल* रही है।\nचिड़िया पेड़ पर घोंसला *बना* रही है।\nमोहन बगीचे में पौधे *लगा* रहा है।"
+  },
+  "btnLabel": "Select Word"
+}
+
+    ,
+                {
+                    "label": "Fill the Verb",
+                    "id": "1756095548806",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "fontSize": "1rem",
+                        "text": "मोहन दूध *पी* रहा है।\nरीना स्कूल *जा* रही है।\nकिसान खेत में फसल *काट* रहा है।\nश्याम बगीचे में फूल *तोड़* रहा है।\nछोटा बच्चा गेंद से *खेल* रहा है।",
+                        "title": "रिक्त स्थानों की पूर्ति सही क्रिया रूप से करें।\n(Fill in the blanks with the correct verb form)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+                {
+                    "label": "Choose the Correct Verb",
+                    "id": "1756097510635",
+                    "type": "mcq",
+                    "data": {
+                        "title": "वाक्यों की पूर्ति के लिए सही क्रिया शब्द भरें।\n(Fill in the correct verb to complete the sentences)",
+                        "questions": [
+                            {
+                                "options": "*पढ़ती*,पढ़ता",
+                                "qText": "रीना कहानी _______ है।"
+                            },
+                            {
+                                "options": "*रहे*, रही",
+                                "qText": "बच्चे मैदान में खेल _______ हैं।"
+                            },
+                            {
+                                "options": "*गाती*,गाता",
+                                "qText": "सीता गाना _______ है।"
+                            },
+                            {
+                                "options": "*पढ़ते*, पढ़ती",
+                                "qText": "मोहन और सोहन किताबें _______ हैं।"
+                            },
+                            {
+                                "options": "*चढ़ती*,चढ़ता",
+                                "qText": "गिलहरी पेड़ पर _______ है।"
+                            },
+                            {
+                                "options": "*रही*, रहे",
+                                "qText": "लड़कियाँ खेल _______ हैं।"
+                            }
+                        ]
+                    },
+                    "btnLabel": "MCQ"
+                },
+                {
+                    "label": "Match the Picture with Verb",
+                    "id": "match-vowels",
+                    "type": "match",
+                    "data": {
+                        "big": true,
+                        "text": "देखना,tv\nचढ़ना,ladder\nतैरना,swim\nझुलना,swing\nफेकना,throw\nचलाना,riding",
+                        "rightImgType": "custom",
+                        "title": "चित्र को क्रिया से मिलाएँ। (Match the pictures to the verb)"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "काल",
+            "altLabel": "Tense",
+            "id": "chap-5",
+            "desc": "Express actions in the past, present, and future.",
+            "icon": "kon/tense.png",
+            "style": {
+                "backgroundColor": "#bdbdbd"
+            },
+            "list": [
+                {
+                    "label": "Pick the right option",
+                    "id": "tense",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "title": "वाक्य पढ़ो और सही काल चुनो।",
+                        "imageType": "stockimg",
+                        "text": "present1 | मोहन रोज़ स्कूल जाता है। | वर्तमान काल, भूतकाल, भविष्य काल\npresent2 | रीना कहानी पढ़ती है। | वर्तमान काल, भूतकाल, भविष्य काल\npresent3 | बच्चे पार्क में खेलते हैं। | वर्तमान काल, भूतकाल, भविष्य काल\npresent4 | पापा दफ़्तर जा रहे हैं। | वर्तमान काल, भूतकाल, भविष्य काल\npresent5 | बिल्ली दूध पीती है। | वर्तमान काल, भूतकाल, भविष्य काल\n\npast1 | कल हमने मेले में झूला झूला था। | भूतकाल, वर्तमान काल, भविष्य काल\npast2 | मोहन ने बाज़ार से फल ख़रीदे थे। | भूतकाल, वर्तमान काल, भविष्य काल\npast3 | दादी ने कहानी सुनाई थी। | भूतकाल, वर्तमान काल, भविष्य काल\npast4 | कल बारिश में बच्चे भीग गए थे। | भूतकाल, वर्तमान काल, भविष्य काल\npast5 | नानी ने हमारे लिए मिठाई बनाई थी। | भूतकाल, वर्तमान काल, भविष्य काल\n\nfuture1 | पापा अगले हफ़्ते नया मोबाइल लाएँगे। | भविष्य काल, वर्तमान काल, भूतकाल\nfuture2 | बच्चे छुट्टियों में खेलकूद में हिस्सा लेंगे। | भविष्य काल, वर्तमान काल, भूतकाल\nfuture3 | हम छुट्टियों में गाँव जाएँगे। | भविष्य काल, वर्तमान काल, भूतकाल\nfuture4 | मोहन नया बैग खरीदेगा। | भविष्य काल, वर्तमान काल, भूतकाल\nfuture5 | रीना अपनी सहेली को पत्र लिखेगी। | भविष्य काल, वर्तमान काल, भूतकाल"
+                    }
+                },
+                {
+                    "label": "Choose the Tense",
+                    "id": "1756100383128",
+                    "type": "mcq",
+                    "data": {
+                        "title": "वाक्यों में से सही विकल्प चुनो। (Choose the correct option from the sentences)",
+                        "questions": [
+                            {
+                                "options": "*बच्चे पार्क में खेल रहे हैं।*\nबच्चे कल पार्क में खेलने आए हुए थे।\nबच्चे कल पार्क में खेलेंगे।\n",
+                                "qText": "खेलना (वर्तमान काल)"
+                            },
+                            {
+                                "options": "*बच्चे पुस्तकालय में पढ़े थे।*\nबच्चे पुस्तकालय में पढ़ रहे हैं।\nबच्चे पुस्तकालय में पढ़ेंगे।",
+                                "qText": "पढ़ना (भूत काल)"
+                            },
+                            {
+                                "options": "*बच्चे भोजन खाएँगे।* \nबच्चे भोजन खा रहे हैं।\nबच्चे भोजन खाए थे।\n",
+                                "qText": "खाना (भविष्य काल)"
+                            },
+                            {
+                                "options": " *छात्र कक्षा में लिख रहे हैं।* \nछात्र कक्षा में लिखे थे।\nछात्र कक्षा में लिखेंगे।",
+                                "qText": "लिखना (वर्तमान काल)"
+                            },
+                            {
+                                "options": "*खिलाड़ी दौड़े थे।* \nखिलाड़ी दौड़ रहे हैं।\nखिलाड़ी दौड़ेंगे।",
+                                "qText": "दौड़ना (भूत काल)"
+                            },
+                            {
+                                "options": " *बच्चे सोएँगे।* \nबच्चे सो रहे हैं।\nबच्चे सो चुके थे।",
+                                "qText": "सोना (भविष्य काल)"
+                            }
+                        ]
+                    },
+                    "btnLabel": "MCQ"
+                },
+                {
+                    "label": "Match the Tense",
+                    "id": "1756325093519",
+                    "type": "match",
+                    "data": {
+                        "title": "सही काल चुनें और मिलान करें।(Choose the correct tense and match)",
+                        "text": "माया रोज़ संगीत सीखती है।,वर्तमान काल (Present Simple)\n\nमैंने एक नई किताब खरीदी।,भूतकाल (Past Simple)\n\nवह अगले महीने शहर जाएगा।,भविष्य काल (Future Simple)"
+                    },
+                    "btnLabel": "Match"
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "लिंग",
+            "altLabel": "Gender",
+            "id": "chap-6",
+            "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+            "icon": "kon/gender.png",
+            "style": {
+                "backgroundColor": "#c0f3f3"
+            },
+            "list": [
+                {
+                    "label": "Match the Gender",
+                    "id": "1756090867039",
+                    "type": "match",
+                    "data": {
+                        "title": "पुल्लिंग और स्त्रीलिंग शब्दों का सही जोड़ा मिलाइए। \n(Match the correct pair of masculine and feminine words)",
+                        "text": "राजा,रानी\nलड़का,लड़की\nपुत्र,पुत्री\nभाई,बहन\nघोड़ा,घोड़ी\nमुर्गा,मुर्गी\nशेर,शेरनी\nपिता,माता"
+                    },
+                    "btnLabel": "Match"
+                },
+
+ {
+  "label": "Pick the Right Word",
+  "id": "1756091571715",
+  "type": "fillup",
+  "data": {
+    "text": "*पुस्तक (किताब)* मेरे पास नई है।\n\n*अध्यापक (गुरु)* हमारी कक्षा में बहुत अच्छा पढ़ाते हैं।\n\n*पंडित (ब्राह्मण)* जी मंदिर में पूजा करते हैं।\n\n*छात्रा (विद्यार्थिनी)* कक्षा में आई और बहुत होशियार है।\n\n*लेखिका (कवयित्री)* को कहानी लिखने के लिए ",
+    "type": "variableOptions",
+    "lang": "hi",
+    "title": "रिक्त स्थान भरें। (Fill in the blanks)"
+  },
+  "btnLabel": "Fill Up"
+}
+                ,
+                {
+                    "label": "Pick the right option",
+                    "id": "gender",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "title": "पुल्लिंग और स्त्रीलिंग शब्दों की पहचान कीजिए।",
+                        "imageType": "stockimg",
+                        "text": "f1 | औरत | स्त्रीलिंग, पुल्लिंग\nf2 | गाय | स्त्रीलिंग, पुल्लिंग\nf3 | मामी | स्त्रीलिंग, पुल्लिंग\nf4 | देवी | स्त्रीलिंग, पुल्लिंग\nf5 | देवरानी | स्त्रीलिंग, पुल्लिंग\nf6 | धोबन | स्त्रीलिंग, पुल्लिंग\nf7 | सेविका | स्त्रीलिंग, पुल्लिंग\n\nm1 | आदमी | पुल्लिंग, स्त्रीलिंग\nm2 | बैल | पुल्लिंग, स्त्रीलिंग\nm3 | मामा | पुल्लिंग, स्त्रीलिंग\nm4 | देव | पुल्लिंग, स्त्रीलिंग\nm5 | देवर | पुल्लिंग, स्त्रीलिंग\nm6 | धोबी | पुल्लिंग, स्त्रीलिंग\nm7 | सेवक | पुल्लिंग, स्त्रीलिंग"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "वचन",
+            "altLabel": "Plural",
+            "id": "chap-7",
+            "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+            "icon": "kon/plural.png",
+            "style": {
+                "backgroundColor": "#f9bb88"
+            },
+            "list": [
+                {
+                    "label": "Match Singular to Plural",
+                    "id": "1756103186596",
+                    "type": "match",
+                    "data": {
+                        "title": "एकवचन को उसके बहुवचन से मिलाओ।\n(Match the singular with its plural)",
+                        "text": "लड़की,लड़कियाँ\nसब्ज़ी,सब्ज़ियाँ\nदवाई, दवाइयाँ \nकविता,कविताएँ\nबेटा,बेटे\n"
+                    },
+                    "btnLabel": "Match"
+                },
+                {
+                    "label": "Choose Plural ",
+                    "id": "1756103457224",
+                    "type": "rightOne",
+                    "data": {
+                        "title": "नीचे दिए गए शब्दों में से बहुवचन शब्द चुनिए।\n(Choose the plural words from the given words below)",
+                        "text": "खिलौने,खिलौना\nतोते,तोता\nगाड़ियाँ,गाड़ी\nपंखे,पंखा\nसंतरे,संतरा"
+                    },
+                    "btnLabel": "Right Option"
+                },
+                {
+                    "label": "Pick and Fill",
+                    "id": "1756107405727",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "fontSize": "1rem",
+                        "text": "पिंजरे में कई *तोते* बंद हैं।\nआसमान में कई *तारे* चमक रहे हैं।\nसड़क पर कई *रिक्शे* खड़े हैं।\nकमरे में कई *मोमबत्तियाँ* जल रही हैं।\nपार्क में कई *बच्चे* खेल रहे हैं।\nतालाब में रंगीन *मछलियाँ* तैर रही हैं।",
+                        "title": "रिक्त स्थान में सही बहुवचन शब्द लिखो।\n(Fill in the blanks with the correct Plural word)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+                {
+                    "label": "Identify Singular ",
+                    "id": "1756108433517",
+                    "type": "mcq",
+                    "data": {
+                        "title": "नीचे दिए गए वाक्यों में सही एकवचन शब्द चुनिए।\n(Choose the correct singular words in the given sentences)",
+                        "questions": [
+                            {
+                                "options": "*फल*\nफलों",
+                                "qText": "दुकानदार ने ताज़ा ______ बेचा।"
+                            },
+                            {
+                                "options": "*किताब*\nकिताबें",
+                                "qText": "बच्चा नई ______ लेकर आया।"
+                            },
+                            {
+                                "options": "*आम\nआमों*",
+                                "qText": "मम्मी ने पीला ______ खरीदा।"
+                            },
+                            {
+                                "options": "*कपड़ा*\nकपड़े",
+                                "qText": "पिताजी ने नीला ______ पसंद किया।"
+                            },
+                            {
+                                "options": "*खिलौना*\nखिलौने",
+                                "qText": "गली में एक नया ______ खुला है।"
+                            }
+                        ]
+                    },
+                    "btnLabel": "MCQ"
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "कारक",
+            "altLabel": "Preposition",
+            "id": "chap-8",
+            "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+            "icon": "kon/preposition.png",
+            "style": {
+                "backgroundColor": "#7ae6f5"
+            },
+            "list": [
+                {
+                    "label": "Fill the Preposition",
+                    "id": "1756108908735",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "fontSize": "1rem",
+                        "text": "गाड़ी सड़क *पर* दौड़ रही है।\nपुस्तकालय *में* बहुत सी किताबें हैं।\nबच्चा माँ *से* दूध माँग रहा है।\nपिताजी बाज़ार *को* गए।\nयह पत्र मोहन *ने* लिखा गया है।\nयह खिलौना रीना *का* है।\nमाँ ने बेटे *के लिए* मिठाई बनाई।",
+                        "title": "वाक्यों में सही कारक चिह्न भरो।\n(Fill in the correct prepositions in the sentences)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+                {
+                    "label": "Pick the Right Word",
+                    "id": "1756109033835",
+                    "type": "mcq",
+                    "data": {
+                        "title": "सही कारक चिह्न भरकर वाक्य पूरा करो।\n(Fill in the correct prepositions to complete the sentence)",
+                        "questions": [
+                            {
+                                "options": "*द्वारा*, से, में",
+                                "qText": "वह पत्र डाकिये ____ लाया गया।\n"
+                            },
+                            {
+                                "options": "*को*, से, द्वारा",
+                                "qText": "अध्यापक छात्रों ____ पाठ पढ़ाते हैं।"
+                            },
+                            {
+                                "options": "*में*, को, से",
+                                "qText": "बच्चे पार्क ___ खेल रहे हैं।"
+                            },
+                            {
+                                "options": "*से*,में,को",
+                                "qText": "दूध ___ दही बनाया जाता है।"
+                            },
+                            {
+                                "options": "*का*, की, के",
+                                "qText": "यह मेरी बहन ___ पेन है।"
+                            }
+                        ]
+                    },
+                    "btnLabel": "MCQ"
+                },
+                {
+                    "label": "Spot the word",
+                    "id": "1756109515064",
+                    "type": "selectWord",
+                    "data": {
+                        "title": "नीचे दिए गए वाक्य में कारक शब्दों की पहचान कीजिए।\n(Identify the prepositions in the given sentence)",
+                        "text": "किताब अलमारी *में* रखी है।\nराम स्कूल बस *से* गया।\nपेन मेज़ *पर* रखा है।\nयह सीता *की* किताब है।\nये बच्चों *के* खिलौने हैं।\nयह पत्र मोहन *के लिए* है।\nयह कहानी प्रेमचंद *द्वारा* लिखी गई है।\nराम *ने* गाना गाया।"
+                    },
+                    "btnLabel": "Select Word"
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "योजक शब्द",
+            "altLabel": "Conjunction",
+            "id": "chap-9",
+            "desc": "Connect words and sentences with joining words like and, but, or",
+            "icon": "kon/conjunction.png",
+            "style": {
+                "backgroundColor": "#cfaff3"
+            },
+            "list": [
+                {
+                    "label": "Pick the Connector",
+                    "id": "1756111329968",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "fontSize": "1rem",
+                        "text": "मोहन खाना खा रहा था *और* सीता पानी पी रही थी।\nतुम खेलोगे *या* पढ़ाई करोगे?\nवह स्कूल गया था *क्योंकि* उसे पढ़ना था।\nमैं फल खाऊँगा *लेकिन* मिठाई नहीं खाऊँगा।\nयदि तुम मेहनत करोगे *तो* अच्छे अंक लाओगे।\nमाँ ने कहानी सुनाई, *तब* हम सो गए।\n*जब* छुट्टी हुई, बच्चे बाहर खेलने लगे।",
+                        "title": "वाक्यों के रिक्त स्थान के लिए सही योजक चुनो।\n(Choose the correct conjunction for the blanks)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+
+
+
+{
+  "label": "Join with Conjunction",
+  "id": "1756112619829",
+  "type": "fillup",
+  "data": {
+    "text": "सुमित सुबह उठकर पढ़ाई करता है *और (तो)* फिर खेल के मैदान में जाता था।\n\nवह रोज़ दूध पीता था, *क्योंकि (अथवा)* दूध उसे ताकतवर बनाता था।\n\nवह मैदान में फुटबॉल *या (और)* क्रिकेट खेलता था।",
+    "type": "variableOptions",
+    "lang": "hi",
+    "title": "रिक्त स्थान के लिए उपयुक्त योजक शब्द का चयन करें। \n(Choose the appropriate conjunction for the blank)"
+  },
+  "btnLabel": "Fill Up"
+}
+                ,
+                {
+                    "label": "Complete the sentence",
+                    "id": "1756115092550",
+                    "type": "mcq",
+                    "data": {
+                        "title": "नीचे दिए गए वाक्यों की पूर्ति के लिए सही योजक शब्द चयन करें।\n(Select the correct conjunction to complete the given sentences)",
+                        "questions": [
+                            {
+                                "options": "*क्योंकि*,इसलिए,तो",
+                                "qText": "हम खेल हार गए, ___ हमने ठीक से अभ्यास नहीं किया।"
+                            },
+                            {
+                                "options": "*इसलिए*,क्योंकि,तथा",
+                                "qText": "मौसम बहुत ठंडा था, ___ हमने स्वेटर पहना।"
+                            },
+                            {
+                                "options": "*में*, को, से",
+                                "qText": "बच्चे पार्क ___ खेल रहे हैं।"
+                            },
+                            {
+                                "options": "*से*,में,को",
+                                "qText": "दूध ___ दही बनाया जाता है।"
+                            },
+                            {
+                                "options": "*का*, की, के",
+                                "qText": "यह मेरी बहन ___ पेन है।"
+                            }
+                        ]
+                    },
+                    "btnLabel": "MCQ"
+                }
+            ]
+        }
+    ]
+}

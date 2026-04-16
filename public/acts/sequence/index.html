@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sequence Activity</title>
+  <link rel="stylesheet" href="./sequence.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header-row" id="headerRow">
+      <h2 id="title">Loading Activity...</h2>
+      <div id="scoreBox" class="score">--</div>
+    </div>
+
+    <div id="canvasArea" class="canvas-area">
+      <svg id="svgLayer"></svg>
+      </div>
+
+    <div id="finalScreen" class="final-screen" style="display: none;">
+      <h2 class="final-title">Activity Completed!</h2>
+      <div class="final-score" id="finalScoreDisplay">0 / 0</div>
+      <div id="resultDetails" class="result-list"></div>
+      <button id="finishBtn" class="btn primary big-btn">Next Exercise &rarr;</button>
+    </div>
+
+    <div class="controls" id="gameControls">
+      <div class="btn-group">
+        <button id="hintBtn" class="btn secondary">Hint</button>
+        <button id="giveUpBtn" class="btn danger">Give Up</button>
+      </div>
+      <button id="nextBtn" class="btn primary" style="display:none;">Next</button>
+    </div>
+
+    <div id="resultBox" class="result-message"></div>
+  </div>
+
+  <script src="./sequence.js"></script>
+</body>
+</html>

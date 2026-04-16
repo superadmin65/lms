@@ -1,0 +1,366 @@
+/* comps/acts/McqAudioAct.module.css */
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent !important;
+  color: #222;
+}
+
+/* 🟢 The Identical Floating Glass Card Container */
+.mainCard {
+  --accent: #0b4f71;
+  --accent-light: #2a5c6d;
+  --text: #222;
+  --success: #2ecc71;
+  --danger: #e74c3c;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  width: 85%;
+  max-width: 100%; /*Pankaj Sharma */
+  height: 96%;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); /*Pankaj Sharma */
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 15px auto;
+  background-color: rgba(255, 255, 255, 0.1); /*Pankaj Sharma */
+  color: var(--text);
+  overflow: hidden;
+}
+
+.mainCardInner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Scrollbar for Inner Card */
+.mainCardInner::-webkit-scrollbar {
+  width: 10px;
+}
+.mainCardInner::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mainCardInner::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 8px;
+}
+
+/* Header & Title */
+.title {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+  color: #333;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+/* --- Media Area (Image & Audio) --- */
+.mediaWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.imageWrap img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+/* React Custom Audio Player */
+.customAudioPlayer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid #eee;
+  margin-top: 15px;
+}
+
+.playPauseBtn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.playPauseBtn:hover {
+  background: var(--accent-light);
+}
+
+.seekBarContainer {
+  flex-grow: 1;
+  position: relative;
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.seekBar {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: transparent;
+  border-radius: 5px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  margin: 0;
+}
+
+.seekBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s;
+}
+.seekBar::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+.seekFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 5px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.timeDisplay {
+  font-size: 14px;
+  color: #666;
+  font-variant-numeric: tabular-nums;
+  min-width: 80px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* --- MCQ Area --- */
+.qTitle {
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.question {
+  font-size: 18px;
+  line-height: 1.7;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #222;
+  white-space: pre-wrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.radio {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid #1e3b4a;
+  display: inline-block;
+  box-sizing: border-box;
+  flex: 0 0 28px;
+  background: white;
+  transition: all 0.2s;
+}
+
+.radio.checked {
+  background: #6e2f7a;
+  border-color: #6e2f7a;
+}
+
+.optLabel {
+  display: inline-block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #cbdbea;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.optLabel.correct {
+  border-color: var(--success);
+  background: #e8f8f0;
+}
+
+.optLabel.wrong {
+  border-color: var(--danger);
+  background: #fbe8e9;
+}
+
+/* Controls */
+.controlsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 20px;
+  flex-shrink: 0;
+}
+
+.score {
+  background: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.nextBtn {
+  padding: 0 24px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  font-size: 15px;
+  height: 40px;
+  min-width: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent);
+  color: white;
+  transition: opacity 0.2s;
+}
+.nextBtn:hover {
+  opacity: 0.9;
+}
+.nextBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Large Status Marks */
+.mark {
+  position: absolute;
+  right: 40px;
+  top: 40%;
+  font-size: 80px;
+  pointer-events: none;
+  z-index: 20;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.mark.right {
+  color: var(--success);
+}
+.mark.wrong {
+  color: var(--danger);
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Summary */
+.summary {
+  margin-top: 16px;
+  flex-grow: 1;
+}
+
+.summaryItem {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  line-height: 1.5;
+}
+
+.summaryCorrect {
+  color: var(--success);
+  font-weight: bold;
+}
+.summaryWrong {
+  color: var(--danger);
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .mainCard {
+    width: 95%;
+    padding: 20px 10px;
+  }
+  .mark {
+    right: 15px;
+    font-size: 60px;
+  }
+}

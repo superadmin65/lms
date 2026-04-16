@@ -1,0 +1,412 @@
+/* [project]/comps/acts/McqAct.module.css [client] (css) */
+.McqAct-module__X9w61W__wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.McqAct-module__X9w61W__container {
+  --accent: #0b4f71;
+  --pill: #fff;
+  --text: #222;
+  box-sizing: border-box;
+  width: 85%;
+  max-width: 900px;
+  height: 96%;
+  color: var(--text);
+  border: 1px solid #fff9;
+  border-radius: 15px;
+  flex-direction: column;
+  margin: 15px auto;
+  padding: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  position: relative;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px #0000001a;
+  background-color: #0000 !important;
+}
+
+.McqAct-module__X9w61W__main {
+  -webkit-backdrop-filter: blur(2px);
+  box-sizing: border-box;
+  background: #f0f0e899;
+  border-radius: 4px;
+  width: 100%;
+  padding: 20px 10px;
+  line-height: 2.1;
+}
+
+.McqAct-module__X9w61W__title {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.McqAct-module__X9w61W__small {
+  color: #555;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.McqAct-module__X9w61W__qwrap {
+  width: fit-content;
+  margin: 10px 0;
+  padding-right: 60px;
+  position: relative;
+}
+
+.McqAct-module__X9w61W__question {
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 14px;
+  font-size: 19px;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.McqAct-module__X9w61W__options {
+  flex-direction: column;
+  gap: 12px;
+  max-width: 420px;
+  display: flex;
+}
+
+.McqAct-module__X9w61W__option {
+  cursor: pointer;
+  align-items: center;
+  gap: 12px;
+  display: flex;
+}
+
+.McqAct-module__X9w61W__radio {
+  border: 3px solid var(--accent);
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+
+.McqAct-module__X9w61W__optionLabel {
+  background: var(--pill);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: inline-block;
+  box-shadow: 0 2px #00000014;
+}
+
+.McqAct-module__X9w61W__correct .McqAct-module__X9w61W__optionLabel {
+  border: 2px solid #2ecc71;
+}
+
+.McqAct-module__X9w61W__wrong .McqAct-module__X9w61W__optionLabel {
+  opacity: .9;
+  border: 2px solid #e74c3c;
+}
+
+.McqAct-module__X9w61W__selected .McqAct-module__X9w61W__radio {
+  background-color: var(--accent);
+  box-shadow: inset 0 0 0 4px #fff;
+}
+
+.McqAct-module__X9w61W__controls {
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  display: flex;
+}
+
+.McqAct-module__X9w61W__score {
+  color: #555;
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  padding: 0 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
+}
+
+.McqAct-module__X9w61W__btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+  height: 40px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+  display: inline-flex;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.McqAct-module__X9w61W__primary {
+  background: var(--accent);
+  color: #fff;
+  transition: opacity .2s;
+}
+
+.McqAct-module__X9w61W__primary:hover {
+  opacity: .9;
+}
+
+.McqAct-module__X9w61W__mark {
+  z-index: 20;
+  font-size: 48px;
+  font-weight: bold;
+  position: absolute;
+  top: 40px;
+  right: 10px;
+}
+
+.McqAct-module__X9w61W__qwrap:has(.McqAct-module__X9w61W__passageBox) .McqAct-module__X9w61W__mark {
+  top: 110px;
+}
+
+.McqAct-module__X9w61W__right {
+  color: #2ecc71;
+}
+
+.McqAct-module__X9w61W__wrong {
+  color: #e74c3c;
+}
+
+.McqAct-module__X9w61W__passageBox {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  max-height: 220px;
+  margin-bottom: 16px;
+  padding: 14px;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-y: auto;
+}
+
+.McqAct-module__X9w61W__summaryItem {
+  border-bottom: 1px solid #0000000d;
+  padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+  .McqAct-module__X9w61W__container {
+    width: 95%;
+    padding: 20px 10px;
+  }
+}
+
+/* [project]/comps/acts/CompleteWordAct.module.css [client] (css) */
+.CompleteWordAct-module__QcFl0a__wrapper {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.CompleteWordAct-module__QcFl0a__mainCard {
+  --btn-blue: #a8d0e6;
+  --btn-blue-hover: #91c2dc;
+  --purple-box: #d099e6;
+  --text-color: #333;
+  --green-correct: #2e7d32;
+  --red-wrong: #d32f2f;
+  --next-btn-color: #00334e;
+  -webkit-backdrop-filter: blur(8px);
+  box-sizing: border-box;
+  width: 85%;
+  max-width: 100%;
+  height: 96%;
+  color: var(--text-color);
+  border: 1px solid #fff9;
+  border-radius: 15px;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  position: relative;
+  box-shadow: 0 8px 32px #0000001a;
+}
+
+.CompleteWordAct-module__QcFl0a__titleText {
+  color: #555;
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.CompleteWordAct-module__QcFl0a__gameArea {
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__wordDisplayContainer {
+  background-color: #f0f0e899;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  margin-bottom: 40px;
+  padding: 40px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__wordPuzzle {
+  color: #555;
+  align-items: center;
+  gap: 8px;
+  font-size: 2.5rem;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__missingBox {
+  background-color: var(--purple-box);
+  color: #fff;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  min-width: 50px;
+  height: 60px;
+  margin: 0 5px;
+  padding-bottom: 4px;
+  font-weight: bold;
+  display: inline-flex;
+}
+
+.CompleteWordAct-module__QcFl0a__optionsContainer {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__optionBtn {
+  background-color: var(--btn-blue);
+  color: var(--text-color);
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  min-width: 60px;
+  padding: 10px 20px;
+  font-size: 1.8rem;
+  transition: transform .1s;
+  box-shadow: 0 2px 4px #0000001a;
+}
+
+.CompleteWordAct-module__QcFl0a__optionBtn:active {
+  transform: scale(.95);
+}
+
+.CompleteWordAct-module__QcFl0a__optionBtn:disabled {
+  opacity: .7;
+  cursor: default;
+}
+
+.CompleteWordAct-module__QcFl0a__gameFooter, .CompleteWordAct-module__QcFl0a__summaryFooter {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: auto;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__scoreBadge {
+  color: #555;
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  padding: 5px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
+}
+
+.CompleteWordAct-module__QcFl0a__nextBtn {
+  background-color: var(--next-btn-color);
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+}
+
+.CompleteWordAct-module__QcFl0a__floatNext {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.CompleteWordAct-module__QcFl0a__summaryArea {
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+}
+
+.CompleteWordAct-module__QcFl0a__summaryList {
+  flex-grow: 1;
+  max-height: 350px;
+  margin-top: 20px;
+  padding-right: 10px;
+  font-size: 1.2rem;
+  overflow-y: auto;
+}
+
+.CompleteWordAct-module__QcFl0a__summaryItem {
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+.CompleteWordAct-module__QcFl0a__sNum {
+  color: var(--red-wrong);
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.CompleteWordAct-module__QcFl0a__sCorrectNum {
+  color: var(--green-correct);
+  margin-right: 5px;
+  font-weight: bold;
+}
+
+.CompleteWordAct-module__QcFl0a__sWrongText {
+  color: var(--red-wrong);
+}
+
+.CompleteWordAct-module__QcFl0a__sCorrectText {
+  color: var(--green-correct);
+}
+
+.CompleteWordAct-module__QcFl0a__sBracket {
+  color: var(--green-correct);
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=comps_acts_3b9c0fd4._.css.map*/

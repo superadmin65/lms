@@ -1,0 +1,69 @@
+{
+    "label": "Spelling",
+    "id": "spelling-p4",
+    "type": "nested",
+    "loadFirstAct": true,
+    "list": [
+        {
+            "type": "chapter",
+            "label": "वर्तनी",
+            "altLabel": "Spelling",
+            "id": "chap-1",
+            "list": [
+                {
+                    "label": "Choose the Correct Spelling",
+                    "id": "1756122674790",
+                    "type": "mcq",
+                    "data": {
+                        "title": "वाक्य पढ़ो और रेखांकित शब्द की सही वर्तनी चुनो।(Read and choose the correct spelling of the underlined word)",
+                        "questions": [
+                            {
+                                "options": "दूध\nदुध\nदुहद",
+                                "qText": "हमें रोज़ *दुध* पीना चाहिए।"
+                            },
+                            {
+                                "options": "ध्यान\nधियान\nधीयान",
+                                "qText": "पढ़ाई के समय *धयान* लगाना ज़रूरी है।"
+                            },
+                            {
+                                "options": "पढ़ाई\nपढाई\nपाढाई",
+                                "qText": "हमें *पडाई* के साथ-साथ खेलों में भी भाग लेना चाहिए।"
+                            },
+                            {
+                                "options": "सूरज\nसुरज\nसुरझ",
+                                "qText": "सुबह की *सुरज* की रोशनी स्वास्थ्य के लिए अच्छी होती है।"
+                            },
+                            {
+                                "options": "पंखा\nपंखहा\nपनखा",
+                                "qText": "गर्मी में *पंका* बहुत काम आता है।"
+                            }
+                        ]
+                    },
+                    "btnLabel": "MCQ"
+                },
+                {
+                    "label": "Complete the Spelling",
+                    "id": "fill-vowels",
+                    "type": "completeWord",
+                    "data": {
+                        "images": "stockImgs",
+                        "text": "mountain|पहाड़|प_ड़|मा,हा,ना,पा\npomegranate|अनार|_नार|अ,जि,घी,झी\ntamarind|इमली|_मली|इ,घी,जि,च\nsugarcane|ईख|_ख|ई,ख,झी,घी\nowl|उल्लू|_ल्लू|उ,झ,झी,का\nyarn-ball|ऊन|_न|ऊ,छा,त्रु,जि\nrishi|ऋषि|_षि|ऋ,ख,जि,का\nankle|एड़ी|_ड़ी|ए,ख,घी,जि",
+                        "lang": "hi",
+                        "title": "खोया हुआ अक्षर ढूँढ़ें और शब्द पूरा करें।(Find the missing letter and complete the word)"
+                    }
+                },
+                {
+                    "label": "Fill up: सरल शब्द - व्यंजन",
+                    "id": "fill-consonants",
+                    "type": "completeWord",
+                    "data": {
+                        "images": "stockImgs",
+                        "text": "trolley|ठेला|_ला|ठे,च,गा,झी\ndamaru|डमरू|_मरू|ड,का,घी,जि\nnurse|दाई|_ई|दा,जि,घी,त्रु\narrow|बाण|_ण|बा,छा,झी,का\nlock|ताला|_ला|ता,जि,झी,गा\nflask|थरमस|_रमस|थ,गा,का,त्रु\nmedicine|दवा|_वा|द,गा,ख,का\nbow|धनुष|_नुष|ध,च,घी,गा\ntap|नल|_ल|न,गा,छा,ख\nkite|पतंग|_तंग|प,ख,का,घी",
+                        "lang": "hi",
+                        "title": "खोया हुआ अक्षर ढूँढ़ें और शब्द पूरा करें।"
+                    }
+                }
+            ]
+        }
+    ]
+}

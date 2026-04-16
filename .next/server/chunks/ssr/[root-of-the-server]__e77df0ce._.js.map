@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../node_modules/next/head.js"],"sourcesContent":["module.exports = require('./dist/shared/lib/head')\n"],"names":[],"mappings":"uLAAA,EAAO,OAAO,CAAA,EAAA,CAAA,CAAA","ignoreList":[0]}

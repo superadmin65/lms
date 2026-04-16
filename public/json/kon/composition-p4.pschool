@@ -1,0 +1,450 @@
+{
+    "label": "निबंध",
+    "id": "composition-p4",
+    "altLabel": "Composition",
+    "loadFirstAct": true,
+    "type": "nested",
+    "list": [
+        {
+            "type": "chapter",
+            "label": "Picture Composition",
+            "id": "chap-1",
+            "list": [
+                {
+                    "label": "Picture Composition -1",
+                    "id": "1757915815790",
+                    "type": "informationProcessing",
+                    "data": {
+                        "questions": [
+                            {
+                                "options": "बगीचा,समुद्र तट,पुस्तकालय,पाठशाला",
+                                "type": "mcq",
+                                "qText": "यह चित्र कहाँ का है?"
+                            },
+                            {
+                                "options": "किताब पढ़ रहा है।,खेल रहा है।,दौड़ रहा है।,आइसक्रीम खा रहा है।",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "बेंच पर बैठा लड़का क्या कर रहा है?"
+                            },
+                            {
+                                "options": "फुटबॉल,क्रिकेट,बैडमिंटन,हॉकी",
+                                "type": "mcq",
+                                "qText": "छोटा बच्चा किस खेल में व्यस्त है?"
+                            },
+                            {
+                                "options": "एक,तीन,दो,चार",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "चित्र में कितने लोग आइसक्रीम खा रहे हैं?"
+                            }
+                        ],
+                        "image": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/download (1).jpg",
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "title": "चित्र देखकर उत्तर दीजिए।\n(Answer the Questions Based on the Picture)",
+                        "type": "image"
+                    },
+                    "btnLabel": "Information Processing"
+                },
+                {
+                    "label": "Picture Composition -2",
+                    "id": "1757921058731",
+                    "type": "informationProcessing",
+                    "data": {
+                        "questions": [
+                            {
+                                "options": "खरगोश, ऊँट, हाथी, बंदर",
+                                "type": "mcq",
+                                "qText": "बच्चे किस जानवर को देख रहे हैं?"
+                            },
+                            {
+                                "options": "चिड़ियाघर,खेल का मैदान, अस्पताल,जंगल",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "यह चित्र कहाँ का है?"
+                            },
+                            {
+                                "options": "पिंजरे में,पेड़ पर,हाथी की पीठ पर,बच्चों के पास",
+                                "type": "mcq",
+                                "qText": "बंदर कहाँ बैठा है?"
+                            },
+                            {
+                                "options": "ऊँट,हाथी,बंदर, खरगोश",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "चित्र में सबसे ऊँचा जानवर कौन-सा है?"
+                            }
+                        ],
+                        "image": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/Paragon Infotek - Book Illustration service.jpg",
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "title": "चित्र देखकर उत्तर दीजिए।\n(Answer the Questions Based on the Picture)",
+                        "type": "image"
+                    },
+                    "btnLabel": "Information Processing"
+                },
+                {
+                    "label": "Picture Composition-3",
+                    "id": "1757921562396",
+                    "type": "informationProcessing",
+                    "data": {
+                        "questions": [
+                            {
+                                "options": "खरीदारी केंद्र, पार्क, सब्ज़ी मंडी,हॉकर सेंटर",
+                                "type": "mcq",
+                                "qText": "यह चित्र कहाँ का है?"
+                            },
+                            {
+                                "options": "बड़ी छूट,बड़ा त्योहार,बड़ा खेल,बड़ी दुकान",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "\"BIG SALE\" का क्या अर्थ है?"
+                            },
+                            {
+                                "options": " कपड़े,किताबें,जूते,खिलौने",
+                                "type": "mcq",
+                                "qText": "दुकान में किस चीज़ की बिक्री हो रही है? "
+                            },
+                            {
+                                "options": "दो,तीन,एक,चार",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "चित्र में कितने पौधे दिखाई दे रहे हैं?"
+                            }
+                        ],
+                        "image": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/download (2).jpg",
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "title": "चित्र देखकर उत्तर दीजिए।\n(Answer the Questions Based on the Picture)",
+                        "type": "image"
+                    },
+                    "btnLabel": "Information Processing"
+                },
+                {
+                    "label": "Picture Composition -4",
+                    "id": "1757922067874",
+                    "type": "informationProcessing",
+                    "data": {
+                        "questions": [
+                            {
+                                "options": "समुद्र तट पर,बगीचे में,पहाड़ पर,मैदान में",
+                                "type": "mcq",
+                                "qText": "चित्र में बच्चे कहाँ खेल रहे हैं?"
+                            },
+                            {
+                                "options": "किला,घर,पेड़,नाव",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "लड़का रेत से क्या बना रहा है?"
+                            },
+                            {
+                                "options": "केकड़ा,खरगोश,शेर,मछली",
+                                "type": "mcq",
+                                "qText": "चित्र में कौन-सा जानवर दिखाई दे रहा है?"
+                            },
+                            {
+                                "options": "तीन,चार,दो,एक",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "चित्र में रेत पर कितने बच्चे खेल रहे हैं?"
+                            }
+                        ],
+                        "image": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/beach.jpg",
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "title": "चित्र देखकर उत्तर दीजिए।\n(Answer the Questions Based on the Picture)",
+                        "type": "image"
+                    },
+                    "btnLabel": "Information Processing"
+                },
+                {
+                    "label": "Picture Composition -5",
+                    "id": "1757922894511",
+                    "type": "informationProcessing",
+                    "data": {
+                        "questions": [
+                            {
+                                "options": "कक्षा में,पार्क में,घर में,पुस्तकालय में",
+                                "type": "mcq",
+                                "qText": "चित्र में बच्चे कहाँ बैठे हैं?"
+                            },
+                            {
+                                "options": "चित्रकारी,खेल,नृत्य,संगीत",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "अध्यापिका बच्चों से क्या सीखा रही हैं?"
+                            },
+                            {
+                                "options": "सूरज और फूल का चित्र, घर का चित्र, फूल का चित्र, पहाड़ का चित्र ",
+                                "type": "mcq",
+                                "qText": "हरे कपड़े वाले बच्चे के हाथ में क्या है?"
+                            },
+                            {
+                                "options": "पहाड़,घर,सूरज ,नाव ",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "बोर्ड पर क्या बना हुआ है?"
+                            }
+                        ],
+                        "image": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/ESL classroom picture description.jpg",
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "title": "चित्र देखकर उत्तर दीजिए।\n(Answer the Questions Based on the Picture)",
+                        "type": "image"
+                    },
+                    "btnLabel": "Information Processing"
+                }
+            ]
+        },
+        {
+            "type": "chapter",
+            "label": "Guided Composition",
+            "id": "chap-2",
+            "list": [
+                {
+                    "label": "Fill up by drag - Template",
+                    "id": "1757939407145",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "fontSize": "1rem",
+                        "text": "कुछ बच्चे सड़क पर *फुटबॉल* खेल रहे थे। उनके आसपास से *गाड़ियाँ* और मोटरसाइकिलें गुजर रही थीं। यह बहुत *खतरनाक* स्थिति थी, क्योंकि सड़क पर खेलना दुर्घटना का कारण बन सकता है। बच्चों को हमेशा *पार्क* या मैदान में खेलना चाहिए, जहाँ वाहन न आते-जाते हों। सड़क पर खेलने से न केवल बच्चों की जान को *खतरा* रहता है, बल्कि वाहन चालकों को भी *परेशानी* होती है। हमें हमेशा *यातायात* नियमों का पालन करना चाहिए और सुरक्षित *स्थान* पर ही खेलना चाहिए। इस प्रकार छोटी-सी *सावधानी* बड़े हादसों से बचा सकती है।",
+                        "title": "अनुच्छेद को पढ़ें और रिक्त स्थान की पूर्ति कीजिए। (Read the paragraph and fill in the blanks)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+                {
+                    "label": "Information Processing",
+                    "id": "1757941616929",
+                    "type": "informationProcessing",
+                    "data": {
+                        "questions": [
+                            {
+                                "options": "सफ़ाई कर रहे थे,खेल रहे थे,झगड़ रहे थे,पेड़ लगा रहे थे",
+                                "type": "mcq",
+                                "qText": "बच्चे अपने मोहल्ले में क्या कर रहे थे?"
+                            },
+                            {
+                                "options": "कूड़ेदान में,गली में,नदी में,सड़क पर",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "बच्चों ने कचरा कहाँ डाला?"
+                            },
+                            {
+                                "options": "कूड़ा कूड़ेदान में डालें,अधिक पढ़ाई करें,बाहर टहले जाएँ, सुबह जल्दी उठें",
+                                "type": "mcq",
+                                "qText": "बच्चों ने बड़ों को क्या समझाया?"
+                            },
+                            {
+                                "options": "सफ़ाई ही सेहत है,मेहनती बच्चे,बच्चों की पढ़ाई,अच्छा खेल",
+                                "units": "students",
+                                "type": "mcq",
+                                "value": 40,
+                                "qText": "इस गद्यांश का उपयुक्त शीर्षक क्या हो सकता है?"
+                            }
+                        ],
+                        "image": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/kinderen schoonmaak de milieu van vuilnis tekenfilm vector.jpg",
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "text": "कुछ बच्चे मिलकर अपने विद्यालय की सफ़ाई कर रहे थे। उन्होंने इधर-उधर पड़े कचरा उठाए और कूड़ेदान में डाल दिए। सड़क पर गिरी हुई पन्नियाँ, प्लास्टिक और सूखे पत्ते देखकर उन्होंने तय किया कि अब वे विद्यालय को गंदा नहीं होने देंगे। सब बच्चों ने मिलकर यह भी निश्चय किया कि वे लोगों को स्वच्छता का महत्व समझाएँगे। उन्होंने बड़ों से भी कहा कि कूड़ा हमेशा कूड़ेदान में ही डालें। इस तरह बच्चों ने अपने विद्यालय को साफ़-सुथरा और सुंदर बना दिया। हमें भी यह सीख लेनी चाहिए कि स्वच्छता ही स्वास्थ्य है और साफ़ वातावरण से ही स्वस्थ जीवन मिलता है।",
+                        "title": "चित्र को देखकर प्रश्नों के उत्तर दीजिए। (Look at the picture and answer the questions)",
+                        "type": "passage"
+                    },
+                    "btnLabel": "Information Processing"
+                },
+                {
+                    "label": "Fill up by drag - Template",
+                    "id": "1757942653955",
+                    "type": "matchByDragDrop",
+                    "data": {
+                        "dashWidth": 70,
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "fontSize": "1rem",
+                        "text": "पेड़-पौधे हमारे जीवन के लिए बहुत ज़रूरी हैं। वे हमें *फल*, फूल, छाया और लकड़ी देते हैं। सबसे महत्वपूर्ण यह है कि वे हमें *ऑक्सीजन* प्रदान करते हैं, जिससे हम साँस ले पाते हैं। यदि पेड़ न हों तो हवा *प्रदूषित* हो जाएगी और *जीवन* असंभव हो जाएगा। गाँवों में लोग अक्सर पेड़ों की छाया में *बैठकर* आराम करते हैं, वहीं शहरों में प्रदूषण कम करने के लिए पेड़ों की सबसे अधिक आवश्यकता है। पेड़ न केवल पर्यावरण को *संतुलित* रखते हैं, बल्कि पक्षियों और जानवरों का *घर* भी होते हैं। इसलिए हमें अधिक से अधिक *पेड़* लगाना चाहिए और उनकी *देखभाल* करनी चाहिए।",
+                        "title": "अनुच्छेद को पढ़ें और रिक्त स्थान की पूर्ति कीजिए। (Read the paragraph and fill in the blanks)"
+                    },
+                    "btnLabel": "Fill Up by Drag"
+                },
+                {
+                    "label": "Information Processing",
+                    "id": "1758021182241",
+                    "type": "informationProcessing",
+                    "data": {
+                        "questions": [
+                            {
+                                "options": "Cycle, Walk, Car, Bus",
+                                "type": "mcq",
+                                "qText": "कुछ बच्चे सड़क पर *फुटबॉल* खेल रहे थे। उनके आसपास से *गाड़ियाँ* और मोटरसाइकिलें गुजर रही थीं। यह बहुत *खतरनाक* स्थिति थी, क्योंकि सड़क पर खेलना दुर्घटना का कारण बन सकता है। बच्चों को हमेशा *पार्क* या मैदान में खेलना चाहिए, जहाँ वाहन न आते-जाते हों। सड़क पर खेलने से न केवल बच्चों की जान को *खतरा* रहता है, बल्कि वाहन चालकों को भी *परेशानी* होती है। हमें हमेशा *यातायात* नियमों का पालन करना चाहिए और सुरक्षित *स्थान* पर ही खेलना चाहिए। इस प्रकार छोटी-सी *सावधानी* बड़े हादसों से बचा सकती है।"
+                            }
+                        ],
+                        "image": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/Pi7_Passport_Photo.jpeg",
+                        "bgData": {
+                            "imgWidth": 928,
+                            "top": 20,
+                            "left": 300,
+                            "width": 600,
+                            "bgImg": "konzeptes/comprehension.jpg",
+                            "imgHeight": 700,
+                            "height": 650
+                        },
+                        "title": "The bar chart represents the number of students using different modes of transport.",
+                        "type": "image"
+                    },
+                    "btnLabel": "Information Processing"
+                },
+                {
+                    "authored": true,
+                    "id": "1758021628693",
+                    "label": "My Drag and Drop",
+                    "type": "dragAndDrop",
+                    "data": {
+                        "width": 400,
+                        "words": [
+                            {
+                                "x": 137,
+                                "word": "फुटबॉल",
+                                "y": 133
+                            },
+                            {
+                                "x": 306,
+                                "word": "गाड़ियाँ",
+                                "y": 128
+                            },
+                            {
+                                "x": 226,
+                                "word": "खतरनाक",
+                                "y": 148
+                            },
+                            {
+                                "x": 226,
+                                "word": "पार्क",
+                                "y": 148
+                            },
+                            {
+                                "x": 226,
+                                "word": "खतरा",
+                                "y": 148
+                            },
+                            {
+                                "x": 226,
+                                "word": "यातायात",
+                                "y": 148
+                            },
+                            {
+                                "x": 226,
+                                "word": "स्थान",
+                                "y": 148
+                            }
+                        ],
+                        "wordWidth": 50,
+                        "svg": {
+                            "paths": [
+                                {
+                                    "rotate": 0.46277219164758776,
+                                    "src": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/Pi7_Passport_Photo.jpeg",
+                                    "x": 53,
+                                    "width": 302.7039589427497,
+                                    "y": -35,
+                                    "maintainAR": true,
+                                    "type": "image",
+                                    "fill": "none",
+                                    "stroke": "#0d3756",
+                                    "height": 165.9086736399099
+                                },
+                                {
+                                    "textAlign": "left",
+                                    "x": 58,
+                                    "width": 300,
+                                    "y": 135,
+                                    "fontSize": "10px",
+                                    "text": "कुछ बच्चे सड़क पर _________ खेल रहे थे। उनके आसपास से _________ और मोटरसाइकिलें गुजर रही थीं। यह बहुत _________ स्थिति थी, क्योंकि सड़क पर खेलना दुर्घटना का कारण बन सकता है। बच्चों को हमेशा _________ या मैदान में खेलना चाहिए, जहाँ वाहन न आते-जाते हों। सड़क पर खेलने से न केवल बच्चों की जान को _________ रहता है, बल्कि वाहन चालकों को भी परेशानी होती है। हमें हमेशा _________ नियमों का पालन करना चाहिए और सुरक्षित _________ पर ही खेलना चाहिए। इस प्रकार छोटी-सी सावधानी बड़े हादसों से बचा सकती है।",
+                                    "type": "text",
+                                    "fill": "none",
+                                    "stroke": "#0d3756",
+                                    "height": 180
+                                }
+                            ],
+                            "props": {
+                                "fill": "none",
+                                "strokeWidth": 1,
+                                "stroke": "black"
+                            }
+                        },
+                        "height": 400
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "label": "Vocabulary",
+    "id": "vocabulary-p4",
+    "type": "nested",
+    "loadFirstAct": true,
+    "list": [
+        {
+            "type": "chapter",
+            "label": "शब्दावली",
+            "altLabel": "Vocabulary",
+            "id": "chap-1",
+            "list": [
+                {
+                    "label": "निम्नलिखित को जोड़िए।",
+                    "id": "matchpartsofspeech",
+                    "type": "match",
+                    "data": {
+                        "title": "शब्दभेद के हिस्सों के साथ शब्दों को जोड़िए। (Combine words with parts of speech)",
+                        "text": "सुंदर, विशेषण\nवह, सर्वनाम\nचिकित्सक, संज्ञा\nतैयारी, क्रिया"
+                    }
+                },
+                {
+                    "label": "Pick the right option",
+                    "id": "tense",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "text": "dog| कुत्ता _____ पर बैठा है।|ज़मीन, किनारे\nhummingbird | चिड़िया _______ में उड़ रही है। | आकाश,खेत\nfish| मछली ________ में तैरती है।| पानी, जंगल \ncloud | _____ में बादल छा रहे हैं। | आसमान,छत\nsun | सूरज _______ में चमकता है। | दिन, रात",
+                        "title": "रिक्त स्थान को भरने वाले सही विकल्प का चयन करें। (Pick the right option that fills the blank)",
+                        "imageType": "stockimg"
+                    }
+                },
+                {
+                    "label": "Pick the right option",
+                    "id": "fillup",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "text": "pull |दरवाज़ा खोलने के लिए अपनी तरफ _____ । | खींचें, धकेलो\ngiraffe | जिराफ़ की _____ गर्दन होती है। | लंबी, छोटी\npillow | तकिये का रंग _____ है। | नीला, लाल\ntree | पेड़ पर _____ पत्ते हैं। | हरे, पीले\ncat | बिल्ली के बाल _____ होते हैं। | मुलायम, कठोर\ncar | गाड़ी के _____ पहिए हैं। |  चार, तीन",
+                        "title": "रिक्त स्थान को भरने वाले सही विकल्प का चयन करें। (Pick the right option that fills the blank)",
+                        "imageType": "stockimg"
+                    }
+                },
+                {
+                    "label": "Jumbled - Template",
+                    "id": "1757848968224",
+                    "type": "sequence",
+                    "data": {
+                        "title": "सार्थक शब्द बनाने के लिए ब्लॉकों को जोड़ें। (Connect the blocks to form meaningful word)",
+                        "lang": "hi",
+                        "text": "पु स्त क\nक म ल\nगु ला ब\nचि ड़ि या\nखि लौ ना\nप ढ़ा ई\nकि ता ब"
+                    },
+                    "btnLabel": "Jumbled"
+                },
+                {
+                    "label": "Find the Word - Template",
+                    "id": "1757849333131",
+                    "type": "completeWord",
+                    "data": {
+                        "title": "शब्द खोजें और रिक्त स्थान भरें। (Find the words and fill in the blanks)",
+                        "lang": "hi",
+                        "text": "school|पाठशाला|_ठशाला|पा,शा,ठा,ला\nhammer|हथौड़ा|ह_ौड़ा|थ,ड़ा,टा,घ\nbutterfly|तितली|त_ली|ति,ता,ली,लि\nsweets|मिठाई|मि_ई|ठा,ठ,ई,टा\nnewspaper|अख़बार|अ_बार|ख़,बा,बर,अर"
+                    },
+                    "btnLabel": "Find the Word"
+                }
+            ]
+        }
+    ]
+}

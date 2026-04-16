@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MCQ Activity</title>
+    <link rel="stylesheet" href="mcq.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="main">
+        <!-- TITLE -->
+        <div class="title" id="actTitle">Multiple Choice Question</div>
+
+        <div id="questionTitle" class="small"></div>
+
+        <div id="qwrap" class="qwrap">
+          <!-- question and options appear here -->
+          <div id="rightMark" class="mark right">✔</div>
+          <div id="wrongMark" class="mark wrong">✖</div>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="controls">
+          <div class="score" id="scoreBox">Score : 0 / 0</div>
+          <div style="margin-left: auto">
+            <button class="btn primary" id="nextBtn" style="display: none">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FINAL SUMMARY -->
+      <div id="finalWrap" class="main" style="display: none; margin-top: 18px">
+        <div class="title">You have completed this activity.</div>
+        <div id="summaryList" class="summary"></div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+          "
+        >
+          <div class="small" id="finalScore"></div>
+          <button class="btn primary" id="finalNextBtn">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="mcq.js">
+
+window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+    const payload = JSON.parse(decodeURIComponent(params.get("payload")));
+
+    if (payload.bgImage) {
+        document.body.style.backgroundImage = `url('/bg-images/${payload.bgImage}')`;
+        //console.log(document.body.style.backgroundImage);
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        document.body.style.backgroundRepeat = "no-repeat";
+    }
+};
+
+    </script>
+  </body>
+</html>

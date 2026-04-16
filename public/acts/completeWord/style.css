@@ -1,0 +1,235 @@
+:root {
+  --btn-blue: #a8d0e6;
+  --btn-blue-hover: #91c2dc;
+  --purple-box: #d099e6;
+  --text-color: #333;
+  --green-correct: #2e7d32;
+  --red-wrong: #d32f2f;
+  --next-btn-color: #00334e;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* CRITICAL: Transparent body so the parent background shows through */
+  background-color: transparent;
+
+  color: var(--text-color);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* The Glass Card Container */
+.main-card {
+  /* The "Frosted Glass" Blur Effect */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  /* Subtle white border */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  /* FULL WIDTH SETTINGS */
+  width: 85%; /* Fills the screen */
+  max-width: 100%; /* Removed the 800px limit */
+  height: 96%;
+
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center; /* Centers content horizontally */
+}
+
+.title-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure title aligns left if needed */
+  max-width: 1000px;
+}
+
+.stars-deco {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.6;
+  color: #4fb3d9;
+}
+
+/* --- Game Area --- */
+#game-area {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.word-display-container {
+  /* Inner box also semi-transparent */
+  background-color: rgba(240, 240, 232, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 40px;
+  min-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.word-puzzle {
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #555;
+}
+
+/* The Purple Box */
+.missing-box {
+  background-color: var(--purple-box);
+  color: white;
+  min-width: 50px;
+  height: 60px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  margin: 0 5px;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+/* Options */
+.options-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.option-btn {
+  background-color: var(--btn-blue);
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 60px;
+  transition: transform 0.1s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn:active {
+  transform: scale(0.95);
+}
+.option-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+/* --- Footer Area --- */
+.game-footer,
+.summary-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Ensure footer stretches */
+  max-width: 1000px;
+}
+
+.score-badge {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  font-size: 1rem;
+  color: #555;
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.next-btn {
+  background-color: var(--next-btn-color);
+  color: white;
+  padding: 10px 25px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+}
+.float-next {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* --- Summary Styles --- */
+#summary-area {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.summary-list {
+  margin-top: 20px;
+  max-height: 350px;
+  overflow-y: auto;
+  font-size: 1.2rem;
+  padding-right: 10px;
+}
+
+.summary-item {
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+
+.s-num {
+  color: var(--red-wrong);
+  font-weight: bold;
+  margin-right: 5px;
+}
+.s-correct-num {
+  color: var(--green-correct);
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.s-wrong-text {
+  color: var(--red-wrong);
+}
+.s-correct-text {
+  color: var(--green-correct);
+}
+
+.s-bracket {
+  color: var(--green-correct);
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+/* --- Mascot --- */
+.mascot {
+  position: absolute;
+  bottom: -10px;
+  right: -20px;
+  width: 140px;
+  pointer-events: none;
+  z-index: 5;
+}

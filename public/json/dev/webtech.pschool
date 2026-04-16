@@ -1,0 +1,136 @@
+{
+  "id": "maths-sc",
+  "label": "Web Technology",
+  "iconsLoc": "icons/tech160",
+  "type": "curriculumIcon",
+  "config": {
+    "type": "descType"
+  },
+  "style": {
+    "fontSize": "0.9rem",
+    "backgroundColor": "var(--l2)",
+    "maxWidth": 1400
+  },
+  "iconStyle": {
+    "width": 160,
+    "height": 160
+  },
+  "cardStyle": {
+    "width": 430,
+    "margin": "15px",
+    "padding": "15px",
+    "borderRadius": 10,
+    "boxShadow": "var(--shadow)",
+    "border": "1px solid #999"
+  },
+  "list": [
+    {
+      "id": "dev/html5-intro",
+      "label": "Introduction to HTML",
+      "img": "html",
+      "desc": "It is used to structure and present content on the web. It defines elements like text, images, and links, forming the backbone of webpages for browsers.",
+      "style": {
+        "backgroundColor": "#8eccf5"
+      }
+    },
+    {
+      "id": "dev/css-intro",
+      "label": "Introduction to CSS",
+      "img": "css",
+      "desc": "It is used to style and format HTML content. It controls layout, colors, fonts, and design, enabling consistent, visually appealing, and responsive web pages across devices and screens.",
+      "style": {
+        "backgroundColor": "#b9ffe1"
+      }
+    },
+    {
+      "id": "dev/js-intro",
+      "label": "Introduction to JavaScript",
+      "img": "js",
+      "desc": "It is used to add interactivity and dynamic behavior to web pages. It enables features like form validation, animations, real-time updates, and user interactions, making websites more engaging and functional.",
+      "style": {
+        "backgroundColor": "#efd284"
+      }
+    },
+    {
+      "id": "dev/svg",
+      "label": "Introduction to SVG",
+      "img": "svg",
+      "desc": "It is used to create and display resolution-independent graphics on the web. It supports shapes, text, and animations, ensuring crisp visuals that scale seamlessly without losing quality.",
+      "style": {
+        "backgroundColor": "#f993a5"
+      }
+    },
+    {
+      "id": "dev/dsa",
+      "label": "Data Structure & Algorithm",
+      "img": "algorithm",
+      "desc": "It is used to organize, manage, and process data efficiently. It provides methods for problem-solving, optimizing performance, and building reliable, scalable software systems in computer science.",
+      "style": {
+        "backgroundColor": "#bdbdbd"
+      }
+    },
+    {
+      "id": "dev/reactjs",
+      "label": "Introduction to ReactJS",
+      "img": "react",
+      "desc": "It is used to build fast, interactive user interfaces for web applications. It enables component-based development, efficient rendering with a virtual DOM, and reusable UI elements, making applications scalable and maintainable.",
+      "style": {
+        "backgroundColor": "#c0f3f3"
+      }
+    },
+    {
+      "id": "dev/reduxjs",
+      "label": "Introduction to ReduxJS",
+      "img": "redux",
+      "desc": "It is used for managing application state predictably in JavaScript apps. It centralizes state in a single store, enables consistent data flow, simplifies debugging, and improves maintainability of complex applications.",
+      "style": {
+        "backgroundColor": "#cfaff3"
+      }
+    },
+    {
+      "id": "dev/cli",
+      "label": "Introduction to CLI",
+      "img": "cli",
+      "desc": "It is used to interact with a computer or software by typing commands. It enables efficient task execution, automation, system control, and development workflows without graphical interfaces.",
+      "style": {
+        "backgroundColor": "#85e98c"
+      }
+    },
+    {
+      "id": "dev/git",
+      "label": "Introduction to Git",
+      "img": "git",
+      "desc": "It is used for version control in software development. It tracks changes, manages code history, enables collaboration, branching, and merging, ensuring efficient teamwork and maintaining project integrity across versions.",
+      "style": {
+        "backgroundColor": "#f9bb88"
+      }
+    },
+    {
+      "id": "dev/agile",
+      "label": "Introduction to Agile",
+      "img": "agile",
+      "desc": "It is used in software development to deliver value iteratively and adaptively. It emphasizes collaboration, flexibility, customer feedback, and continuous improvement, ensuring faster delivery of high-quality products that meet evolving requirements.",
+      "style": {
+        "backgroundColor": "#7ae6f5"
+      }
+    },
+    {
+      "id": "dev/nodejs",
+      "label": "Introduction to NodeJS",
+      "img": "nodejs",
+      "desc": "It is used to build scalable, fast, and server-side applications using JavaScript. It provides non-blocking, event-driven architecture, enabling real-time applications, APIs, and efficient handling of concurrent connections across platforms.",
+      "style": {
+        "backgroundColor": "#fff3a9"
+      }
+    },
+    {
+      "id": "dev/typing",
+      "label": "Learning Typing",
+      "img": "keyboard",
+      "desc": "Learn typing by practicing the structured lessons to master various keys. After completing the Typing lessons, you can practice various passages.",
+      "style": {
+        "backgroundColor": "#e6c0ff"
+      }
+    }
+  ]
+}

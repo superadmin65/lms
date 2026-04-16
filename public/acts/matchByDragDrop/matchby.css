@@ -1,0 +1,326 @@
+body {
+  font-family: Arial;
+  background: #f1f5f9;
+  margin: 0;
+  /* padding: 20px; */
+  padding: 0;
+  background-color: transparent !important;
+  /* backdrop-filter: non-scrollable */
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  /* padding: 24px 32px; */
+  padding: 12px 32px 24px;
+  background: transparent;  
+  /* backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(10px); */
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  
+  
+  min-height: 100%;
+  overflow: hidden;
+}
+
+
+
+#title {
+   margin-top: 0;       
+  padding-top: 0;
+  background: transparent;
+  margin-bottom: 16px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+
+.match-row {
+  display: flex;
+  align-items: center;
+  margin: 14px 0;
+  font-size: 18px;
+  font-weight: 500  ;
+}
+
+.left-text {
+  min-width: 260px;
+  font-size: 18px;
+}
+
+
+.drop-box {
+  width: 90px;
+  min-height: 30px;
+  border-bottom: 2px solid #333;
+  padding: 4px;
+  text-align: center;
+  font-size: 18px;
+  margin: 0 10px;
+}
+
+
+.options-area {
+  margin-top: 20px;
+}
+
+.option {
+  background: #dbeafe;
+  border: 1px solid #60a5fa;
+  padding: 6px 14px;
+  margin: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.option.used {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+
+
+.correct {
+  background: #bbf7d0 !important;
+  border-color: #16a34a !important;
+}
+
+.wrong {
+  background: #fecaca !important;
+  border-color: #dc2626 !important;
+}
+
+
+.controls {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#resetBtn {
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#undoBtn {
+  padding: 8px 16px;
+  background: #fff;
+  border: 1px solid #666;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* NEXT BUTTON (Right side like your screenshot) */
+#nextBtn {
+  padding: 10px 20px;
+  background: #0b4f71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  float: right;
+  margin-top: 20px;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.result-box.good-job {
+  background: #ecfdf5;
+  border: 2px solid #16a34a;
+  color: #166534;
+}
+
+.result-box.good-try {
+  background: #fff7ed;
+  border: 2px solid #f97316;
+  color: #9a3412;
+}
+
+
+.result-status {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.result-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  gap: 6px 12px;
+}
+
+
+
+
+.result-success {
+  background: #ff4fd1;
+  color: white;
+}
+
+.result-fail {
+  background: #d1d5db;
+  color: black;
+}
+
+
+/* Answer tag (→ correct) */
+.answer-tag {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #1f2937;
+  background-color: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* Paragraph mode */
+.paragraph {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 20px 0;
+  hyphens: auto;
+  text-align: justify;
+}
+
+/* Inline drop box for paragraph mode */
+.drop-box {
+  display: inline-block !important;
+  min-width: 70px;
+  text-align: center;
+  border-bottom: 2px solid #333;
+  padding: 2px 4px;
+  margin: 0 4px;
+  vertical-align: baseline;
+  background: none !important;
+}
+
+/* Legacy mode: sentence-based drop box */
+.match-row .drop-box {
+  display: inline-block;
+  min-width: 100px;
+  min-height: 32px;
+  border-bottom: 2px solid #333;
+  padding: 6px;
+  margin: 0 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.drop-box.correct {
+  border-color: #16a34a !important;
+  background-color: #dcfce7 !important;
+  color: #166534;
+}
+
+.drop-box.wrong {
+  border-color: #dc2626 !important;
+  background-color: #fee2e2 !important;
+  color: #991b1b;
+}
+
+.answer-tag {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #1f2937;
+  background-color: #f3f4f6;
+  padding: 2px 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+
+.match-row .answer-tag {
+  margin-left: 12px;
+}
+
+
+.paragraph .answer-tag {
+  margin-left: 6px;
+}
+
+.result-dashboard {
+  min-height: 100vh;
+  background: #fbfbea;
+  padding: 30px;
+  text-align: center;
+}
+
+.completed-title {
+  color: #16a34a;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.score-big {
+  font-size: 48px;
+  color: #2563eb;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.result-list {
+  max-width: 420px;
+  margin: 0 auto 30px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.result-row .right {
+  font-weight: bold;
+}
+
+.result-row.correct {
+  color: #16a34a;
+}
+
+.result-row.wrong {
+  color: #dc2626;
+}
+
+.next-exercise-btn {
+  background: #111827;
+  color: white;
+  font-size: 18px;
+  padding: 12px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
