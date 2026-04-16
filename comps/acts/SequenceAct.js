@@ -485,14 +485,14 @@ export default function SequenceAct({ data }) {
         <div className={styles.mainCardInner}>
           {appState !== "SUMMARY" && (
             <>
-              <div className={styles.headerRow}>
-                <div
-                  className={styles.title}
-                  dangerouslySetInnerHTML={{
-                    __html: (title || "").replace(/\(/g, "<br>("),
-                  }}
-                />
+              <div
+                className={styles.title}
+                dangerouslySetInnerHTML={{
+                  __html: (title || "").replace(/\(/g, "<br>("),
+                }}
+              />
 
+              <div style={{ display: "flex", justifyContent: "end" }}>
                 <div
                   className={styles.score}
                   style={{ display: appState !== "LOADING" ? "block" : "none" }}

@@ -59,7 +59,7 @@ export default function MatchPairs({ data }) {
         evaluated,
         status,
         ...extra,
-      })
+      }),
     );
   };
 
@@ -157,7 +157,7 @@ export default function MatchPairs({ data }) {
           score,
           total: pairs.length,
         }),
-        "*"
+        "*",
       );
     } catch (_) {}
   };
@@ -172,7 +172,9 @@ export default function MatchPairs({ data }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.mainCard}>
-        <h2 className={styles.title}>{data.title || "Match the Pairs"}</h2>
+        <h2 className={styles.title}>
+          {(data.title || "Match the Pairs").replace(/\s*\(/, "\n(")}
+        </h2>
 
         {status !== "SUMMARY" ? (
           <>
@@ -273,7 +275,6 @@ export default function MatchPairs({ data }) {
                 display: "flex",
                 justifyContent: "space-between",
                 marginTop: 12,
-               
               }}
             >
               <div className={styles.small}>
@@ -281,10 +282,7 @@ export default function MatchPairs({ data }) {
               </div>
 
               <div style={{ display: "flex", gap: 10 }}>
-                <button
-                  className={`${styles.nextBtn} `}
-                  onClick={resetQuiz}
-                >
+                <button className={`${styles.nextBtn} `} onClick={resetQuiz}>
                   Reset Activity
                 </button>
 

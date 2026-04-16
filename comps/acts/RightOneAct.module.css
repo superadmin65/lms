@@ -18,22 +18,19 @@
 }
 
 .main {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(5px);
+  
+  
   padding: 20px;
   border-radius: 12px;
 }
 
-.titleContainer {
-  margin-bottom: 25px;
-  border-left: 5px solid #0b4f71;
-  padding-left: 15px;
-}
 
 .hindiTitle {
-  font-size: 20px;
-  font-weight: 700;
-  color: #0b4f71;
+  font-size: 22px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-line;
 }
 
 .englishTitle {
@@ -86,24 +83,7 @@
   margin: 30px 0;
 }
 
-/* .footer {
-  display: flex;
-  justify-content: spac e-between;
-  align-items: center;
-  margin-top: 20px;
-  border-top: 1px solid rgba(0,0,0,0.05);
-  padding-top: 15px;
-}
 
-.nextBtn {
-  background: #0b4f71;
-  color: white;
-  border: none;
-  padding: 10px 25px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-} */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -166,118 +146,3 @@
   transform: scale(1.05);
 }
 
-/* .wrapper {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.container {
-  width: 85%;
-  max-width: 800px;
-  margin: 15px auto;
-  padding: 30px;
-  border-radius: 15px;
-  background-color: transparent;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-}
-
-.main {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(5px);
-  padding: 30px;
-  border-radius: 12px;
-}
-
-.titleContainer {
-  margin-bottom: 40px;
-  border-left: 5px solid #0b4f71;
-  padding-left: 20px;
-}
-
-.hindiTitle {
-  font-size: 22px;
-  font-weight: 700;
-  color: #0b4f71;
-}
-
-.englishTitle {
-  font-size: 16px;
-  color: #555;
-  margin-top: 8px;
-}
-
-.optionsGrid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.optionCard {
-  flex: 1;
-  max-width: 250px;
-  background: white;
-  padding: 30px 20px;
-  text-align: center;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 24px;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  border: 2px solid transparent;
-}
-
-.optionCard:hover:not(.correct):not(.wrong) {
-  transform: translateY(-5px);
-  border-color: #0b4f71;
-  box-shadow: 0 8px 15px rgba(11, 79, 113, 0.1);
-}
-
-.correct {
-  background: #2ecc71 !important;
-  color: white !important;
-  border-color: #27ae60;
-}
-
-.wrong {
-  background: #e74c3c !important;
-  color: white !important;
-  border-color: #c0392b;
-}
-
-.icon {
-  position: absolute;
-  right: 15px;
-  font-weight: 900;
-}
-
-.footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.progress {
-  font-weight: bold;
-  color: #666;
-}
-
-.nextBtn {
-  background: #0b4f71;
-  color: white;
-  border: none;
-  padding: 12px 35px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-} */

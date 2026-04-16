@@ -101,44 +101,44 @@ export default function RightOneAct({ data, onNext }) {
 
   const handleNextBtn = () => {
     if (currentIdx < questions.length - 1) {
-  const nextIdx = currentIdx + 1;
+      const nextIdx = currentIdx + 1;
 
-  setCurrentIdx(nextIdx);
-  setSelectedOption(null);
-  setShowFeedback(false);
+      setCurrentIdx(nextIdx);
+      setSelectedOption(null);
+      setShowFeedback(false);
 
-  saveProgress({ currentIdx: nextIdx });
-} else {
-  setShowResult(true);
+      saveProgress({ currentIdx: nextIdx });
+    } else {
+      setShowResult(true);
 
-  saveProgress({ showResult: true });
-}
+      saveProgress({ showResult: true });
+    }
   };
 
-const resetActivity = () => {
-  if (!window.confirm("Reset this activity?")) return;
+  const resetActivity = () => {
+    if (!window.confirm("Reset this activity?")) return;
 
-  localStorage.removeItem(activityId); // ✅ important
+    localStorage.removeItem(activityId); // ✅ important
 
-  const lines = data.text.split("\n").filter((line) => line.trim() !== "");
+    const lines = data.text.split("\n").filter((line) => line.trim() !== "");
 
-  const parsed = lines.map((line) => {
-    const parts = line.split(",").map((s) => s.trim());
-    return {
-      options: shuffleArray(parts),
-      correctValue: parts[0],
-      answered: false,
-      userChoice: null,
-    };
-  });
+    const parsed = lines.map((line) => {
+      const parts = line.split(",").map((s) => s.trim());
+      return {
+        options: shuffleArray(parts),
+        correctValue: parts[0],
+        answered: false,
+        userChoice: null,
+      };
+    });
 
-  setQuestions(parsed);
-  setScore(0);
-  setCurrentIdx(0);
-  setShowResult(false);
-  setSelectedOption(null);
-  setShowFeedback(false);
-};
+    setQuestions(parsed);
+    setScore(0);
+    setCurrentIdx(0);
+    setShowResult(false);
+    setSelectedOption(null);
+    setShowFeedback(false);
+  };
   const handleFinalFinish = () => {
     try {
       window.parent.postMessage(JSON.stringify({ done: true }), "*");
@@ -156,16 +156,10 @@ const resetActivity = () => {
     const parts = formatted.split("\n");
 
     return (
-      <div className={styles.titleContainer}>
-        <div className={styles.hindiTitle}>
-          {parts[0]?.replace(/\s*\($/, "")}
-        </div>
-
-        {parts[1] && (
-          <div className={styles.hindiTitle}>
-            {parts[1].replace(/[()]/g, "")}
-          </div>
-        )}
+      <div className={styles.hindiTitle}>
+        {parts[0]?.replace(/\s*\($/, "")}
+        <br />
+        {parts[1].replace(/[()]/g, "")}
       </div>
     );
   };

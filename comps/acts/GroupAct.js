@@ -73,9 +73,10 @@ export default function GroupAct({ data, onNext }) {
   const renderTitle = () => {
     const [hindi, english] = (data.title || "").split("\n");
     return (
-      <div className={styles.titleContainer}>
-        <div className={styles.hindiTitle}>{hindi}</div>
-        <div className={styles.englishTitle}>{english}</div>
+      <div className={styles.hindiTitle}>
+        {hindi}
+        <br></br>
+        {english}
       </div>
     );
   };
