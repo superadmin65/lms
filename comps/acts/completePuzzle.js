@@ -8,7 +8,7 @@ export default function JoinWords({ data }) {
   const [isCorrect, setIsCorrect] = useState(null);
   const [score, setScore] = useState(0);
   const [attempted, setAttempted] = useState(0);
-  const [status, setStatus] = useState("STARTED"); // STARTED | SUMMARY
+  const [status, setStatus] = useState("STARTED"); // STARTED | SUMMARY //
   const [showConfetti, setShowConfetti] = useState(false);
   const [feedback, setFeedback] = useState("");
   const [userAnswers, setUserAnswers] = useState([]);
