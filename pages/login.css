@@ -317,3 +317,76 @@ input:focus {
 .eye-btn:hover {
   /* color: #33691e; */
 }
+.lang-dropdown {
+  position: relative;
+  width: 100%;
+}
+.custom-select-box {
+  height: 43px; /* EXACT MATCH */
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 8px 12px; /* SAME AS INPUT */
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem; /* MATCH INPUT */
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.custom-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #dcdcdc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 100;
+  margin-top: 4px;
+  padding: 6px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+ font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.dropdown-item input {
+  accent-color: #33691e;
+  width: 16px;
+  height: 16px;
+}
+
+.custom-select-box {
+  position: relative;
+  height: 43px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 8px 36px 8px 12px; /* extra right space for arrow */
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* 🔥 FAKE NATIVE SELECT ARROW */
+.custom-select-box::after {
+  content: "";
+  position: absolute;
+  right: 10px;              /* 🔥 match select spacing */
+  top: 50%;
+  width: 14px;              /* 🔥 slightly bigger */
+  height: 14px;
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M6 8L10 12L14 8' stroke='%2333691e' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+}

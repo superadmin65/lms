@@ -5,14 +5,16 @@ import Intro from "konzeptes/Intro";
 import Head from "next/head";
 import "./login.css";
 import { Eye, EyeOff, Mail } from "lucide-react";
+import { useRef } from "react";
 
 export default function HomeView() {
   const [isSignup, setIsSignup] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  const [showLangDropdown, setShowLangDropdown] = useState(false);
 
   const [form, setForm] = useState({
-    email: "",
+    identifier: "",
     password: "",
     salutation: "",
     p_first: "",
@@ -23,9 +25,22 @@ export default function HomeView() {
     mobile: "",
     package: "",
     grade: "",
-    language: "",
+   language: [],
     curriculum: "",
   });
+
+  const dropdownRef = useRef();
+
+useEffect(() => {
+  const handleClickOutside = (e) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+      setShowLangDropdown(false);
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  return () => document.removeEventListener("mousedown", handleClickOutside);
+}, []);
 
   // 1. Initial check for logged in status
   useEffect(() => {
@@ -145,13 +160,13 @@ export default function HomeView() {
   const handleAuth = async (e) => {
     e.preventDefault();
 
-    // 🌟 FIX: Grab exact values directly from the DOM to bypass React's autofill blindspot
+    
     const submitData = new FormData(e.target);
-    const actualEmail = submitData.get("email");
+    const actualIdentifier = submitData.get("identifier"); 
     const actualPassword = submitData.get("password");
 
     // Use actualPassword instead of form.password for validation
-    if (isSignup && !validatePassword(actualPassword)) return;
+    
 
     try {
       const action = isSignup ? apiService.register : apiService.login;
@@ -166,11 +181,10 @@ export default function HomeView() {
             c_last_name: form.c_last,
             level: form.level,
             mobile: form.mobile,
-            email: actualEmail,
-            password: actualPassword,
+          email: submitData.get("email"),
             package_type: form.package,
           }
-        : { email: actualEmail, password: actualPassword };
+        : {  email: actualIdentifier, password: actualPassword };
 
       const { data } = await action(payload);
 
@@ -187,7 +201,6 @@ export default function HomeView() {
           localStorage.setItem("user_id", data.user_id);
           localStorage.setItem("isLoggedIn", "true");
           localStorage.setItem("child_name", data.child_name || "Student");
-
           localStorage.setItem("show_login_popup", "true");
           setIsLoggedIn(true);
         }
@@ -210,8 +223,7 @@ export default function HomeView() {
   useEffect(() => {
     if (isSignup) {
       setForm({
-        email: "",
-        password: "",
+       identifier: "",
         salutation: "",
         p_first: "",
         p_last: "",
@@ -221,7 +233,7 @@ export default function HomeView() {
         mobile: "",
         package: "",
         grade: "",
-        language: "",
+       language: [],
         curriculum: "",
       });
     }
@@ -307,11 +319,11 @@ export default function HomeView() {
               {/* Email Field with Icon */}
               <div className="input-with-icon full-width-field">
                 <input
-                  name="email"
-                  type="email"
-                  placeholder="Email Address"
+                  name="identifier"
+                  type="text"
+                  placeholder="Email Address / Username"
                   required
-                  value={form.email}
+                 value={form.identifier || ""}
                   onChange={handleChange}
                   autoComplete="username" /* <-- Add this */
                 />
@@ -358,7 +370,30 @@ export default function HomeView() {
             <div className="register-section transition-fade">
               <h2 className="auth-title">Create Account</h2>
               <div className="field-group">
-                <label className="group-label">Parent Details</label>
+                
+              <div className="field-group">
+                <label className="group-label">Student Details</label>
+                <div className="registration-grid">
+                  <input
+                    name="c_first"
+                    placeholder=" First Name"
+                    required
+                    value={form.c_first}
+                    onChange={handleChange}
+                    className="col-4"
+                  />
+                  <input
+                    name="c_last"
+                    placeholder=" Last Name"
+                    required
+                    value={form.c_last}
+                    onChange={handleChange}
+                    className="col-4"
+                  />
+                 
+                </div>
+              </div>
+              <label className="group-label">Parent Details</label>
                 <div className="registration-grid">
                   <select
                     name="salutation"
@@ -388,46 +423,7 @@ export default function HomeView() {
                     onChange={handleChange}
                     className="col-4"
                   />
-                </div>
-              </div>
-              <div className="field-group">
-                <label className="group-label">Student Details</label>
-                <div className="registration-grid">
-                  <input
-                    name="c_first"
-                    placeholder=" First Name"
-                    required
-                    value={form.c_first}
-                    onChange={handleChange}
-                    className="col-4"
-                  />
-                  <input
-                    name="c_last"
-                    placeholder=" Last Name"
-                    required
-                    value={form.c_last}
-                    onChange={handleChange}
-                    className="col-4"
-                  />
-                  <select
-                    name="level"
-                    required
-                    value={form.level}
-                    onChange={handleChange}
-                    className="col-4"
-                  >
-                    <option value="">Level</option>
-                    <option value="easy">Easy</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="hard">Hard</option>
-                  </select>
-                </div>
-              </div>
-              <div className="field-group ">
-                <label className="group-label">Account Information</label>
-
-                <div className="registration-grid ">
-                  <input
+                 <input
                     name="mobile"
                     placeholder="Mobile"
                     required
@@ -446,6 +442,13 @@ export default function HomeView() {
                     className="col-4"
                     autoComplete="off"
                   />
+                </div>
+              </div>
+              <div className="field-group ">
+                <label className="group-label">Account Information</label>
+
+                <div className="registration-grid ">
+                 
                   <select
                     name="grade"
                     required
@@ -454,31 +457,19 @@ export default function HomeView() {
                     className="col-4"
                   >
                     <option value="">Select Grade</option>
-                    <option value="Class I">Class I</option>
-                    <option value="Class II">Class II</option>
-                  </select>
-                  <select
-                    name="grade"
-                    required
-                    value={form.grade}
-                    onChange={handleChange}
-                    className="col-4"
-                  >
-                    <option value="">Select Package</option>
-                    <option value="free">Free</option>
-                    <option value="paid">Paid</option>
-                  </select>
-                  <select
-                    name="language"
-                    required
-                    value={form.language}
-                    onChange={handleChange}
-                    className="col-4"
-                  >
-                    <option value="">Select Language</option>
-                    <option value="Hindi">Hindi</option>
-                    {/* <option value="French">French</option>
-                    <option value="German">German</option> */}
+<option>Primary 1</option>
+<option>Primary 2</option>
+<option>Primary 3</option>
+<option>Primary 4</option>
+<option>Primary 5</option>
+<option>Primary 6 (PSLE)</option>
+
+<option>Secondary 1</option>
+<option>Secondary 2</option>
+<option>Secondary 3</option>
+<option>Secondary 4 (O Level)</option>
+
+<option>A Level</option>
                   </select>
 
                   <select
@@ -489,81 +480,64 @@ export default function HomeView() {
                     className="col-4"
                   >
                     <option value="">Select Curriculum</option>
-                    <option value="free">Option 1</option>
-                    <option value="paid">Option 2</option>
+<option value="MOE">MOE</option>
+<option value="IGCSE">IGCSE</option>
+<option value="IB">IB</option>
+<option value="CBSE">CBSE</option>
                   </select>
+                  
+    <div className="col-4 lang-dropdown" ref={dropdownRef}>
+  <div
+  className="custom-select-box"
+  onClick={() => setShowLangDropdown(!showLangDropdown)}
+>
+  <span>
+    {form.language.length > 0
+      ? form.language.join(", ")
+      : "Select Language"}
+  </span>
 
-                  <div className="col-12 password-label-container">
-                    <label className="input-label">Password</label>
-                  </div>
-                  {/* <div className="password-container col-12">
-                    <input
-                      name="password"
-                      type={showPass ? 'text' : 'password'}
-                      placeholder="Password"
-                      required
-                      value={form.password}
-                      onChange={handleChange}
-                    />
-                    <span
-                      className="eye-btn"
-                      onClick={() => setShowPass(!showPass)}
-                    >
-                      {showPass ? '🔒' : '👁️'}
-                    </span>
-                  </div> */}
-                  {/* <div className="password-container col-12">
-                    <input
-                      name="password"
-                      type={showPass ? 'text' : 'password'}
-                      placeholder="Password"
-                      required
-                      value={form.password}
-                      onChange={handleChange}
-                    />
-                    <span
-                      className="eye-btn"
-                      onClick={() => setShowPass(!showPass)}
-                      style={{
-                        cursor: 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                      }}
-                    >
-                      {showPass ? (
-                        <EyeOff size={20} color="#666" />
-                      ) : (
-                        <Eye size={20} color="#666" />
-                      )}
-                    </span>
-                  </div> */}
-                  <div className="password-container col-12">
-                    <input
-                      name="password"
-                      type={showPass ? "text" : "password"}
-                      placeholder="Password"
-                      required
-                      value={form.password}
-                      onChange={handleChange}
-                      autoComplete="new-password"
-                    />
-                    <span
-                      className="eye-btn"
-                      onClick={() => setShowPass(!showPass)}
-                    >
-                      {showPass ? <Eye size={20} /> : <EyeOff size={20} />}
-                    </span>
-                  </div>
-                </div>
+  
+</div>
 
-                {form.password && !validatePassword(form.password) && (
-                  <p className="pass-warning">
-                    ⚠️ Password Must have Uppercase, Lowercase, Number & Special
-                    Char.
-                  </p>
-                )}
-              </div>
-            </div>
+  {showLangDropdown && (
+    <div className="custom-dropdown">
+      {["Hindi", "French", "German"].map((lang) => (
+        <label key={lang} className="dropdown-item">
+          <input
+            type="checkbox"
+            checked={form.language.includes(lang)}
+            onChange={() => {
+              const updated = form.language.includes(lang)
+                ? form.language.filter((l) => l !== lang)
+                : [...form.language, lang];
+
+              setForm({ ...form, language: updated });
+            }}
+          />
+          {lang}
+        </label>
+      ))}
+    </div>
+  )}
+</div>
+<select
+                    name="package"
+                    required
+                    value={form.package}
+                    onChange={handleChange}
+                    className="col-4"
+                  >
+                    <option value="">Select Package</option>
+                    <option value="free">Free</option>
+                    <option value="paid">Paid</option>
+                  </select>
+                  
+
+                  </div>
+</div>
+</div>
+                
             <button
               type="submit"
               className={
