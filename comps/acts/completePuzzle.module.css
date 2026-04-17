@@ -9,7 +9,7 @@
 
 /* MAIN CARD (IMPORTANT) */
 .mainCard {
- --accent: #0b4f71;
+  --accent: #0b4f71;
   --pill: #ffffff;
   --text: #222;
 
@@ -18,7 +18,7 @@
   max-width: 900px;
   height: 96%;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   padding: 30px;
   box-sizing: border-box;
   display: flex;
@@ -32,18 +32,10 @@
 }
 
 .title {
-  display: inline-block;
-
-  border-radius: 4px;
-  padding: 6px 12px;
   font-size: 22px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   font-weight: 600;
   text-align: center;
-  color: #333;
-  align-self: center;
-  margin-top: 0;
-  flex-shrink: 0;
   white-space: pre-line;
 }
 .gameArea {

@@ -33,7 +33,7 @@
   height: 96%;
 
   border-radius: 15px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
 
   padding: 30px;
   box-sizing: border-box;
@@ -49,12 +49,9 @@
 
 /* ================= TITLE ================= */
 .titleText {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #555;
-  margin-bottom: 20px;
-  width: 100%;
-  max-width: 1000px;
+  font-size: 22px;
+  margin-bottom: 24px;
+  font-weight: 600;
   text-align: center;
   white-space: pre-line;
 }

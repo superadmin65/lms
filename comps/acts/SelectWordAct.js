@@ -111,16 +111,12 @@ export default function SelectWordAct({ data, onNext }) {
     const parts = formatted.split("\n");
 
     return (
-      <div className={styles.titleContainer}>
+      <div >
         <div className={styles.hindiTitle}>
           {parts[0]?.replace(/\s*\($/, "")}
+          <br />
+          {parts[1].replace(/[()]/g, "")}
         </div>
-
-        {parts[1] && (
-          <div className={styles.hindiTitle}>
-            {parts[1].replace(/[()]/g, "")}
-          </div>
-        )}
       </div>
     );
   };

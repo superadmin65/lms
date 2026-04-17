@@ -43,9 +43,11 @@
   flex-shrink: 0;
 }
 .titleText {
-  font-size: 1.1rem;
-  font-style: italic;
-  color: #555;
+ font-size: 22px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-line;
 }
 
 /* Game Area */

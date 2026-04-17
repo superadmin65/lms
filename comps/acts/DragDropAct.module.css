@@ -18,21 +18,21 @@
   --success: #22c55e;
   --danger: #ef4444;
   --text: #222;
-   --accent: #0b4f71;
+  --accent: #0b4f71;
 
   border: 1px solid rgba(255, 255, 255, 0.6);
   width: 85%;
   max-width: 100%; /*Pankaj Sharma */
   height: 96%;
   border-radius: 15px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4); /*Pankaj Sharma */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /*Pankaj Sharma */
   padding: 24px 30px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   position: relative;
   margin: 15px auto;
-   background-color: rgba(255, 255, 255, 0.1); /*Pankaj Sharma */
+  background-color: rgba(255, 255, 255, 0.1); /*Pankaj Sharma */
   color: var(--text);
   overflow: hidden;
 }
@@ -46,18 +46,11 @@
 }
 
 .title {
-  display: inline-block;
-  /* background: rgba(255, 255, 255, 0.85); */
-  padding: 6px 16px;
-  border-radius: 8px;
   font-size: 22px;
-  margin: 0 auto 16px auto;
+  margin-bottom: 24px;
   font-weight: 600;
   text-align: center;
-  /* text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15); */
-  color: #000000;
-  align-self: center;
-  flex-shrink: 0;
+  white-space: pre-line;
 }
 
 /* --- GAME AREA --- */

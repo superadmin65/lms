@@ -27,10 +27,11 @@
 }
 
 .title {
-  font-size: 20px;
+  font-size: 22px;
+  margin-bottom: 24px;
   font-weight: 600;
-  margin-bottom: 30px;
-  color: #0b4f71;
+  text-align: center;
+  white-space: pre-line;
 }
 
 .sentenceRow {
@@ -117,11 +118,7 @@
   cursor: pointer;
 }
 
-.titleContainer {
-  margin-bottom: 30px;
-  border-left: 4px solid #0b4f71;
-  padding-left: 15px;
-}
+
 
 .hindiTitle {
   font-size: 22px;
