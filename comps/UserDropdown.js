@@ -487,6 +487,26 @@ export default function UserDropdown() {
 
         {isOpen && (
           <div className="modern-menu">
+
+            <div
+  className="menu-item"
+  onClick={() => router.push('/profile')}
+>
+  <svg
+    className="icon-sm"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M20 21v-2a4 4 0 0 0-3-3.87"></path>
+    <path d="M4 21v-2a4 4 0 0 1 3-3.87"></path>
+    <circle cx="12" cy="7" r="4"></circle>
+  </svg>
+  Profile
+</div>
             <div
               className="menu-item home-item"
               onClick={() => router.push('/home')}
