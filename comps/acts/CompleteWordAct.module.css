@@ -7,9 +7,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /* ================= MAIN CARD ================= */
@@ -21,30 +18,36 @@
   --green-correct: #2e7d32;
   --red-wrong: #ff0505;
   --next-btn-color: #00334e;
-  --accent: #0b4f71;
+  --accent: #0b8a1c;
 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-
-  border: 1px solid rgba(255, 255, 255, 0.4);
-
+  border: 1px solid rgba(255, 255, 255, 0.6);
   width: 85%;
-  max-width: 100%;
+  max-width: 800px;
   height: 96%;
-
   border-radius: 15px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
-
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   padding: 30px;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   position: relative;
-  align-items: center;
-
+  margin: 15px auto;
+  background-color: rgba(255, 255, 255, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  overflow-y: auto;
   color: var(--text-color);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main {
+  border-radius: 4px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* ================= TITLE ================= */
@@ -63,6 +66,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  margin-bottom: 100px;
 }
 
 .wordDisplayContainer {
@@ -168,29 +172,25 @@
 /* ================= FOOTER ================= */
 .gameFooter,
 .summaryFooter {
-  margin-top: auto;
-
+  position: sticky;
+  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  width: 100%;
-  max-width: 1000px;
+  margin-top: auto;
+  padding: 10px;
 }
 
 /* ================= SCORE BADGE ================= */
 .scoreBadge {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-
-  padding: 5px 15px;
-  font-size: 1rem;
   color: #555;
-
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
   border-radius: 4px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-
+  padding: 0 15px;
+  font-size: 1rem;
   font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
 }
 
 /* ================= BUTTON SYSTEM ================= */
@@ -241,14 +241,13 @@
 .summaryArea {
   width: 100%;
   max-width: 1000px;
-
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
 .summaryList {
   margin-top: 20px;
+  margin-bottom: 20px;
   max-height: 350px;
   overflow-y: auto;
 

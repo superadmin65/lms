@@ -262,168 +262,169 @@ export default function WordSearchAct({ data }) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.mainCard}>
-        {/* Header */}
-        <div className={styles.header}>
-          <div className={styles.titleText}>
-            {data.title || "Find the given words"}
-          </div>
-        </div>
+        <div className={styles.main}>
+          <div className={styles.mainInner}>
+            {/* Header */}
+            <div className={styles.header}>
+              <div className={styles.titleText}>
+                {data.title || "Find the given words"}
+              </div>
+            </div>
 
-        {/* Game Area */}
-        <div className={styles.gameArea}>
-          <div className={styles.gridWrapper}>
-            <div
-              className={styles.wordGrid}
-              style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-            >
-              {/* 1. Render Render Drawn Lines (Behind Text) */}
-              {foundLines.map((line, i) => (
+            {/* Game Area */}
+            <div className={styles.gameArea}>
+              <div className={styles.gridWrapper}>
                 <div
-                  key={`line-${i}`}
-                  className={styles.highlightLine}
-                  style={{
-                    width: `${line.width}px`,
-                    backgroundColor: line.color,
-                    left: `${line.midX}px`,
-                    top: `${line.midY}px`,
-                    transform: `translate(-50%, -50%) rotate(${line.angle}deg)`,
-                  }}
-                />
-              ))}
+                  className={styles.wordGrid}
+                  style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                >
+                  {/* 1. Render Render Drawn Lines (Behind Text) */}
+                  {foundLines.map((line, i) => (
+                    <div
+                      key={`line-${i}`}
+                      className={styles.highlightLine}
+                      style={{
+                        width: `${line.width}px`,
+                        backgroundColor: line.color,
+                        left: `${line.midX}px`,
+                        top: `${line.midY}px`,
+                        transform: `translate(-50%, -50%) rotate(${line.angle}deg)`,
+                      }}
+                    />
+                  ))}
 
-              {/* 2. Render Grid Cells (Text) */}
-              {grid.map((row, r) =>
-                row.map((letter, c) => {
-                  const isSelected = currentSelection.some(
-                    (sel) => sel.r === r && sel.c === c,
-                  );
+                  {/* 2. Render Grid Cells (Text) */}
+                  {grid.map((row, r) =>
+                    row.map((letter, c) => {
+                      const isSelected = currentSelection.some(
+                        (sel) => sel.r === r && sel.c === c,
+                      );
 
-                  // A cell is visually 'found' if it lies on ANY of the found words' markers
-                  // But since we use absolute lines, we just need to know if it should be white.
-                  // We can check if it exists in any correctly selected word logic, or just rely on the line background
-                  // The original CSS `.cell.found` only changes text color to white.
+                      // A cell is visually 'found' if it lies on ANY of the found words' markers
+                      // But since we use absolute lines, we just need to know if it should be white.
+                      // We can check if it exists in any correctly selected word logic, or just rely on the line background
+                      // The original CSS `.cell.found` only changes text color to white.
 
-                  // For React, we'll determine if it's found by checking if it belongs to a found word.
-                  // Easiest way: if its coordinates fall into any found word's marker range.
-                  let isFound = false;
-                  wordsData.forEach((w) => {
-                    if (foundWords.includes(w.wordStr)) {
-                      const c1 = w.marker[0],
-                        r1 = w.marker[1],
-                        c2 = w.marker[2],
-                        r2 = w.marker[3];
-                      const dr = r2 - r1,
-                        dc = c2 - c1;
-                      const steps = Math.max(Math.abs(dr), Math.abs(dc));
-                      const rStep = dr === 0 ? 0 : dr / steps;
-                      const cStep = dc === 0 ? 0 : dc / steps;
-                      for (let i = 0; i <= steps; i++) {
-                        if (r === r1 + i * rStep && c === c1 + i * cStep)
-                          isFound = true;
-                      }
-                    }
-                  });
+                      // For React, we'll determine if it's found by checking if it belongs to a found word.
+                      // Easiest way: if its coordinates fall into any found word's marker range.
+                      let isFound = false;
+                      wordsData.forEach((w) => {
+                        if (foundWords.includes(w.wordStr)) {
+                          const c1 = w.marker[0],
+                            r1 = w.marker[1],
+                            c2 = w.marker[2],
+                            r2 = w.marker[3];
+                          const dr = r2 - r1,
+                            dc = c2 - c1;
+                          const steps = Math.max(Math.abs(dr), Math.abs(dc));
+                          const rStep = dr === 0 ? 0 : dr / steps;
+                          const cStep = dc === 0 ? 0 : dc / steps;
+                          for (let i = 0; i <= steps; i++) {
+                            if (r === r1 + i * rStep && c === c1 + i * cStep)
+                              isFound = true;
+                          }
+                        }
+                      });
 
-                  const isHintActive =
-                    hintActiveCell?.r === r && hintActiveCell?.c === c;
+                      const isHintActive =
+                        hintActiveCell?.r === r && hintActiveCell?.c === c;
 
-                  let cellClass = styles.cell;
-                  if (isSelected) cellClass += ` ${styles.selected}`;
-                  if (isFound) cellClass += ` ${styles.found}`;
-                  if (isHintActive) cellClass += ` ${styles.hintActive}`;
+                      let cellClass = styles.cell;
+                      if (isSelected) cellClass += ` ${styles.selected}`;
+                      if (isFound) cellClass += ` ${styles.found}`;
+                      if (isHintActive) cellClass += ` ${styles.hintActive}`;
+
+                      return (
+                        <div
+                          key={`${r}-${c}`}
+                          data-row={r}
+                          data-col={c}
+                          className={cellClass}
+                          onMouseDown={() => handleStart(r, c)}
+                          onMouseEnter={() => handleMove(r, c)}
+                        >
+                          {letter}
+                        </div>
+                      );
+                    }),
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Word Strip */}
+            <div className={styles.wordStrip}>
+              <div className={styles.wordList}>
+                {wordsData.map((item) => {
+                  const isFound = foundWords.includes(item.wordStr);
+                  const isHinting = hintActiveWord === item.wordStr;
+
+                  let itemClass = styles.wordItem;
+                  if (isFound) itemClass += ` ${styles.wordItemFound}`;
 
                   return (
                     <div
-                      key={`${r}-${c}`}
-                      data-row={r}
-                      data-col={c}
-                      className={cellClass}
-                      onMouseDown={() => handleStart(r, c)}
-                      onMouseEnter={() => handleMove(r, c)}
+                      key={item.wordStr}
+                      className={itemClass}
+                      style={
+                        isHinting
+                          ? {
+                              backgroundColor: "#ffd700",
+                              transform: "scale(1.1)",
+                              fontWeight: "bold",
+                            }
+                          : {}
+                      }
                     >
-                      {letter}
+                      {item.wordStr}
                     </div>
                   );
-                }),
+                })}
+              </div>
+            </div>
+          </div>
+          {/* Footer */}
+          <div className={styles.gameFooter}>
+            <div></div>
+
+            <div style={{ display: "flex" }}>
+              {!isVictory && (
+                <button
+                  className={`${styles.btn} ${styles.primary}`}
+                  onClick={handleHint}
+                >
+                  Hint 💡
+                </button>
+              )}
+              {isVictory && (
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <button
+                    className={`${styles.btn} ${styles.primary}`}
+                    onClick={resetActivity}
+                  >
+                    Reset Activity
+                  </button>
+
+                  <button
+                    className={`${styles.btn} ${styles.primary}`}
+                    onClick={handleNext}
+                  >
+                    Next
+                  </button>
+                </div>
               )}
             </div>
           </div>
+
+          {/* Victory Toast */}
+          {isVictory && (
+            <div className={styles.victoryToast}>
+              <span>🎉 Great Job! Click Next to continue.</span>
+            </div>
+          )}
         </div>
-
-        {/* Word Strip */}
-        <div className={styles.wordStrip}>
-          <div className={styles.wordList}>
-            {wordsData.map((item) => {
-              const isFound = foundWords.includes(item.wordStr);
-              const isHinting = hintActiveWord === item.wordStr;
-
-              let itemClass = styles.wordItem;
-              if (isFound) itemClass += ` ${styles.wordItemFound}`;
-
-              return (
-                <div
-                  key={item.wordStr}
-                  className={itemClass}
-                  style={
-                    isHinting
-                      ? {
-                          backgroundColor: "#ffd700",
-                          transform: "scale(1.1)",
-                          fontWeight: "bold",
-                        }
-                      : {}
-                  }
-                >
-                  {item.wordStr}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className={styles.gameFooter}>
-          <div className={styles.scoreBadge}>
-            Score: {foundWords.length} / {wordsData.length}
-          </div>
-
-          <div style={{ display: "flex" }}>
-            {!isVictory && (
-              <button
-                className={`${styles.actionBtn} ${styles.hintBtn}`}
-                onClick={handleHint}
-              >
-                Hint 💡
-              </button>
-            )}
-            {isVictory && (
-              <div style={{ display: "flex", gap: "10px" }}>
-                <button
-                  className={`${styles.btn} ${styles.primary}`}
-                  onClick={resetActivity}
-                >
-                  Reset Activity
-                </button>
-
-                <button
-                  className={`${styles.btn} ${styles.primary}`}
-                  onClick={handleNext}
-                >
-                  Next
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Victory Toast */}
-        {isVictory && (
-          <div className={styles.victoryToast}>
-            <span>🎉 Great Job! Click Next to continue.</span>
-          </div>
-        )}
       </div>
     </div>
   );

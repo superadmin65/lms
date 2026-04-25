@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Audio + Image + MCQ Activity</title>
+    <style>
+      :root {
+        --bg: #eef0f1;
+        --card: #fff;
+        --accent: #0b3b4a;
+        --success: #2ecc71;
+        --danger: #e74c3c;
+        --btn: #11495b;
+        --shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        background-color: transparent !important;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+        font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        color: #222;
+        background-color: transparent !important;
+        line-height: 2.3;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      .title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 14px;
+        font-weight: 600;
+      }
+      .card {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 6px;
+        box-shadow: var(--shadow);
+        background-color: transparent !important;
+      }
+ 
+
+#actTitle {
+  text-align: center;     
+  margin-top: -15px;       
+  margin-bottom: 40px;     
+  position: relative;
+  z-index: 2;
+}
+
+
+.audioWrap {
+  display: flex;           
+  justify-content:center; 
+  align-items: center;     
+  width: 100%;             
+  margin-top: 0;
+  margin-bottom: -5px;
+  position: relative;
+  z-index: 2;
+}
+ audio {
+  width: 100%;
+  max-width: 450px;       
+} 
+      .imageWrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 14px;
+      }
+      .imageWrap img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      }
+
+      .qTitle {
+        font-size: 20px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .qText {
+        margin: 8px 0 18px;
+        font-size: 18px;
+      }
+      .options {
+        display: block;
+        margin: 6px 0 20px;
+        padding-left: 0;
+        list-style: none;
+      }
+      .option {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+      .radio {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 3px solid #1e3b4a;
+        display: inline-block;
+        box-sizing: border-box;
+        flex: 0 0 28px;
+        background: white;
+        position: relative;
+      }
+      .radio.checked {
+        background: #6e2f7a;
+        border-color: #6e2f7a;
+      }
+      .optLabel {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+      }
+      .optLabel.correct {
+        border-color: var(--success);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+      }
+      .optLabel.wrong {
+        border-color: var(--danger);
+        opacity: 0.9;
+      }
+      .controls {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 10px;
+      }
+      .score {
+        padding: 8px 12px;
+        border-radius: 6px;
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+      }
+      .btn {
+        background: var(--btn);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+      .btn.disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .mark {
+        position: fixed;
+        right: 40px;
+        top: 36%;
+        font-size: 64px;
+        display: none;
+      }
+      .mark.right {
+        color: var(--success);
+      }
+      .mark.wrong {
+        color: var(--danger);
+      }
+      .summary {
+        margin-top: 16px;
+      }
+      .summaryItem {
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+      }
+      .small {
+        font-size: 14px;
+        color: #555;
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 12px;
+        }
+        .title {
+          font-size: 20px;
+        }
+        .qText {
+          font-size: 16px;
+        }
+        .mark {
+          right: 14px;
+          top: 30%;
+        }
+
+        .question {
+          font-size: 18px;
+          line-height: 1.7;
+          padding: 14px 16px;
+          margin-bottom: 16px;
+          background: #ffffff;
+          border-radius: 8px;
+          border: 1px solid #e0e0e0;
+          color: #222;
+          white-space: pre-wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div
+        id="titleWrap"
+        class="card"
+        style="margin-bottom: 12px; display: none"
+      >
+        <div id="actTitle" class="title"></div>
+        <div id="audioContainer" class="audioWrap"></div>
+        <div id="imageContainer" class="imageWrap"></div>
+      </div>
+
+      <div id="mcqCard" class="card">
+        <div class="qTitle" id="questionTitle"></div>
+        <div id="qwrap" class="qwrap"></div>
+
+        <div class="controls">
+          <div class="score" id="scoreBox">Score : 0 / 0</div>
+          <div style="margin-left: auto">
+            <button class="btn" id="hintBtn" style="display: none">Hint</button>
+            <button class="btn disabled" id="nextBtn" style="display: none">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="finalWrap" class="card" style="display: none; margin-top: 18px">
+        <div class="title">You have completed this activity.</div>
+        <div id="summaryList" class="summary"></div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+          "
+        >
+          <div class="small" id="finalScore"></div>
+          <button class="btn" id="finalNextBtn">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="rightMark" class="mark right">✔</div>
+    <div id="wrongMark" class="mark wrong">✖</div>
+
+    <script>
+      (function () {
+        // read payload (query param ?payload= or window.frameElement.dataset.payload)
+        function readPayload() {
+          try {
+            const url = new URL(location.href);
+            let raw = url.searchParams.get('payload');
+            if (
+              !raw &&
+              window.frameElement &&
+              window.frameElement.dataset &&
+              window.frameElement.dataset.payload
+            ) {
+              raw = window.frameElement.dataset.payload;
+            }
+            if (!raw) return null;
+            // try decode twice safely
+            try {
+              raw = decodeURIComponent(raw);
+            } catch (e) {}
+            try {
+              raw = decodeURIComponent(raw);
+            } catch (e) {}
+            return JSON.parse(raw);
+          } catch (e) {
+            console.error('readPayload error', e);
+            return null;
+          }
+        }
+
+        function parseOptionsString(raw) {
+          return (raw || '')
+            .split(/\n|,/)
+            .map((s) => s.trim())
+            .filter(Boolean);
+        }
+
+        function shuffleArray(arr) {
+          const a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+
+        // normalize questions: support *marked* option -> correct
+        function normalizeQuestions(raw) {
+          return raw.map((q) => {
+            const original = q.qText || q.text || '';
+            // options may be string; handle star-marked option
+            const rawOpts = parseOptionsString(q.options || q.option || '');
+            let originalCorrectIndex = -1;
+            const cleaned = rawOpts.map((o, idx) => {
+              if (o.indexOf('*') !== -1) {
+                originalCorrectIndex = idx;
+                return o.replace(/\*/g, '').trim();
+              }
+              return o;
+            });
+            if (originalCorrectIndex === -1) originalCorrectIndex = 0;
+            // shuffle options while mapping correct index
+            const indices = cleaned.map((_, i) => i);
+            const shuffledIndices = shuffleArray(indices);
+            const shuffledOpts = [];
+            let newCorrect = -1;
+            shuffledIndices.forEach((origIdx, newIdx) => {
+              shuffledOpts.push(cleaned[origIdx]);
+              if (origIdx === originalCorrectIndex) newCorrect = newIdx;
+            });
+            if (newCorrect === -1) newCorrect = 0;
+            return {
+              qTextRaw: original,
+              qText: original, // preserve question text as-is (per your request)
+              options: shuffledOpts,
+              correctIndex: newCorrect,
+              userChoice: null,
+              answered: false,
+              type: q.type || 'mcq',
+            };
+          });
+        }
+
+        // UI state
+        const state = {
+          payload: null,
+          questions: [],
+          current: 0,
+          score: 0,
+          attempted: 0,
+          total: 0,
+        };
+
+        // show title + image + audio if present
+        function renderTitleAndImage() {
+          const titleWrap = document.getElementById('titleWrap');
+          const actTitle = document.getElementById('actTitle');
+          const imageContainer = document.getElementById('imageContainer');
+          const audioContainer = document.getElementById('audioContainer');
+
+          const p = state.payload && (state.payload.data || state.payload);
+          if (!p) return;
+
+          const title = p.title || p.label || '';
+          const image =
+            p.image ||
+            (p.data && p.data.image) ||
+            (p.data && p.data.bgData && p.data.bgData.bgImg) ||
+            null;
+          
+          // Extract Audio
+          const audioSrc = p.audio || (p.data && p.data.audio) || null;
+
+          if (title || image || audioSrc) {
+            titleWrap.style.display = 'block';
+            actTitle.textContent = title || '';
+          } else {
+            titleWrap.style.display = 'none';
+          }
+
+          // Handle Audio
+          audioContainer.innerHTML = '';
+          if (audioSrc) {
+            const audio = document.createElement('audio');
+            audio.controls = true;
+            audio.src = audioSrc;
+            audioContainer.appendChild(audio);
+          }
+
+          // Handle Image
+          imageContainer.innerHTML = '';
+          if (image) {
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = title || 'image';
+            // apply bgData sizing if available
+            const bg = p.bgData || (p.data && p.data.bgData);
+            if (bg) {
+              if (bg.width) img.style.maxWidth = bg.width + 'px';
+              if (bg.height) img.style.maxHeight = bg.height + 'px';
+            }
+            imageContainer.appendChild(img);
+          }
+        }
+
+        // MCQ rendering
+        function renderQuestion() {
+          const rightMarkEl = document.getElementById('rightMark');
+          const wrongMarkEl = document.getElementById('wrongMark');
+          rightMarkEl.style.display = 'none';
+          wrongMarkEl.style.display = 'none';
+
+          const q = state.questions[state.current];
+          const wrap = document.getElementById('qwrap');
+          const title = document.getElementById('questionTitle');
+          const nextBtn = document.getElementById('nextBtn');
+
+          // set top title: use activity title (already shown above) but show short heading here
+          title.textContent =
+            (state.payload &&
+              (state.payload.data
+                ? state.payload.data.title
+                : state.payload.title)) ||
+            '';
+
+          wrap.innerHTML = '';
+
+          const qDiv = document.createElement('div');
+          qDiv.className = 'question';
+          qDiv.innerHTML = q.qText || '';
+          wrap.appendChild(qDiv);
+
+          const optBox = document.createElement('div');
+          optBox.className = 'options';
+
+          q.options.forEach((opt, i) => {
+            const li = document.createElement('div');
+            li.className = 'option';
+            li.dataset.index = i;
+
+            const radio = document.createElement('span');
+            radio.className = 'radio';
+
+            const label = document.createElement('div');
+            label.className = 'optLabel';
+            label.textContent = opt;
+
+            li.appendChild(radio);
+            li.appendChild(label);
+
+            li.addEventListener('click', () => {
+              if (q.answered) return;
+              q.answered = true;
+              q.userChoice = i;
+              state.attempted++;
+              const isCorrect = i === q.correctIndex;
+              if (isCorrect) {
+                li.querySelector('.optLabel').classList.add('correct');
+                state.score++;
+                rightMarkEl.style.display = 'block';
+              } else {
+                li.querySelector('.optLabel').classList.add('wrong');
+                const correctLi = optBox.querySelector(
+                  `.option[data-index="${q.correctIndex}"]`
+                );
+                if (correctLi)
+                  correctLi.querySelector('.optLabel').classList.add('correct');
+                wrongMarkEl.style.display = 'block';
+              }
+              updateScore();
+              nextBtn.disabled = false;
+              nextBtn.classList.remove('disabled');
+              nextBtn.style.display = 'inline-block';
+            });
+
+            optBox.appendChild(li);
+          });
+
+          wrap.appendChild(optBox);
+          // hide next until answered
+          nextBtn.disabled = true;
+          nextBtn.style.display = 'none';
+          nextBtn.classList.add('disabled');
+          nextBtn.textContent =
+            state.current === state.total - 1 ? 'Finish' : 'Next';
+        }
+
+        function updateScore() {
+          const s = document.getElementById('scoreBox');
+          s.textContent = `Score : ${state.score} / ${state.attempted}`;
+        }
+
+        function showSummary() {
+          document.getElementById('mcqCard').style.display = 'none';
+          document.getElementById('finalWrap').style.display = 'block';
+          const sum = document.getElementById('summaryList');
+          sum.innerHTML = '';
+          state.questions.forEach((q, i) => {
+            const d = document.createElement('div');
+            d.className = 'summaryItem';
+            const user =
+              q.userChoice === null ? '(no answer)' : q.options[q.userChoice];
+            const correct = q.options[q.correctIndex];
+            d.innerHTML = `<strong>${i + 1})</strong> ${
+              q.qTextRaw || q.qText || ''
+            }<br>
+        Answer: <span style="color:${
+          q.userChoice === q.correctIndex ? 'green' : 'red'
+        }">${user}</span> &nbsp; Correct: <strong>${correct}</strong>`;
+            sum.appendChild(d);
+          });
+          document.getElementById(
+            'finalScore'
+          ).textContent = `Score: ${state.score} / ${state.attempted}`;
+        }
+
+        // notify parent (playlist) when finalNext clicked
+        function notifyParent(payload) {
+          try {
+            window.parent.postMessage(
+              JSON.stringify(Object.assign({ done: true }, payload || {})),
+              '*'
+            );
+          } catch (e) {}
+        }
+
+        // init
+        window.addEventListener('DOMContentLoaded', () => {
+          state.payload = readPayload();
+          if (!state.payload) {
+            // nothing provided: show helpful message
+            document.getElementById('mcqCard').innerHTML =
+              '<div class="small">No payload found. Provide ?payload=... or data-payload on iframe.</div>';
+            return;
+          }
+
+          // The engine supports payload in either shape:
+          // payload.data.questions OR payload.questions OR payload.data (array)
+          const data = state.payload.data || state.payload;
+          const rawQuestions = data.questions || data;
+          if (!Array.isArray(rawQuestions) || rawQuestions.length === 0) {
+            document.getElementById('mcqCard').innerHTML =
+              '<div class="small">No questions found in payload.</div>';
+            return;
+          }
+
+          // render title/image/audio if exist
+          renderTitleAndImage();
+
+          // Normalize question set
+          state.questions = normalizeQuestions(rawQuestions);
+          state.total = state.questions.length;
+          state.current = 0;
+          state.score = 0;
+          state.attempted = 0;
+
+          updateScore();
+          renderQuestion();
+
+          // next button
+          const nextBtn = document.getElementById('nextBtn');
+          nextBtn.addEventListener('click', () => {
+            if (state.current + 1 < state.total) {
+              state.current++;
+              renderQuestion();
+            } else {
+              showSummary();
+            }
+          });
+
+          document
+            .getElementById('finalNextBtn')
+            .addEventListener('click', () => {
+              notifyParent({ score: state.score, total: state.attempted });
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Audio + Image + MCQ Activity</title>
+    <style>
+      :root {
+        --bg: #eef0f1;
+        --card: #fff;
+        --accent: #0b3b4a; /* Dark Blue-Green from the theme */
+        --accent-light: #2a5c6d;
+        --success: #2ecc71;
+        --danger: #e74c3c;
+        --btn: #11495b;
+        --shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        background-color: transparent !important;
+      }
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: var(--bg);
+        font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+        color: #222;
+        background-color: transparent !important;
+        line-height: 2.3;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 20px auto;
+        padding: 20px;
+      }
+      .title {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 14px;
+        font-weight: 600;
+      }
+      .card {
+        background: var(--card);
+        padding: 18px;
+        border-radius: 6px;
+        box-shadow: var(--shadow);
+        background-color: transparent !important;
+      }
+
+      /* --- NEW CUSTOM AUDIO PLAYER CSS --- */
+      .audioWrap {
+        display: flex;
+        justify-content: center;
+        margin: 10px 0 20px;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+      }
+
+      .custom-audio-player {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: #fff;
+        padding: 10px 20px;
+        border-radius: 30px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        width: 100%;
+        max-width: 500px;
+        border: 1px solid #eee;
+      }
+
+      .play-pause-btn {
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background 0.2s;
+        flex-shrink: 0;
+      }
+
+      .play-pause-btn:hover {
+        background: var(--accent-light);
+      }
+
+      .seek-bar-container {
+        flex-grow: 1;
+        position: relative;
+        height: 5px;
+        background: #e0e0e0;
+        border-radius: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+      }
+      
+      .seek-bar {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 5px;
+        background: transparent;
+        border-radius: 5px;
+        outline: none;
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+        margin: 0;
+      }
+
+      .seek-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        background: var(--accent);
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        transition: transform 0.1s;
+      }
+      .seek-bar::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+      }
+       .seek-bar::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        background: var(--accent);
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        border: none;
+         transition: transform 0.1s;
+      }
+      .seek-bar::-moz-range-thumb:hover {
+        transform: scale(1.2);
+      }
+
+
+      /* Progress Fill */
+      .seek-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: var(--accent);
+        border-radius: 5px;
+        width: 0%;
+        z-index: 1;
+        pointer-events: none; /* Let clicks pass to the input */
+      }
+
+      .time-display {
+        font-size: 14px;
+        color: #666;
+        font-variant-numeric: tabular-nums;
+        min-width: 80px;
+        text-align: center;
+      }
+      
+      /* Ensure the graphic is visible */
+      #titleWrap {
+          position: relative;
+          padding-bottom: 50px; /* Add space for the graphic */
+      }
+      #actTitle {
+          position: relative;
+          z-index: 5;
+      }
+      #imageContainer {
+          position: absolute;
+          top: 50px; /* Position the image/graphic */
+          left: 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          z-index: 1;
+          opacity: 0.7; /* Make it subtle */
+      }
+
+      /* ------------------------- */
+
+      .imageWrap {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 14px;
+      }
+      .imageWrap img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); */ /* Removed shadow for graphic */
+      }
+
+      .qTitle {
+        font-size: 20px;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .qText {
+        margin: 8px 0 18px;
+        font-size: 18px;
+      }
+      .options {
+        display: block;
+        margin: 6px 0 20px;
+        padding-left: 0;
+        list-style: none;
+      }
+      .option {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 10px 0;
+        cursor: pointer;
+      }
+      .radio {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 3px solid #1e3b4a;
+        display: inline-block;
+        box-sizing: border-box;
+        flex: 0 0 28px;
+        background: white;
+        position: relative;
+      }
+      .radio.checked {
+        background: #6e2f7a;
+        border-color: #6e2f7a;
+      }
+      .optLabel {
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: #fafafa;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+      }
+      .optLabel.correct {
+        border-color: var(--success);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.02);
+      }
+      .optLabel.wrong {
+        border-color: var(--danger);
+        opacity: 0.9;
+      }
+      .controls {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 10px;
+      }
+      .score {
+        padding: 8px 12px;
+        border-radius: 6px;
+        background: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
+      }
+      .btn {
+        background: var(--btn);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+      .btn.disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+      .mark {
+        position: fixed;
+        right: 40px;
+        top: 36%;
+        font-size: 64px;
+        display: none;
+      }
+      .mark.right {
+        color: var(--success);
+      }
+      .mark.wrong {
+        color: var(--danger);
+      }
+      .summary {
+        margin-top: 16px;
+      }
+      .summaryItem {
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+      }
+      .small {
+        font-size: 14px;
+        color: #555;
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 12px;
+        }
+        .title {
+          font-size: 20px;
+        }
+        .qText {
+          font-size: 16px;
+        }
+        .mark {
+          right: 14px;
+          top: 30%;
+        }
+
+        .question {
+          font-size: 18px;
+          line-height: 1.7;
+          padding: 14px 16px;
+          margin-bottom: 16px;
+          background: #ffffff;
+          border-radius: 8px;
+          border: 1px solid #e0e0e0;
+          color: #222;
+          white-space: pre-wrap;
+        }
+          
+
+
+
+
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div
+        id="titleWrap"
+        class="card"
+        style="margin-bottom: 12px; display: none"
+      >
+        <div id="actTitle" class="title"></div>
+        <div id="audioContainer" class="audioWrap"></div>
+        <div id="imageContainer" class="imageWrap"></div>
+      </div>
+
+      <div id="mcqCard" class="card">
+        <div class="qTitle" id="questionTitle"></div>
+        <div id="qwrap" class="qwrap"></div>
+
+        <div class="controls">
+          <div class="score" id="scoreBox">Score : 0 / 0</div>
+          <div style="margin-left: auto">
+            <button class="btn" id="hintBtn" style="display: none">Hint</button>
+            <button class="btn disabled" id="nextBtn" style="display: none">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="finalWrap" class="card" style="display: none; margin-top: 18px">
+        <div class="title">You have completed this activity.</div>
+        <div id="summaryList" class="summary"></div>
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 12px;
+          "
+        >
+          <div class="small" id="finalScore"></div>
+          <button class="btn" id="finalNextBtn">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="rightMark" class="mark right">✔</div>
+    <div id="wrongMark" class="mark wrong">✖</div>
+
+    <script>
+      (function () {
+        // read payload (query param ?payload= or window.frameElement.dataset.payload)
+        function readPayload() {
+          try {
+            const url = new URL(location.href);
+            let raw = url.searchParams.get('payload');
+            if (
+              !raw &&
+              window.frameElement &&
+              window.frameElement.dataset &&
+              window.frameElement.dataset.payload
+            ) {
+              raw = window.frameElement.dataset.payload;
+            }
+            if (!raw) return null;
+            // try decode twice safely
+            try {
+              raw = decodeURIComponent(raw);
+            } catch (e) {}
+            try {
+              raw = decodeURIComponent(raw);
+            } catch (e) {}
+            return JSON.parse(raw);
+          } catch (e) {
+            console.error('readPayload error', e);
+            return null;
+          }
+        }
+
+        function parseOptionsString(raw) {
+          return (raw || '')
+            .split(/\n|,/)
+            .map((s) => s.trim())
+            .filter(Boolean);
+        }
+
+        function shuffleArray(arr) {
+          const a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+
+        // normalize questions: support *marked* option -> correct
+        function normalizeQuestions(raw) {
+          return raw.map((q) => {
+            const original = q.qText || q.text || '';
+            // options may be string; handle star-marked option
+            const rawOpts = parseOptionsString(q.options || q.option || '');
+            let originalCorrectIndex = -1;
+            const cleaned = rawOpts.map((o, idx) => {
+              if (o.indexOf('*') !== -1) {
+                originalCorrectIndex = idx;
+                return o.replace(/\*/g, '').trim();
+              }
+              return o;
+            });
+            if (originalCorrectIndex === -1) originalCorrectIndex = 0;
+            // shuffle options while mapping correct index
+            const indices = cleaned.map((_, i) => i);
+            const shuffledIndices = shuffleArray(indices);
+            const shuffledOpts = [];
+            let newCorrect = -1;
+            shuffledIndices.forEach((origIdx, newIdx) => {
+              shuffledOpts.push(cleaned[origIdx]);
+              if (origIdx === originalCorrectIndex) newCorrect = newIdx;
+            });
+            if (newCorrect === -1) newCorrect = 0;
+            return {
+              qTextRaw: original,
+              qText: original, // preserve question text as-is (per your request)
+              options: shuffledOpts,
+              correctIndex: newCorrect,
+              userChoice: null,
+              answered: false,
+              type: q.type || 'mcq',
+            };
+          });
+        }
+
+        // UI state
+        const state = {
+          payload: null,
+          questions: [],
+          current: 0,
+          score: 0,
+          attempted: 0,
+          total: 0,
+        };
+
+        // Create a custom audio player
+        function createCustomAudioPlayer(audioSrc) {
+          const container = document.createElement('div');
+          container.className = 'custom-audio-player';
+
+          const audio = document.createElement('audio');
+          audio.src = audioSrc;
+          audio.style.display = 'none'; // Hide the default player
+
+          const playBtn = document.createElement('button');
+          playBtn.className = 'play-pause-btn';
+          playBtn.innerHTML = '▶'; // Play icon
+
+          const seekBarContainer = document.createElement('div');
+          seekBarContainer.className = 'seek-bar-container';
+
+          const seekBar = document.createElement('input');
+          seekBar.type = 'range';
+          seekBar.className = 'seek-bar';
+          seekBar.value = 0;
+          seekBar.max = 100;
+
+          const seekFill = document.createElement('div');
+          seekFill.className = 'seek-fill';
+
+          seekBarContainer.appendChild(seekFill);
+          seekBarContainer.appendChild(seekBar);
+
+          const timeDisplay = document.createElement('span');
+          timeDisplay.className = 'time-display';
+          timeDisplay.textContent = '0:00 / 0:00';
+
+          container.appendChild(audio);
+          container.appendChild(playBtn);
+          container.appendChild(seekBarContainer);
+          container.appendChild(timeDisplay);
+
+          // Audio Controls Logic
+          playBtn.addEventListener('click', () => {
+            if (audio.paused) {
+              audio.play();
+              playBtn.innerHTML = '❚❚'; // Pause icon
+            } else {
+              audio.pause();
+              playBtn.innerHTML = '▶'; // Play icon
+            }
+          });
+
+          audio.addEventListener('timeupdate', () => {
+            const value = (audio.currentTime / audio.duration) * 100;
+            seekBar.value = value || 0;
+            seekFill.style.width = `${value || 0}%`;
+            
+            const current = formatTime(audio.currentTime);
+            const duration = formatTime(audio.duration);
+            timeDisplay.textContent = `${current} / ${duration}`;
+          });
+
+          seekBar.addEventListener('input', () => {
+            const time = (seekBar.value / 100) * audio.duration;
+            audio.currentTime = time;
+          });
+
+          audio.addEventListener('loadedmetadata', () => {
+            timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
+          });
+
+          audio.addEventListener('ended', () => {
+            playBtn.innerHTML = '▶';
+            seekBar.value = 0;
+            seekFill.style.width = '0%';
+          });
+
+          return container;
+        }
+
+        function formatTime(seconds) {
+          if (isNaN(seconds)) return '0:00';
+          const m = Math.floor(seconds / 60);
+          const s = Math.floor(seconds % 60);
+          return `${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+
+        // show title + image + audio if present
+        function renderTitleAndImage() {
+          const titleWrap = document.getElementById('titleWrap');
+          const actTitle = document.getElementById('actTitle');
+          const imageContainer = document.getElementById('imageContainer');
+          const audioContainer = document.getElementById('audioContainer');
+
+          const p = state.payload && (state.payload.data || state.payload);
+          if (!p) return;
+
+          const title = p.title || p.label || '';
+          const image =
+            p.image ||
+            (p.data && p.data.image) ||
+            (p.data && p.data.bgData && p.data.bgData.bgImg) ||
+            null;
+          
+          // Extract Audio
+          const audioSrc = p.audio || (p.data && p.data.audio) || null;
+
+          if (title || image || audioSrc) {
+            titleWrap.style.display = 'block';
+            actTitle.textContent = title || '';
+          } else {
+            titleWrap.style.display = 'none';
+          }
+
+          // Handle Audio with Custom Player
+          audioContainer.innerHTML = '';
+          if (audioSrc) {
+            const customPlayer = createCustomAudioPlayer(audioSrc);
+            audioContainer.appendChild(customPlayer);
+          }
+
+          // Handle Image (Background Graphic)
+          imageContainer.innerHTML = '';
+          if (image) {
+            const img = document.createElement('img');
+            img.src = image;
+            img.alt = title || 'background graphic';
+            // apply bgData sizing if available
+            const bg = p.bgData || (p.data && p.data.bgData);
+            if (bg) {
+              if (bg.width) img.style.maxWidth = bg.width + 'px';
+              if (bg.height) img.style.maxHeight = bg.height + 'px';
+            }
+            imageContainer.appendChild(img);
+          }
+        }
+
+        // MCQ rendering
+        function renderQuestion() {
+          const rightMarkEl = document.getElementById('rightMark');
+          const wrongMarkEl = document.getElementById('wrongMark');
+          rightMarkEl.style.display = 'none';
+          wrongMarkEl.style.display = 'none';
+
+          const q = state.questions[state.current];
+          const wrap = document.getElementById('qwrap');
+          const title = document.getElementById('questionTitle');
+          const nextBtn = document.getElementById('nextBtn');
+
+          // set top title: use activity title (already shown above) but show short heading here
+          title.textContent =
+            (state.payload &&
+              (state.payload.data
+                ? state.payload.data.title
+                : state.payload.title)) ||
+            '';
+
+          wrap.innerHTML = '';
+
+          const qDiv = document.createElement('div');
+          qDiv.className = 'question';
+          qDiv.innerHTML = q.qText || '';
+          wrap.appendChild(qDiv);
+
+          const optBox = document.createElement('div');
+          optBox.className = 'options';
+
+          q.options.forEach((opt, i) => {
+            const li = document.createElement('div');
+            li.className = 'option';
+            li.dataset.index = i;
+
+            const radio = document.createElement('span');
+            radio.className = 'radio';
+
+            const label = document.createElement('div');
+            label.className = 'optLabel';
+            label.textContent = opt;
+
+            li.appendChild(radio);
+            li.appendChild(label);
+
+            li.addEventListener('click', () => {
+              if (q.answered) return;
+              q.answered = true;
+              q.userChoice = i;
+              state.attempted++;
+              const isCorrect = i === q.correctIndex;
+              if (isCorrect) {
+                li.querySelector('.optLabel').classList.add('correct');
+                state.score++;
+                rightMarkEl.style.display = 'block';
+              } else {
+                li.querySelector('.optLabel').classList.add('wrong');
+                const correctLi = optBox.querySelector(
+                  `.option[data-index="${q.correctIndex}"]`
+                );
+                if (correctLi)
+                  correctLi.querySelector('.optLabel').classList.add('correct');
+                wrongMarkEl.style.display = 'block';
+              }
+              updateScore();
+              nextBtn.disabled = false;
+              nextBtn.classList.remove('disabled');
+              nextBtn.style.display = 'inline-block';
+            });
+
+            optBox.appendChild(li);
+          });
+
+          wrap.appendChild(optBox);
+          // hide next until answered
+          nextBtn.disabled = true;
+          nextBtn.style.display = 'none';
+          nextBtn.classList.add('disabled');
+          nextBtn.textContent =
+            state.current === state.total - 1 ? 'Finish' : 'Next';
+        }
+
+        function updateScore() {
+          const s = document.getElementById('scoreBox');
+          s.textContent = `Score : ${state.score} / ${state.attempted}`;
+        }
+
+        function showSummary() {
+          document.getElementById('mcqCard').style.display = 'none';
+          document.getElementById('finalWrap').style.display = 'block';
+          const sum = document.getElementById('summaryList');
+          sum.innerHTML = '';
+          state.questions.forEach((q, i) => {
+            const d = document.createElement('div');
+            d.className = 'summaryItem';
+            const user =
+              q.userChoice === null ? '(no answer)' : q.options[q.userChoice];
+            const correct = q.options[q.correctIndex];
+            d.innerHTML = `<strong>${i + 1})</strong> ${
+              q.qTextRaw || q.qText || ''
+            }<br>
+        Answer: <span style="color:${
+          q.userChoice === q.correctIndex ? 'green' : 'red'
+        }">${user}</span> &nbsp; Correct: <strong>${correct}</strong>`;
+            sum.appendChild(d);
+          });
+          document.getElementById(
+            'finalScore'
+          ).textContent = `Score: ${state.score} / ${state.attempted}`;
+        }
+
+        // notify parent (playlist) when finalNext clicked
+        function notifyParent(payload) {
+          try {
+            window.parent.postMessage(
+              JSON.stringify(Object.assign({ done: true }, payload || {})),
+              '*'
+            );
+          } catch (e) {}
+        }
+
+        // init
+        window.addEventListener('DOMContentLoaded', () => {
+          state.payload = readPayload();
+          if (!state.payload) {
+            // nothing provided: show helpful message
+            document.getElementById('mcqCard').innerHTML =
+              '<div class="small">No payload found. Provide ?payload=... or data-payload on iframe.</div>';
+            return;
+          }
+
+          // The engine supports payload in either shape:
+          // payload.data.questions OR payload.questions OR payload.data (array)
+          const data = state.payload.data || state.payload;
+          const rawQuestions = data.questions || data;
+          if (!Array.isArray(rawQuestions) || rawQuestions.length === 0) {
+            document.getElementById('mcqCard').innerHTML =
+              '<div class="small">No questions found in payload.</div>';
+            return;
+          }
+
+          // render title/image/audio if exist
+          renderTitleAndImage();
+
+          // Normalize question set
+          state.questions = normalizeQuestions(rawQuestions);
+          state.total = state.questions.length;
+          state.current = 0;
+          state.score = 0;
+          state.attempted = 0;
+
+          updateScore();
+          renderQuestion();
+
+          // next button
+          const nextBtn = document.getElementById('nextBtn');
+          nextBtn.addEventListener('click', () => {
+            if (state.current + 1 < state.total) {
+              state.current++;
+              renderQuestion();
+            } else {
+              showSummary();
+            }
+          });
+
+          document
+            .getElementById('finalNextBtn')
+            .addEventListener('click', () => {
+              notifyParent({ score: state.score, total: state.attempted });
+            });
+        });
+      })();
+    </script>
+  </body>
+</html> -->

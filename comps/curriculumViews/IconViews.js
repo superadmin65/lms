@@ -37,6 +37,7 @@ const Styled = styled.div`
   }
 
   .card {
+
     display: flex;
     .img {
       background-size: contain;

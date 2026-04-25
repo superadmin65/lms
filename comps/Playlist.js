@@ -14,7 +14,7 @@ import PIconView from "./curriculumViews/PIconView";
 import SubCards from "./curriculumViews/SubCards";
 import LZString from "lz-string";
 import { apiService } from "../utils/apiService";
-
+import Link from "node_modules/next/link";
 import McqAct from "./acts/McqAct";
 import CompleteWordAct from "./acts/CompleteWordAct";
 import WordSearchAct from "./acts/WordSearchAct";
@@ -39,21 +39,25 @@ const Styled = styled.div`
   flex-wrap: wrap;
   position: relative;
   user-select: none;
-  background-color: var(--l2);
+
   color: #222;
+
   .chapWrap {
     background-color: var(--l2);
-
+    color: #a6b0cf;
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
     &.selected {
-      background-color: var(--h);
+      background-color: var(--h);  
     }
   }
 
   .chap {
-    padding: 5px 5px 5px 10px;
+    padding: 10px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    background-color: #0b3315;
   }
 
   .chapDisplay {
@@ -63,30 +67,54 @@ const Styled = styled.div`
     justify-content: center;
     margin: 10px 40px;
     min-height: 600px;
+
     .chapName {
       font-size: 3rem;
       margin: 40px 0;
     }
   }
-
+  .sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #0b3315;
+    overflow-y: auto;
+  }
   ol {
-    width: 400px;
-    border: 1px solid var(--lightColor);
+    background-color: #0b3315;
     li {
-      padding: 5px 10px;
-      border: 1px solid var(--l);
+      color: #a6b0cf;
+      background-color: #0b3315;
+      padding: 10px 24px;
+      border-top: none;
       cursor: pointer;
       display: flex;
+      transition: transform 0.3s ease;
+      font-size: 13px;
+
+      font-family: "Poppins", sans-serif;
+
       &.head {
-        color: var(--darkColor2);
-        text-align: center;
+        font-size: 0.8rem;
+        font-weight: 600;
+
+        margin-left: 10px;
+        margin-right: 10px;
         padding: 10px;
-        font-size: 1.5rem;
-        font-weight: bold;
+        margin-top: 20px;
+
+        padding: 5px;
       }
 
       &.selected {
-        background-color: var(--h2);
+        background-color: #1f740e;
+        color: white;
+        border-top: 1px solid #0b3315;
+        border-bottom: 1px solid #a6b0cf;
+      }
+
+      &:not(.head):hover {
+        transform: scale(1.05);
+        color: white;
       }
 
       .numbering {
@@ -95,7 +123,7 @@ const Styled = styled.div`
         text-align: right;
         margin-right: 10px;
         font-size: 0.8rem;
-        padding-top: 3px;
+        padding-top: 1px;
       }
     }
   }
@@ -123,7 +151,18 @@ const Styled = styled.div`
   .imgPlaceHolder {
     width: 24px;
     height: 24px;
-    margin-right: 5px;
+  }
+
+  .loadingImg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .logoPlaceHolder {
+    width: 300px;
+    height: 70px;
+    padding: 10px;
   }
 
   .mainPlaceHolder {
@@ -132,6 +171,7 @@ const Styled = styled.div`
     align-items: center;
     justify-content: center;
     min-height: 95vh;
+    background: var(--l); /#f5f5dc*/
   }
 
   .placeHolder {
@@ -155,8 +195,7 @@ const Styled = styled.div`
   .actIFrame {
     border: none;
     min-width: 100vw;
-    width: ${(p) =>
-      p.$hideTOC ? "calc(100vw - 80px)" : "calc(100vw - 490px)"};
+    width: 100%;
     height: 100vh;
   }
 
@@ -214,7 +253,8 @@ const splTypes = ["pdf", "link", "pLink", "mvid", "youtube"];
 export default function Playlist(props) {
   const router = useRouter();
   const pathname = usePathname();
-
+  const lastManualRef = useRef(null);
+  const historyStack = useRef([]);
   const playlistId = router.query.slug ? router.query.slug[0] : null;
 
   const hasData = props.toc && props.toc.list && props.toc.list.length > 0;
@@ -242,6 +282,8 @@ export default function Playlist(props) {
     activeChap: props.toc?.loadFirstAct && firstChapter ? 0 : -1,
     hideTOC: props.toc?.cardView ? true : false,
     toggleChaps,
+    currentBg: null, // ✅ NEW
+    isLoading: false,
   });
 
   const stateRef = useRef(state);
@@ -252,6 +294,22 @@ export default function Playlist(props) {
 
   const handleSmartBack = () => {
     const s = stateRef.current || state;
+    // 🔥 Jump-back logic (your requirement)
+    if (historyStack.current.length > 0) {
+      const last = historyStack.current.pop();
+
+      const chapList = props.toc?.list?.[last.chap]?.list;
+      const item = chapList?.find((it) => it.id === last.id);
+
+      if (item) {
+        if (Array.isArray(item.data)) {
+          numberSelect(item, last.chap, last.num - 1);
+        } else {
+          onSelect(item, last.chap);
+        }
+        return;
+      }
+    }
 
     // SCENARIO 1: If we are already on the SubCards Grid Menu, go to Dashboard!
     if (!s.active || s.activeChap === -1) {
@@ -327,8 +385,25 @@ export default function Playlist(props) {
     props.playlistRef.current = { handleSmartBack };
   }
 
-  async function onSelect(item, activeChap, i = 0) {
-    // 1️⃣ Handle external links immediately
+  async function onSelect(item, activeChap, i = 0, isManual = false) {
+    console.log("onSelect CALLED", {
+      itemId: item?.id,
+      activeBefore: stateRef.current?.active?.id,
+      isManual,
+      isAuto: stateRef.current?.isAutoNavigation,
+    });
+
+    if (isManual && stateRef.current.active) {
+      console.log("✅ PUSHING TO HISTORY");
+
+      historyStack.current.push({
+        id: stateRef.current.active.id,
+        chap: stateRef.current.activeChap,
+        num: stateRef.current.activeNum - 1,
+      });
+    }
+    console.log(historyStack);
+    // Handle links
     if (item.type === "link" || item.type === "youtube") {
       window.open(loadAsset(item.src), "child");
       return;
@@ -338,43 +413,57 @@ export default function Playlist(props) {
       return;
     }
 
-    //  Show loading state
+    const isSameChapter = stateRef.current.activeChap === activeChap;
+
+    let bg = stateRef.current.currentBg;
+    console.log("BG IMAGE:", bg);
+    // ✅ ONLY set bg when chapter changes
+    if (!isSameChapter || !bg) {
+      const chapterLabel = props.toc.list[activeChap]?.label;
+      bg = getCategoryBackground(chapterLabel, playlistId);
+    }
+
+    // loading state
     setState((prev) => ({
       ...prev,
-      active: { loading: true },
+      isLoading: true,
       activeChap,
+      currentBg: bg,
     }));
-
+    const startTime = Date.now();
     try {
-      //  FIXED: Replace with empty string, not space
-      // const activityId = String(item.id).replace("act-", "");
       const activityId = String(item.id);
       const res = await apiService.getActivityDetail(activityId);
+
       let data = res.data;
-      if (!data) {
-        console.error("Empty API response");
-        data = {};
-      } else if (typeof data === "string") {
+      if (typeof data === "string") {
         try {
           data = JSON.parse(data);
-        } catch (e) {
-          console.error("Invalid JSON:", data);
+        } catch {
           data = {};
         }
       }
 
-      setState((prev) => ({
-        ...prev,
-        active: { ...item, data: data || {} },
-        activeChap,
-        activeNum: i + 1, // UI expects 1-based indexing
-        hideTOC: false,
-      }));
+      const elapsed = Date.now() - startTime;
+      const remainingTime = Math.max(1000 - elapsed, 0);
+
+      setTimeout(() => {
+        setState((prev) => ({
+          ...prev,
+          active: { ...item, data: data || {} },
+          activeChap,
+          activeNum: i + 1,
+          hideTOC: false,
+          currentBg: bg,
+          isLoading: false,
+        }));
+      }, remainingTime);
     } catch (err) {
       console.error("Activity load failed", err);
       setState((prev) => ({
         ...prev,
         active: { type: "error", message: "Failed to load activity" },
+        isLoading: false,
       }));
     }
   }
@@ -402,7 +491,11 @@ export default function Playlist(props) {
       if (items && items.length > 0) {
         const firstActivity = items[0];
         // Recursive drill-down to find the first real activity
+        stateRef.current.isAutoNavigation = true;
+
         onSelect(firstActivity, state.activeChap, 0);
+
+        stateRef.current.isAutoNavigation = false;
         return;
       }
     }
@@ -413,7 +506,9 @@ export default function Playlist(props) {
     const firstChapter = dataList[0];
     const items = firstChapter.list || firstChapter.contents;
     if (items && items.length > 0) {
+      stateRef.current.isAutoNavigation = true;
       onSelect(items[0], 0, 0);
+      stateRef.current.isAutoNavigation = false;
     }
   }, [props.toc, state.activeChap, state.active]); // Added state.activeChap to dependencies
 
@@ -439,7 +534,7 @@ export default function Playlist(props) {
     } else {
       data = { ...data, ...subData };
     }
-    onSelect({ ...item, data }, activeChap, i + 1);
+    onSelect({ ...item, data }, activeChap, i + 1, true);
   }
 
   useEffect(() => {
@@ -465,7 +560,9 @@ export default function Playlist(props) {
       const currentItem = chapList[index];
       if (Array.isArray(currentItem.data)) {
         if (s.activeNum < currentItem.data.length) {
+          stateRef.current.isAutoNavigation = true;
           numberSelect(currentItem, s.activeChap, s.activeNum);
+          stateRef.current.isAutoNavigation = false;
           return;
         } else {
           // If we finished a chapter and we are in CardView, go back to the Grid!
@@ -488,9 +585,13 @@ export default function Playlist(props) {
       if (index + 1 < chapList.length) {
         const nextItem = chapList[index + 1];
         if (Array.isArray(nextItem.data)) {
+          stateRef.current.isAutoNavigation = true;
           numberSelect(nextItem, s.activeChap, 0);
+          stateRef.current.isAutoNavigation = false;
         } else {
+          stateRef.current.isAutoNavigation = true;
           onSelect(nextItem, s.activeChap);
+          stateRef.current.isAutoNavigation = false;
         }
       } else {
         // If we finished a chapter and we are in CardView, go back to the Grid!
@@ -527,7 +628,7 @@ export default function Playlist(props) {
             flexDirection: "column",
             width: "100%",
             textAlign: "center",
-            backgroundColor: "#f6fff5",
+            backgroundColor: "var(--l)",
           }}
         >
           <div style={{ fontSize: "5rem", marginBottom: "20px" }}>🚀</div>
@@ -559,17 +660,25 @@ export default function Playlist(props) {
     >
       {props.toc.type === "curriculumIcon" && <IconView data={props.toc} />}
       {(!props.toc.type || props.toc.type === "nested") && !state.hideTOC && (
-        <div style={{ maxHeight: "100vh", overflow: "auto" }}>
+        <div className="sidebar">
+          <div>
+            <img
+              className="logoPlaceHolder"
+              src={publicPath("/konzeptes/logo.png")}
+              alt="Logo"
+            />
+          </div>
           <ol>
             <li
               className="head"
-              style={{ display: "flex", alignItems: "center" }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
             >
-              <Svg
-                id="minimize"
-                onClick={() => setState({ ...state, hideTOC: true })}
-              />
-              <div>{props.toc.label}</div>
+              <Link href="/home" style={{ color: "#a6b0cf " }}>
+                {props.toc.label}
+              </Link>
             </li>
 
             {hasData &&
@@ -608,13 +717,30 @@ export default function Playlist(props) {
                           onClick={() => {
                             let toggleChaps = [...state.toggleChaps];
                             if (props.toc.collapseRest) {
-                              toggleChaps = toggleChaps.map((item, j) =>
-                                i === j ? !toggleChaps[i] : false,
-                              );
-                            } else {
-                              toggleChaps[i] = !toggleChaps[i];
+                              toggleChaps = toggleChaps.map(() => false);
                             }
-                            setState({ ...state, toggleChaps });
+                            toggleChaps[i] = true;
+
+                            const chapterLabel = props.toc.list[i]?.label;
+                            const bg = getCategoryBackground(
+                              chapterLabel,
+                              playlistId,
+                            );
+
+                            const firstItem = props.toc.list[i].list[0];
+
+                            setState({
+                              ...state,
+                              activeChap: i,
+                              toggleChaps,
+                              currentBg: bg, // ✅ set once here
+                            });
+
+                            if (Array.isArray(firstItem.data)) {
+                              numberSelect(firstItem, i, 0);
+                            } else {
+                              onSelect(firstItem, i);
+                            }
                           }}
                         />
                         <div
@@ -624,19 +750,20 @@ export default function Playlist(props) {
                               toggleChaps = toggleChaps.map(() => false);
                             }
                             toggleChaps[i] = true;
-                            setState({
-                              ...state,
-                              active: Array.isArray(
-                                props.toc.list[i].list[0].data,
-                              )
-                                ? getDataFromGroupAct(
-                                    props.toc.list[i].list[0],
-                                    0,
-                                  )
-                                : props.toc.list[i].list[0],
+
+                            const firstItem = props.toc.list[i].list[0];
+
+                            setState((prev) => ({
+                              ...prev,
                               activeChap: i,
                               toggleChaps,
-                            });
+                            }));
+
+                            if (Array.isArray(firstItem.data)) {
+                              numberSelect(firstItem, i, 0);
+                            } else {
+                              onSelect(firstItem, i, 0, true);
+                            }
                           }}
                         >
                           {i + 1}. {chap.label}{" "}
@@ -658,13 +785,13 @@ export default function Playlist(props) {
                                   ? "selected"
                                   : ""
                               }
-                              onClick={() => onSelect(item, i, j)}
+                              onClick={() => onSelect(item, i, j, true)}
                               style={{
                                 backgroundColor:
                                   item.type === "chapter" ? "pink" : "",
                               }}
                             >
-                              {getIcon(item.type)}
+                              {/* {getIcon(item.type)} */}
                               <span className="numbering"> {j + 1}. </span>
                               <span className="item">{item.label}</span>
                             </li>
@@ -725,7 +852,7 @@ export default function Playlist(props) {
         <PIconView data={props.toc} appType="small" />
       )}
 
-      {/* {state.hideTOC && state.activeChap !== -1 && ( */}
+      {/* {state.hideTOC && state.activeChap !== -1 && (
       {state.hideTOC && (
         // <div style={{ marginTop: 50 }}>
         <div
@@ -743,7 +870,7 @@ export default function Playlist(props) {
             onClick={() => setState({ ...state, hideTOC: false })}
           />
         </div>
-      )}
+      )} */}
 
       {(!props.toc.type || props.toc.type === "nested") && (
         <div className="mainPlaceHolder">
@@ -778,7 +905,6 @@ export default function Playlist(props) {
             </div>
           )}
           {}
-
           {/* {props.toc.cardView && !state.active && ( */}
           {props.toc.cardView && state.activeChap === -1 && (
             <SubCards
@@ -822,8 +948,30 @@ export default function Playlist(props) {
             />
           )}
 
-          {state.active?.loading ? (
-            <div>⏳ Loading...</div>
+          {state.isLoading ? (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                background: "var(--l)",
+
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 10,
+              }}
+            >
+              <span
+                style={{
+                  color: "#0b8a1c",
+                  fontWeight: "600",
+                  fontSize: "1.5rem",
+                }}
+              >
+                Loading...{" "}
+              </span>
+              <img className="loadingImg" src="/konzeptes/kea.png" />
+            </div>
           ) : state.active &&
             state.active.type !== "chapter" &&
             state.active.data ? (
@@ -832,7 +980,9 @@ export default function Playlist(props) {
                 state.active,
                 () => setState({ ...state, active: null }),
                 null,
-                getCategoryBackground(props.toc.label, playlistId),
+                state.currentBg,
+                props.toc.list[state.activeChap]?.label,
+                props.toc.id,
               )}
             </DelayLoader>
           ) : null}
@@ -842,44 +992,56 @@ export default function Playlist(props) {
   );
 }
 
-function getIcon(type) {
-  switch (type) {
-    case "pdf":
-      return <img src={publicPath("/img/icons/pdfIcon.png")} alt="PDF" />;
-    case "link":
-      return <img src={publicPath("/img/icons/linkIcon.png")} alt="Link" />;
-    case "pLink":
-      return <img src={publicPath("/img/icons/icon32.png")} alt="Link" />;
-    case "mvid":
-      return <img src={publicPath("/img/icons/videoIcon.png")} alt="Video" />;
-    case "youtube":
-      return (
-        <img src={publicPath("/img/icons/youtubeIcon.png")} alt="YouTube" />
-      );
-    default:
-      return <div className="imgPlaceHolder" />;
-  }
-}
+// function getIcon(type) {
+//   switch (type) {
+//     case "mcq":
+//       return (
+//         <img src={publicPath("/konzeptes/icons/spelling.png")} alt="PDF" />
+//       );
+//     case "link":
+//       return <img src={publicPath("/img/icons/linkIcon.png")} alt="Link" />;
+//     case "pLink":
+//       return <img src={publicPath("/img/icons/icon32.png")} alt="Link" />;
+//     case "mvid":
+//       return <img src={publicPath("/img/icons/videoIcon.png")} alt="Video" />;
+//     case "youtube":
+//       return (
+//         <img src={publicPath("/img/icons/youtubeIcon.png")} alt="YouTube" />
+//       );
+//     default:
+//       return <div className="imgPlaceHolder" />;
+//   }
+// }
 
-function displayResource(item, onClose, onChapterNext, bgImage) {
+function displayResource(
+  item,
+  onClose,
+  onChapterNext,
+  bgImage,
+  chapterLabel,
+  chapId,
+) {
   const isApiBg = bgImage && bgImage.startsWith("http");
   const bgUrl = isApiBg ? bgImage : publicPath("/bg-images/" + bgImage);
 
-  if (!item || !item.data) {
-    return (
-      <div
-        style={{
-          fontSize: "2rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100%",
-        }}
-      >
-        ⏳ Loading...
-      </div>
-    );
-  }
+  const label = (chapterLabel || "").toLowerCase();
+
+  // if (!item || !item.data) {
+  //   return (
+  //     <div
+  //       style={{
+  //         fontSize: "2rem",
+  //         display: "flex",
+  //         justifyContent: "center",
+  //         alignItems: "center",
+  //         height: "100%",
+  //         backgroundColor: "var(--l)",
+  //       }}
+  //     >
+  //       ⏳ Loading... ⏳
+  //     </div>
+  //   );
+  // }
 
   switch (item.type) {
     case "pdf": {
@@ -912,65 +1074,62 @@ function displayResource(item, onClose, onChapterNext, bgImage) {
   const payload = { id: item.id, bgImage: bgUrl, ...(item.data || {}) };
 
   const containerStyle = {
-    backgroundImage: `url(${bgUrl})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
     width: "100%",
     height: "100vh",
-    backgroundColor: "transparent",
+
     position: "relative",
     overflow: "hidden",
+    backgroundColor: "var(--l)",
   };
-
+  console.log(chapId);
   switch (item.type) {
     case "mcq":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <McqAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
     case "completeWord":
       return (
-        <div style={containerStyle}>
-          <CompleteWordAct data={payload} />
-        </div>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
+          <CompleteWordAct data={payload}/>
+        </ActivityWrapper>
       );
     case "wordsearch":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <WordSearchAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
     case "sequence":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <SequenceAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
     case "classifySentence":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <ClassifySentenceAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
     case "matchByDragDrop":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <MatchByAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
     case "informationProcessing":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <InformationProcessingAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
     case "dragAndDrop":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <DragDropAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
     case "match": {
       const text = item.data?.text || "";
@@ -979,9 +1138,13 @@ function displayResource(item, onClose, onChapterNext, bgImage) {
       return (
         <div style={containerStyle}>
           {isPairFormat ? (
-            <MatchPairs data={payload} />
+            <ActivityWrapper bgUrl={bgUrl} id={chapId}>
+              <MatchPairs data={payload} />
+            </ActivityWrapper>
           ) : (
-            <MatchByAct data={payload} />
+            <ActivityWrapper bgUrl={bgUrl} id={chapId}>
+              <MatchByAct data={payload} />
+            </ActivityWrapper>
           )}
         </div>
       );
@@ -989,37 +1152,37 @@ function displayResource(item, onClose, onChapterNext, bgImage) {
     case "completePuzzle":
       // return <JoinWords data={item} />;
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <JoinWords data={item} />
-        </div>
+        </ActivityWrapper>
       );
 
     case "fillup":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <FillupAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
 
     case "selectWord":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <SelectWordAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
 
     case "rightOne":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <RightOneAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
 
     case "group":
       return (
-        <div style={containerStyle}>
+        <ActivityWrapper bgUrl={bgUrl} id={chapId}>
           <GroupAct data={payload} />
-        </div>
+        </ActivityWrapper>
       );
 
     default: {
@@ -1100,4 +1263,528 @@ function getCategoryBackground(label, id) {
   if (l.includes("comprehension")) return "bg22.jpg";
 
   return "bg30.jpg";
+}
+
+// ✅ Common Wrapper (same file)
+function ActivityWrapper({ children, bgUrl, id }) {
+  const containerStyle = {
+    width: "100%",
+    height: "100vh",
+    backgroundColor: "var(--l)",
+    position: "relative",
+    overflow: "hidden",
+  };
+
+  //listening
+  if (id === "card-p11") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/listening.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-25px",
+            top: "-30px",
+            width: "200px",
+            height: "150px",
+
+            pointerEvents: "none",
+          }}
+        />
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-50px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            transform: "none",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-50px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+            transform: "scaleX(-1)",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+  //Comprehension
+  if (id === "card-p15") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/comprehension-book.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-30px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-40px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            transform: "none",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-40px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+            transform: "scaleX(-1)",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Spelling
+  if (id === "card-p10") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/spelling-tick.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-30px",
+            top: "0px",
+            width: "120px",
+            height: "85px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-30px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            transform: "scaleX(-1)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-20px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Word Building
+  if (id === "card-p12") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/word-building-box.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-45px",
+            top: "-10px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-25px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-25px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+            transform: "scaleX(-1)",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Vocabulary
+  if (id === "card-p13") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/vocabulary-book.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-54px",
+            top: "-20px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-45px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-45px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+            transform: "scaleX(-1)",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Sentences
+  if (id === "card-p14") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/sentences-stars.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-5px",
+            top: "-20px",
+            width: "120px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-47px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            transform: "scaleX(-1)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-47px",
+            bottom: "-2px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Composition
+  if (id === "card-p16") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/composition-note.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-5px",
+            top: "-10px",
+            width: "120px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-30px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+            transform: "scaleX(-1)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-20px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Idioms
+  if (id === "card-p17") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/idioms-quotes.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-60px",
+            top: "-20px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-30px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+            transform: "scaleX(-1)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-20px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Grammar
+  if (id === "card-p18") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/grammar-book.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-80px",
+            top: "-10px",
+            width: "300px",
+            height: "175px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-30px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-20px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+            transform: "scaleX(-1)",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
+
+  //Word Search
+  if (id === "card-p19") {
+    return (
+      <div style={containerStyle}>
+        <img
+          src={publicPath("/konzeptes/icons/word-search-icon.png")}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-65px",
+            top: "0px",
+            width: "200px",
+            height: "100px",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* LEFT (mirror) */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            left: "-50px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+            transform: "scaleX(-1)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* RIGHT */}
+        <img
+          src={bgUrl}
+          alt="bg"
+          style={{
+            position: "absolute",
+            right: "-30px",
+            bottom: "0px",
+            width: "200px",
+            height: "150px",
+            pointerEvents: "none",
+          }}
+        />
+
+        <div style={{ width: "100%", height: "100%" }}>{children}</div>
+      </div>
+    );
+  }
 }

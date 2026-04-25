@@ -8,16 +8,12 @@ export default function DelayLoader(props) {
       setState({ ...state, isLoading: true });
       intervalID = setTimeout(
         () => setState({ ...state, isLoading: false }),
-        200
+        200,
       );
     }
 
     return () => intervalID && clearTimeout(intervalID);
   }, [props.lazyLoad, props.data]);
-
-  if (state.isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return props.children;
 }

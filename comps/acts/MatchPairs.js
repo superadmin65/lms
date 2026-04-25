@@ -6,6 +6,7 @@ function shuffle(array) {
 }
 
 export default function MatchPairs({ data }) {
+  const [isInitialized, setIsInitialized] = useState(false);
   const [pairs, setPairs] = useState([]);
   const [leftItems, setLeftItems] = useState([]);
   const [rightItems, setRightItems] = useState([]);
@@ -20,6 +21,7 @@ export default function MatchPairs({ data }) {
   const [status, setStatus] = useState("STARTED");
 
   const activityId = data?.id || "match_pairs";
+  const STORAGE_KEY = `match_pairs_${activityId}`;
 
   const containerRef = useRef(null);
   const leftRefs = useRef({});
@@ -27,42 +29,102 @@ export default function MatchPairs({ data }) {
 
   /* ================= LOAD ================= */
   useEffect(() => {
-    if (!data?.text) return;
+    if (!data?.text || isInitialized) return;
 
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (saved) {
+      const parsedState = JSON.parse(saved);
+
+      // ✅ Restore EVERYTHING
+      setPairs(parsedState.pairs || []);
+      setLeftItems(parsedState.leftItems || []);
+      setRightItems(parsedState.rightItems || []);
+      setConnections(parsedState.connections || []);
+      setScore(parsedState.score || 0);
+      setEvaluated(parsedState.evaluated || false);
+      setStatus(parsedState.status || "STARTED");
+
+      setIsInitialized(true);
+      return;
+    }
+
+    // ✅ FIRST TIME INIT
     const lines = data.text.trim().split("\n");
     const parsed = lines.map((line) => {
       const [left, right] = line.split(",");
       return { left: left.trim(), right: right.trim() };
     });
 
-    setPairs(parsed);
-    setLeftItems(parsed.map((p) => p.left));
-    setRightItems(shuffle(parsed.map((p) => p.right)));
+    const left = parsed.map((p) => p.left);
+    const right = shuffle(parsed.map((p) => p.right));
 
-    // restore state
-    const saved = localStorage.getItem(activityId);
-    if (saved) {
-      const parsedState = JSON.parse(saved);
-      setConnections(parsedState.connections || []);
-      setScore(parsedState.score || 0);
-      setEvaluated(parsedState.evaluated || false);
-      setStatus(parsedState.status || "STARTED");
-    }
-  }, [data]);
+    setPairs(parsed);
+    setLeftItems(left);
+    setRightItems(right);
+
+    // ✅ SAVE INITIAL STATE IMMEDIATELY
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        pairs: parsed,
+        leftItems: left,
+        rightItems: right,
+        connections: [],
+        score: 0,
+        evaluated: false,
+        status: "STARTED",
+      }),
+    );
+
+    setIsInitialized(true);
+  }, [data, isInitialized]);
 
   const saveProgress = (extra = {}) => {
     localStorage.setItem(
-      activityId,
+      STORAGE_KEY,
       JSON.stringify({
         connections,
         score,
         evaluated,
         status,
+        leftItems,
+        rightItems,
+        pairs,
         ...extra,
       }),
     );
   };
 
+  useEffect(() => {
+    if (!isInitialized) return;
+
+    const timeout = setTimeout(() => {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          pairs,
+          leftItems,
+          rightItems,
+          connections,
+          score,
+          evaluated,
+          status,
+        }),
+      );
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [
+    pairs,
+    leftItems,
+    rightItems,
+    connections,
+    score,
+    evaluated,
+    status,
+    isInitialized,
+  ]);
   /* ================= DRAG ================= */
   const getPoint = (el, side) => {
     if (!el || !containerRef.current) return { x: 0, y: 0 };
@@ -105,7 +167,9 @@ export default function MatchPairs({ data }) {
 
     if (hoveredRight) {
       const newConnections = [
-        ...connections.filter((c) => c.left !== dragging.left),
+        ...connections.filter(
+          (c) => c.left !== dragging.left && c.right !== hoveredRight,
+        ),
         { left: dragging.left, right: hoveredRight },
       ];
 
@@ -141,12 +205,17 @@ export default function MatchPairs({ data }) {
   const resetQuiz = () => {
     if (!window.confirm("Reset activity?")) return;
 
+    localStorage.removeItem(STORAGE_KEY);
+
+    setPairs([]);
+    setLeftItems([]);
+    setRightItems([]);
     setConnections([]);
     setScore(0);
     setEvaluated(false);
     setStatus("STARTED");
 
-    localStorage.removeItem(activityId);
+    setIsInitialized(false); // 🔥 forces fresh init
   };
 
   const handleFinalNext = () => {
@@ -168,16 +237,30 @@ export default function MatchPairs({ data }) {
     return match?.right === right ? styles.correct : styles.wrong;
   };
 
+  const [, forceUpdate] = useState(0);
+
+  useEffect(() => {
+    if (!isInitialized) return;
+
+    // wait for DOM paint
+    const id = requestAnimationFrame(() => {
+      forceUpdate((n) => n + 1);
+    });
+
+    return () => cancelAnimationFrame(id);
+  }, [isInitialized, leftItems, rightItems]);
+
   /* ================= UI ================= */
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.mainCard}>
-        <h2 className={styles.title}>
+        <div className={styles.title}>
           {(data.title || "Match the Pairs").replace(/\s*\(/, "\n(")}
-        </h2>
+        </div>
 
         {status !== "SUMMARY" ? (
-          <>
+          <div className={styles.main}>
             <div
               className={styles.matchContainer}
               ref={containerRef}
@@ -263,9 +346,9 @@ export default function MatchPairs({ data }) {
                 Submit
               </button>
             </div>
-          </>
+          </div>
         ) : (
-          <>
+          <div className={styles.main}>
             <h2 style={{ textAlign: "center", marginBottom: 10 }}>
               You have completed this activity.
             </h2>
@@ -294,7 +377,7 @@ export default function MatchPairs({ data }) {
                 </button>
               </div>
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>

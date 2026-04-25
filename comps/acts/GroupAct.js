@@ -3,15 +3,36 @@ import styles from "./GroupAct.module.css";
 import Confetti from "react-confetti";
 
 export default function GroupAct({ data, onNext }) {
+  const STORAGE_KEY = `groupact_${data?.id || "default"}`;
   const [wordPool, setWordPool] = useState([]);
   const [groups, setGroups] = useState([]);
   const [isFinished, setIsFinished] = useState(false);
   const [score, setScore] = useState(0);
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isInitialized, setIsInitialized] = useState(false);
   useEffect(() => {
     if (!data?.types) return;
 
-    // 1. Prepare word pool (shuffled)
+    // ⛔ STOP if already initialized
+    if (isInitialized) return;
+
+    // 🔥 FIRST: check localStorage
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (saved) {
+      const parsed = JSON.parse(saved);
+
+      setWordPool(parsed.wordPool || []);
+      setGroups(parsed.groups || []);
+      setIsFinished(parsed.isFinished || false);
+      setScore(parsed.score || 0);
+      setShowConfetti(false);
+
+      setIsInitialized(true); // 🔒 lock
+      return;
+    }
+
+    // 👉 ONLY FIRST TIME INITIALIZATION
     let allWords = [];
     const initialGroups = data.types.map((type, idx) => {
       const words = type.text.split(",").map((w) => w.trim());
@@ -21,7 +42,22 @@ export default function GroupAct({ data, onNext }) {
 
     setWordPool(allWords.sort(() => Math.random() - 0.5));
     setGroups(initialGroups);
-  }, [data]);
+
+    setIsInitialized(true); // 🔒 lock
+  }, [data, isInitialized]);
+  useEffect(() => {
+    if (!isInitialized) return;
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        wordPool,
+        groups,
+        isFinished,
+        score,
+      }),
+    );
+  }, [wordPool, groups, isFinished, score, isInitialized]);
 
   const handleSort = (wordObj, groupId) => {
     // Add word to the group
@@ -34,7 +70,12 @@ export default function GroupAct({ data, onNext }) {
   };
 
   const handleReset = () => {
-    const allWords = [];
+    if (!window.confirm("Are you sure you want to reset this activity?"))
+      return;
+
+    localStorage.removeItem(STORAGE_KEY);
+
+    let allWords = [];
     groups.forEach((g) => {
       g.currentWords.forEach((w) => allWords.push(w));
     });
@@ -42,8 +83,13 @@ export default function GroupAct({ data, onNext }) {
 
     setWordPool(allWords.sort(() => Math.random() - 0.5));
     setGroups(groups.map((g) => ({ ...g, currentWords: [] })));
-  };
 
+    setIsFinished(false);
+    setScore(0);
+    setShowConfetti(false);
+
+    setIsInitialized(false); // 🔥 allow fresh init again
+  };
   const handleFinish = () => {
     let correctCount = 0;
     let totalCount = 0;
@@ -111,8 +157,7 @@ export default function GroupAct({ data, onNext }) {
       {showConfetti && <Confetti />}
       <div className={styles.container}>
         <div className={styles.main}>
-          {renderTitle()}
-
+          <div className={styles.titleContainer}>{renderTitle()}</div>
           {/* Word Pool */}
           <div className={styles.pool}>
             {wordPool.map((word, i) => (

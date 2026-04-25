@@ -7,14 +7,11 @@
   position: absolute;
   top: 0;
   left: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: transparent !important;
-  color: #222;
 }
 
 /* Floating Glass Card Container */
 .mainCard {
-  --accent: #0b4f71;
+  --accent: #0b8a1c;
   --accent-light: #2a5c6d;
   --text: #222;
   --success: #2ecc71;
@@ -22,29 +19,31 @@
 
   border: 1px solid rgba(255, 255, 255, 0.6);
   width: 85%;
-  max-width: 100%;
+  max-width: 800px;
   height: 96%;
   border-radius: 15px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   padding: 30px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   position: relative;
   margin: 15px auto;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .mainCardInner {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   flex-grow: 1;
-  overflow-y: auto;
-  padding-right: 10px;
-  scroll-behavior: smooth;
+
+  padding: 10px 10px;
+  scroll-beavior: smooth;
 }
 
 .mainCardInner::-webkit-scrollbar {
@@ -60,8 +59,7 @@
 
 /* Header & Title */
 .title {
- font-size: 22px;
-  margin-bottom: 24px;
+  font-size: 22px;
   font-weight: 600;
   text-align: center;
   white-space: pre-line;
@@ -251,7 +249,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .option {
@@ -308,20 +306,23 @@
 
 /* Controls */
 .controlsRow {
+  position: sticky;
+  bottom: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   margin-top: auto;
-  padding-top: 20px;
-  flex-shrink: 0;
 }
 
 .score {
-  background: #fff;
-  padding: 8px 16px;
-  border-radius: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #555;
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 1rem;
   font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
 }
 
 /* Primary Buttons */
@@ -355,7 +356,7 @@
 }
 
 .nextBtn:disabled {
-  opacity: 0.9;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 

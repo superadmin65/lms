@@ -231,6 +231,7 @@ export default function ClassifySentenceAct({ data }) {
           </div>
 
           {status === "PLAYING" ? (
+           <>
             <div className={styles.card} id="cardRoot">
               {/* Wrapped in a flex container for side-by-side alignment */}
               <div className={styles.questionHeader}>
@@ -285,7 +286,9 @@ export default function ClassifySentenceAct({ data }) {
 
               <div style={{ height: "18px" }}></div>
 
-              <div className={styles.controlsRow}>
+             
+            </div>
+             <div className={styles.controlsRow}>
                 <div className={styles.score} id="scoreBox">
                   Score: {score} / {attempted}
                 </div>
@@ -303,7 +306,7 @@ export default function ClassifySentenceAct({ data }) {
                   </button>
                 </div>
               </div>
-            </div>
+           </>
           ) : (
             /* EXACTLY matching the summary from index.html & app.js */
             <div

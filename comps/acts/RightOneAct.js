@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./RightOneAct.module.css";
 import Confetti from "react-confetti";
 
+
 export default function RightOneAct({ data, onNext }) {
   const [questions, setQuestions] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -234,26 +235,39 @@ export default function RightOneAct({ data, onNext }) {
               </div>
             </>
           ) : (
-            <div style={{ textAlign: "center", padding: "40px 0" }}>
-              <h2 className={styles.hindiTitle}>अभ्यास पूर्ण हुआ!</h2>
-
-              <div className={styles.finalScoreDisplay}>
-                Score: {score} / {questions.length}
+            <>
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <h2 style={{ color: "#0b4f71", fontSize: "32px" }}>
+                  Activity Complete!
+                </h2>
               </div>
 
-              <div
-                className={styles.actionRow}
-                style={{ justifyContent: "center", gap: "10px" }}
-              >
-                <button className={styles.nextBtn} onClick={resetActivity}>
-                  Reset Activity
-                </button>
+              <div className={styles.footer}>
+                <div className={styles.score}>
+                  Score: {score} / {questions.length}
+                </div>
 
-                <button className={styles.nextBtn} onClick={handleFinalFinish}>
-                  Next Exercise
-                </button>
+                {/* ✅ RESET ONLY HERE */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "10px",
+                    justifyContent: "center",
+                  }}
+                >
+                  <button className={styles.nextBtn} onClick={resetActivity}>
+                    Reset Activity
+                  </button>
+
+                  <button
+                    className={styles.nextBtn}
+                    onClick={handleFinalFinish}
+                  >
+                    Next Exercise
+                  </button>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>

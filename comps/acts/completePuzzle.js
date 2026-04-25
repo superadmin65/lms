@@ -189,9 +189,11 @@ export default function JoinWords({ data }) {
     <div className={styles.wrapper}>
       {showConfetti && <Confetti />}
       <div className={styles.mainCard}>
-        <h2 className={styles.title}>
+        
+          <div className={styles.title}>
           {(data.data.title || "").replace(/\s*\(/, "\n(")}
-        </h2>
+        </div>
+       
         {!isSummary ? (
           <>
             <div className={styles.gameArea}>
@@ -240,7 +242,7 @@ export default function JoinWords({ data }) {
               </div>
             )}
             <div className={styles.footer}>
-              <div className={styles.scoreBoard}>
+              <div className={styles.small}>
                 Score : {score} / {attempted}
               </div>
 

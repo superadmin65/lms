@@ -97,7 +97,7 @@ useEffect(() => {
     setForm({ ...form, mobile: value });
   };
 
-  // const handleAuth = async (e) => {
+  
   //   e.preventDefault();
   //   if (isSignup && !validatePassword(form.password)) return;
 

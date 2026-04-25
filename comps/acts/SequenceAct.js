@@ -131,9 +131,9 @@ export default function SequenceAct({ data }) {
     const existingPositions = [];
     const newBlocks = [];
 
-    const blockW = 80;
-    const blockH = 60;
-    const padding = 20;
+    const blockW = 100;
+    const blockH = 100;
+    const padding = 30;
     const maxW = rect.width - blockW - padding;
     const maxH = rect.height - blockH - padding;
 
@@ -485,12 +485,13 @@ export default function SequenceAct({ data }) {
         <div className={styles.mainCardInner}>
           {appState !== "SUMMARY" && (
             <>
-              <div
-                className={styles.title}
-                dangerouslySetInnerHTML={{
-                  __html: (title || "").replace(/\(/g, "<br>("),
-                }}
-              />
+               <div
+                  className={styles.title}
+                  dangerouslySetInnerHTML={{
+                    __html: (title || "").replace(/\(/g, "<br>("),
+                  }}
+                />
+             
 
               <div style={{ display: "flex", justifyContent: "end" }}>
                 <div
@@ -610,9 +611,12 @@ export default function SequenceAct({ data }) {
               }}
             >
               <div style={{ textAlign: "center" }}>
-                <div className={styles.title}>
+                <div className={styles.main}>
+                  <div className={styles.title}>
                   You have completed this activity.
                 </div>
+                  </div>
+
               </div>
 
               <div

@@ -1,0 +1,93 @@
+{
+    "label": "Vocabulary",
+    "type": "nested",
+    "list": [
+        {
+            "type": "chapter",
+            "label": "शब्दावली",
+            "altLabel": "Vocabulary",
+            "id": "chap-1",
+            "list": [
+                {
+                    "label": "निम्नलिखित को जोड़िए।",
+                    "id": "matchpartsofspeech",
+                    "type": "match",
+                    "data": {
+                        "title": "शब्दभेद के हिस्सों के साथ शब्दों को जोड़िए। (Combine words with parts of speech)",
+                        "text": "सुंदर, विशेषण\nवह, सर्वनाम\nचिकित्सक, संज्ञा\nतैयारी, क्रिया"
+                    }
+                },
+                {
+                    "label": "Pick the right option",
+                    "id": "tense",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "text": "dog| कुत्ता _____ पर बैठा है।|ज़मीन, किनारे\nhummingbird | चिड़िया _______ में उड़ रही है। | आकाश,खेत\nfish| मछली ________ में तैरती है।| पानी, जंगल \ncloud | _____ में बादल छा रहे हैं। | आसमान,छत\nsun | सूरज _______ में चमकता है। | दिन, रात",
+                        "title": "रिक्त स्थान को भरने वाले सही विकल्प का चयन करें। (Pick the right option that fills the blank)",
+                        "imageType": "stockimg"
+                    }
+                },
+                {
+                    "label": "Pick the right option",
+                    "id": "fillup",
+                    "type": "classifySentence",
+                    "data": {
+                        "variableOptions": true,
+                        "text": "pull |दरवाज़ा खोलने के लिए अपनी तरफ _____ । | खींचें, धकेलो\ngiraffe | जिराफ़ की _____ गर्दन होती है। | लंबी, छोटी\npillow | तकिये का रंग _____ है। | नीला, लाल\ntree | पेड़ पर _____ पत्ते हैं। | हरे, पीले\ncat | बिल्ली के बाल _____ होते हैं। | मुलायम, कठोर\ncar | गाड़ी के _____ पहिए हैं। |  चार, तीन",
+                        "title": "रिक्त स्थान को भरने वाले सही विकल्प का चयन करें। (Pick the right option that fills the blank)",
+                        "imageType": "stockimg"
+                    }
+                },
+                {
+                    "label": "Jumbled - Template",
+                    "id": "1757848968224",
+                    "type": "sequence",
+                    "data": {
+                        "title": "सार्थक शब्द बनाने के लिए ब्लॉकों को जोड़ें। (Connect the blocks to form meaningful word)",
+                        "lang": "hi",
+                        "text": "पु स्त क,क म ल,गु ला ब,चिड़िया,खिलौना,पढ़ाई,किताब"
+                    },
+                    "btnLabel": "Jumbled"
+                },
+                {
+                    "label": "Find the Word - Template",
+                                                                                     "id": "1757849333131",
+                    "type": "completeWord",
+                    "data": {
+                        "title": "शब्द खोजें और रिक्त स्थान भरें। (Find the words and fill in the blanks)",
+                        "questions": [
+                            {
+                                "word": "पाठशाला",
+                                "display": "_ठ_ला",
+                                "hint": "यहाँ बच्चे पढ़ने जाते हैं।"
+                            },
+                            {
+                                "word": "हथौड़ा",
+                                "display": "_थौड़ा",
+                                "hint": "यह लोहे की चीज़ों को ठोकने का औज़ार है।"
+                            },
+                            {
+                                "word": "तितली",
+                                "display": "त__ली",
+                                "hint": "यह रंग-बिरंगे पंखों वाला कीट है।"
+                            },
+                            {
+                                "word": "मिठाई",
+                                "display": "_ठा_",
+                                "hint": "त्योहारों पर खाने की चीज़"
+                            },
+                            {
+                                "word": "अख़बार",
+                                "display": "_ख़_र",
+                                "hint": "इससे हम समाचार पढ़ते हैं।"
+                            }
+                        ],
+                        "lang": "hi"
+                    },
+                    "btnLabel": "Find the Word"
+                }
+            ]
+        }
+    ]
+}

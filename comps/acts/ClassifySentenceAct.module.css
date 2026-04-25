@@ -14,10 +14,10 @@
   --success: #2ecc71;
   --danger: #e74c3c;
   --btn: #11495b;
-  --accent: #0b4f71;
+  --accent: #0b8a1c;
   border: 1px solid rgba(255, 255, 255, 0.6);
   width: 85%;
-  max-width: 100%; /*Pankaj Sharma */
+  max-width: 800px; /*Pankaj Sharma */
   height: 96%;
   border-radius: 15px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /*Pankaj Sharma */
@@ -36,13 +36,23 @@
 /* 👇 EXACTLY YOUR ORIGINAL CSS BELOW THIS LINE 👇 */
 
 .wrap {
-  max-width: 980px;
-  margin: 0 auto;
+  border-radius: 4px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main {
+  border-radius: 4px;
+  padding: 10px 10px;
+  box-sizing: border-box;
   width: 100%;
 }
-
 .title {
- font-size: 22px;
+  font-size: 22px;
   margin-bottom: 24px;
   font-weight: 600;
   text-align: center;
@@ -57,6 +67,8 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 .qText {
@@ -126,23 +138,20 @@
 }
 
 .controlsRow {
+  position: sticky;
+  bottom: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 18px;
+  justify-content: space-between;
+  margin-top: auto;
 }
 
 .score {
-  padding: 8px 12px;
-  border-radius: 6px;
-  background: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.03);
   color: #555;
   background: #ffffffe6;
   border: 1px solid #0000001a;
   border-radius: 4px;
-  padding: 8px 15px;
+  padding: 0 15px;
   font-size: 1rem;
   font-weight: bold;
   box-shadow: 1px 1px 3px #0000001a;
@@ -159,15 +168,15 @@
 }
 
 .nextBtn:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 .btn:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 .btn {
-   background: var(--accent);
+  background: var(--accent);
   color: white;
   padding: 0 24px;
   border-radius: 6px;

@@ -1,0 +1,213 @@
+{
+  "label": "Games",
+  "id": "games",
+  "img": "brain",
+  "grade": "0-5",
+  "lockAfter": 100,
+  "list": [
+    {
+      "type": "memoryFindPair",
+      "id": "find-pair",
+      "label": "Find Pairs",
+      "data": [
+        {},
+        {
+          "isBig": true
+        }
+      ]
+    },
+    {
+      "type": "memoryFindPair",
+      "id": "find-pair-big",
+      "label": "Find Pairs (More)",
+      "onlyBigScreen": true,
+      "commonData": {
+        "canvasWidth": 900
+      },
+      "data": [
+        {
+          "isBig": false,
+          "size": 140,
+          "canvasWidth": 800,
+          "imgType": "svg",
+          "imgs": [
+            [
+              {
+                "d": "M 10 10 H 130 V 130 H 10 Z",
+                "fill": "#2fd3d3",
+                "info": "square"
+              }
+            ],
+            [
+              {
+                "d": "M 70 10 L 110 70 L 70 130 L 30 70 Z",
+                "fill": "yellow",
+                "info": "diamond"
+              }
+            ],
+            [
+              {
+                "d": "M 10 30 H 130 V 110 H 10 Z",
+                "fill": "#ff3838",
+                "info": "rect"
+              }
+            ],
+            [
+              {
+                "d": "M 10 70 a 60 60 0 1 0 120 0 a 60 60 0 1 0 -120 0",
+                "fill": "#17659e",
+                "info": "circle"
+              }
+            ],
+            [
+              {
+                "d": "M 10 70 a 60 40 0 1 0 120 0 a 60 40 0 1 0 -120 0",
+                "fill": "#cf00e3",
+                "info": "oval"
+              }
+            ],
+            [
+              {
+                "d": "M 70 10L 127 51L 105 119L 35 119L 13 51 Z",
+                "fill": "#ff7100",
+                "info": "pentagon"
+              }
+            ],
+            [
+              {
+                "d": "M 70 10L 122 40L 122 100L 70 130L 18 100L 18 40 Z",
+                "fill": "#ff748c",
+                "info": "hexagon"
+              }
+            ],
+            [
+              {
+                "d": "M 70 10L 112 28L 130 70L 112 112L 70 130L 28 112L 10 70L 28 28 Z",
+                "fill": "green",
+                "info": "octagon"
+              }
+            ],
+            [
+              {
+                "d": "M 40 20 H 130 L 100 120 H 10 Z",
+                "fill": "#837c7c",
+                "info": "rhombus"
+              }
+            ],
+            [
+              {
+                "d": "M 10 50 a 60 60 0 1 0 120 0 Z",
+                "fill": "#bbb",
+                "info": "semi circle"
+              }
+            ]
+          ]
+        },
+        {
+          "isBig": true,
+          "size": 140,
+          "imgs": [
+            "mug",
+            "lock",
+            "key",
+            "teapot",
+            "lightbulb",
+            "clock",
+            "watch",
+            "umbrella",
+            "helmet",
+            "pillow",
+            "dustbin",
+            "bucket"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "fourColor",
+      "id": "fourColor",
+      "label": "Four Color Game",
+      "data": [
+        "133\n021\n012\n023",
+        ""
+      ]
+    },
+    {
+      "type": "fourColor",
+      "id": "fourShapes",
+      "label": "Four Shapes Game",
+      "data": {
+        "color": "#08b8ff",
+        "type": "shapes",
+        "title": "Rearrange the shapes and align them based on their colours.",
+        "paths": [
+          "v 40 h 40 v -40 0 z",
+          "m 0 20 a 20 20 0 1 0 40 0 a 20 20 0 1 0 -40 0",
+          "m 20 0 l 20 40 h -40 z",
+          "m 20 0 l 19 14 l -7 24 l -24 0 l -7 -22 z"
+        ],
+        "text": "133\n021\n012\n023"
+      }
+    },
+    {
+      "type": "pattern",
+      "id": "pattern",
+      "label": "Pattern",
+      "data": {
+        "list": [
+          "0124678",
+          "012463",
+          "487630",
+          "6304258",
+          "2104876",
+          "6304852",
+          "741852",
+          "210345876",
+          "0723",
+          "0367840"
+        ]
+      }
+    },
+    {
+      "type": "pattern",
+      "id": "pattern-2",
+      "label": "Pattern Advanced",
+      "data": {
+        "list": [
+          "852763015",
+          "01258403678",
+          "458741034",
+          "367840125",
+          "25487304",
+          "4763158",
+          "876543210",
+          "315742",
+          "54213785",
+          "2467840345"
+        ]
+      }
+    },
+    {
+      "type": "rememberShapeColor",
+      "id": "remember-shape-color",
+      "label": "Remember Shape & Color",
+      "data": {}
+    },
+    {
+      "type": "memoryFindOrder",
+      "id": "find-order-1",
+      "label": "Find the order",
+      "data": {
+        "level": 1
+      }
+    },
+    {
+      "type": "memoryFindOrder",
+      "id": "find-order-2",
+      "label": "Find the order - 2",
+      "data": {
+        "level": 2
+      }
+    }
+  ]
+}

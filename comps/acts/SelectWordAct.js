@@ -10,11 +10,31 @@ export default function SelectWordAct({ data, onNext }) {
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
+  const activityId = data?.id || "select_word";
+  const STORAGE_KEY = `select_word_${activityId}`;
 
   useEffect(() => {
     if (!data?.text) return;
 
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    // ✅ RESTORE
+    if (saved) {
+      const parsedState = JSON.parse(saved);
+
+      setQuestions(parsedState.questions || []);
+      setCurrentIdx(parsedState.currentIdx || 0);
+      setScore(parsedState.score || 0);
+      setSelectedWord(parsedState.selectedWord || null);
+      setShowFeedback(parsedState.showFeedback || false);
+      setShowResult(parsedState.showResult || false);
+
+      return;
+    }
+
+    // ✅ FIRST TIME INIT
     const lines = data.text.split("\n").filter((line) => line.trim() !== "");
+
     const parsed = lines.map((line) => {
       const match = line.match(/\*(.*?)\*/);
       const correctWord = match ? match[1] : "";
@@ -32,7 +52,40 @@ export default function SelectWordAct({ data, onNext }) {
     setScore(0);
     setShowResult(false);
     resetState();
+
+    // ✅ SAVE INITIAL
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        questions: parsed,
+        currentIdx: 0,
+        score: 0,
+        selectedWord: null,
+        showFeedback: false,
+        showResult: false,
+      }),
+    );
   }, [data]);
+
+  useEffect(() => {
+    if (!questions.length) return;
+
+    const timeout = setTimeout(() => {
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          questions,
+          currentIdx,
+          score,
+          selectedWord,
+          showFeedback,
+          showResult,
+        }),
+      );
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [questions, currentIdx, score, selectedWord, showFeedback, showResult]);
 
   const resetState = () => {
     setSelectedWord(null);
@@ -73,6 +126,8 @@ export default function SelectWordAct({ data, onNext }) {
 
   // ✅ RESET
   const handleReset = () => {
+    localStorage.removeItem(STORAGE_KEY);
+
     if (!data?.text) return;
 
     const lines = data.text.split("\n").filter((line) => line.trim() !== "");
@@ -89,7 +144,6 @@ export default function SelectWordAct({ data, onNext }) {
       };
     });
 
-    // 🔥 reset everything
     setQuestions(parsed);
     setCurrentIdx(0);
     setScore(0);
@@ -98,6 +152,7 @@ export default function SelectWordAct({ data, onNext }) {
     setSelectedWord(null);
     setShowFeedback(false);
   };
+
   const handleFinalFinish = () => {
     if (onNext) onNext();
   };
@@ -111,7 +166,7 @@ export default function SelectWordAct({ data, onNext }) {
     const parts = formatted.split("\n");
 
     return (
-      <div >
+      <div>
         <div className={styles.hindiTitle}>
           {parts[0]?.replace(/\s*\($/, "")}
           <br />
@@ -174,7 +229,7 @@ export default function SelectWordAct({ data, onNext }) {
                   Question {currentIdx + 1} of {questions.length}
                 </div>
 
-                <div className={styles.progress}>Score: {score}</div>
+                <div className={styles.score}>Score: {score}</div>
 
                 {!showFeedback ? (
                   <button
@@ -192,39 +247,41 @@ export default function SelectWordAct({ data, onNext }) {
               </div>
             </>
           ) : (
-            <div style={{ textAlign: "center", padding: "40px 0" }}>
-              <h2 style={{ color: "#0b4f71", fontSize: "32px" }}>
+            
+             <>
+              <div className={styles.sentenceDisplay}>
+                <h2 style={{ color: "#0b4f71", fontSize: "32px" }}>
                 Activity Complete!
               </h2>
-
-              <div
-                style={{
-                  fontSize: "48px",
-                  fontWeight: "bold",
-                  margin: "20px 0",
-                  color: "#555",
-                }}
-              >
-                Score: {score} / {questions.length}
               </div>
 
-              {/* ✅ RESET ONLY HERE */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: "10px",
-                  justifyContent: "center",
-                }}
-              >
-                <button className={styles.nextBtn} onClick={handleReset}>
-                  Reset Activity
-                </button>
+              <div className={styles.footer}>
+                <div className={styles.score}>
+                  Score: {score} / {questions.length}
+                </div>
 
-                <button className={styles.nextBtn} onClick={handleFinalFinish}>
-                  Next Exercise
-                </button>
+                {/* ✅ RESET ONLY HERE */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "10px",
+                    justifyContent: "center",
+                  }}
+                >
+                  <button className={styles.nextBtn} onClick={handleReset}>
+                    Reset Activity
+                  </button>
+
+                  <button
+                    className={styles.nextBtn}
+                    onClick={handleFinalFinish}
+                  >
+                    Next Exercise
+                  </button>
+                </div>
               </div>
-            </div>
+              </>
+            
           )}
         </div>
       </div>

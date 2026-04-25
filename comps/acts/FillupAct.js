@@ -142,123 +142,124 @@ export default function FillupAct({ data, onNext }) {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.mainCard}>
+      <div className={styles.container}>
         {showConfetti && <Confetti />}
-        <div className={styles.mainCardInner}>
-          {/* TITLE */}
-          <h2 className={styles.title}>
-            {(data?.title || "").replace(/\s*\(/, "\n(")}
-          </h2>
+        <div className={styles.main}>
+          <div className={styles.mainCardInner}>
+            {/* TITLE */}
 
-          {/* ================= PLAYING ================= */}
-          {appState === "PLAYING" && (
-            <>
-              <div className={styles.matchArea}>
-                {sentences.map((s, idx) => (
-                  <div key={s.id} className={styles.sentenceRow}>
-                    <div className={styles.sentenceText}>
-                      {s.parts[0]}
+            <div className={styles.title}>
+              {(data?.title || "").replace(/\s*\(/, "\n(")}
+            </div>
 
-                      <span
-                        className={`${styles.blankSpace} ${
-                          s.userAnswer ? styles.filled : ""
-                        }`}
-                        onClick={() => {
-                          if (appState !== "PLAYING") return;
-                          setActiveBlank(activeBlank === idx ? null : idx);
-                        }}
-                      >
-                        {s.userAnswer || "______"}
-                      </span>
+            {/* ================= PLAYING ================= */}
+            {appState === "PLAYING" && (
+              <>
+                <div className={styles.matchArea}>
+                  {sentences.map((s, idx) => (
+                    <div key={s.id} className={styles.sentenceRow}>
+                      <div className={styles.sentenceText}>
+                        {s.parts[0]}
 
-                      {s.parts[1]}
-                    </div>
+                        <span
+                          className={`${styles.blankSpace} ${
+                            s.userAnswer ? styles.filled : ""
+                          }`}
+                          onClick={() => {
+                            if (appState !== "PLAYING") return;
+                            setActiveBlank(activeBlank === idx ? null : idx);
+                          }}
+                        >
+                          {s.userAnswer || "______"}
+                        </span>
 
-                    {activeBlank === idx && (
-                      <div className={styles.optionPicker}>
-                        {s.options.map((opt, i) => (
-                          <button
-                            key={i}
-                            className={styles.optionBtn}
-                            onClick={() => handleSelectOption(idx, opt)}
-                          >
-                            {opt}
-                          </button>
-                        ))}
+                        {s.parts[1]}
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
 
-              {/* CONTROLS */}
-              <div className={styles.controls}>
-                {allAnswered && (
+                      {activeBlank === idx && (
+                        <div className={styles.optionPicker}>
+                          {s.options.map((opt, i) => (
+                            <button
+                              key={i}
+                              className={styles.optionBtn}
+                              onClick={() => handleSelectOption(idx, opt)}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* CONTROLS */}
+                <div className={styles.controls}>
+                  <div />
                   <button
                     className={`${styles.btn} ${styles.primary}`}
                     onClick={handleSubmit}
+                    disabled={!allAnswered}
                   >
                     Submit
                   </button>
-                )}
-              </div>
-            </>
-          )}
+                </div>
+              </>
+            )}
 
-          {/* ================= SUMMARY ================= */}
-          {appState === "EVALUATED" && (
-            <>
-              <div className={styles.matchArea}>
-                {sentences.map((s, i) => (
-                  <div key={i} className={styles.sentenceRow}>
-                    <div className={styles.sentenceText}>
-                      {s.parts[0]}
+            {/* ================= SUMMARY ================= */}
+            {appState === "EVALUATED" && (
+              <>
+                <div className={styles.matchArea}>
+                  {sentences.map((s, i) => (
+                    <div key={i} className={styles.sentenceRow}>
+                      <div className={styles.sentenceText}>
+                        {s.parts[0]}
 
-                      <span
-                        className={`${styles.blankSpace} ${
-                          s.userAnswer === s.correctAnswer
-                            ? styles.correct
-                            : styles.wrong
-                        }`}
-                      >
-                        {s.userAnswer}
-                      </span>
+                        <span
+                          className={`${styles.blankSpace} ${
+                            s.userAnswer === s.correctAnswer
+                              ? styles.correct
+                              : styles.wrong
+                          }`}
+                        >
+                          {s.userAnswer}
+                        </span>
 
-                      {s.parts[1]}
-                    </div>
-
-                    {s.userAnswer !== s.correctAnswer && (
-                      <div className={styles.answerTag}>
-                        Correct: {s.correctAnswer}
+                        {s.parts[1]}
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
 
-              <div className={styles.resultBox}>
-                Score: {score} / {sentences.length}
-              </div>
-
-              <div className={styles.controls}>
-                <div className={styles.btnGroup}>
-                  <button
-                    className={`${styles.btn} ${styles.primary}`}
-                    onClick={handleReset}
-                  >
-                    Reset Activity
-                  </button>
+                      {s.userAnswer !== s.correctAnswer && (
+                        <div className={styles.answerTag}>
+                          Correct: {s.correctAnswer}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
 
-                <button
-                  className={`${styles.btn} ${styles.primary}`}
-                  onClick={handleNext}
-                >
-                  Next
-                </button>
-              </div>
-            </>
-          )}
+                <div className={styles.controls}>
+                  <div className={styles.resultBox}>
+                    Score: {score} / {sentences.length}
+                  </div>
+                  <div className={styles.btnGroup}>
+                    <button
+                      className={`${styles.btn} ${styles.primary}`}
+                      onClick={handleReset}
+                    >
+                      Reset Activity
+                    </button>
+                    <button
+                      className={`${styles.btn} ${styles.primary}`}
+                      onClick={handleNext}
+                    >
+                      Next
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

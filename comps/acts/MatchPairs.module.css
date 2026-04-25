@@ -8,28 +8,32 @@
 }
 
 .title {
-font-size: 22px;
+  font-size: 22px;
   margin-bottom: 24px;
   font-weight: 600;
   text-align: center;
   white-space: pre-line;
+  border-radius: 4px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
 .box {
-  padding: 10px 15px;
+  padding: 10px;
   background: #dbeafe;
   border-radius: 8px;
   cursor: pointer;
   min-width: 120px;
   text-align: center;
   font-weight: bold;
-    background: rgba(219, 234, 254, 0.8);
+  background: rgba(219, 234, 254, 0.8);
 }
 
 .box:hover {
@@ -77,19 +81,21 @@ font-size: 22px;
 }
 .matchContainer {
   position: relative;
+  align-items: flex-start; /* important */
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* important */
-  gap: 80px; /* 🔥 adds space between columns */
-  margin-top: 40px; /* 🔥 adds top space like puzzle */
+  height: 100%;
+  padding: 10px 10px;
+  scroll-behavior: smooth;
 }
 .mainCard {
-  --accent: #0b4f71;
+  --accent: #0b8a1c;
   --pill: #ffffff;
   --text: #222;
   border: 1px solid rgba(255, 255, 255, 0.6);
   width: 85%;
-  max-width: 900px;
+  max-width: 800px;
   height: 96%;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
@@ -97,6 +103,7 @@ font-size: 22px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   position: relative;
   margin: 15px auto;
   background-color: rgba(255, 255, 255, 0.08);
@@ -104,17 +111,28 @@ font-size: 22px;
   color: var(--text);
   overflow-y: auto;
 }
+.main {
+  border-radius: 4px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .footer {
-  margin-top: 30px;
+  position: sticky;
+  bottom: 0;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 100%;
-  max-width: 800px;
+  margin-top: auto;
 }
 
 .nextBtn {
-  background: #0b4f71;
+  background: #0b8a1c;
   color: white;
   padding: 0 24px;
   border-radius: 6px;
@@ -137,6 +155,12 @@ font-size: 22px;
 }
 
 .small {
-  font-size: 14px;
   color: #555;
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
 }

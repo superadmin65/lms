@@ -293,7 +293,7 @@ export default function McqAct({ data }) {
 
       <div className={styles.container}>
         {!isSummary ? (
-          <div className={styles.main}>
+          <div className={styles.main} >
             {/* TITLE */}
             <div className={styles.title} id="actTitle">
               {(data.title || "Multiple Choice Question").replace(

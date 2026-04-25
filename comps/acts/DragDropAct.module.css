@@ -18,39 +18,47 @@
   --success: #22c55e;
   --danger: #ef4444;
   --text: #222;
-  --accent: #0b4f71;
+  --accent: #0b8a1c;
 
   border: 1px solid rgba(255, 255, 255, 0.6);
   width: 85%;
-  max-width: 100%; /*Pankaj Sharma */
+  max-width: 800px;
   height: 96%;
   border-radius: 15px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /*Pankaj Sharma */
-  padding: 24px 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  padding: 30px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   position: relative;
   margin: 15px auto;
-  background-color: rgba(255, 255, 255, 0.1); /*Pankaj Sharma */
+  background-color: rgba(255, 255, 255, 0.08);
+  font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .mainCardInner {
+  border-radius: 4px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  flex-grow: 1;
-  overflow: hidden;
+  justify-content: space-between;
+  
 }
 
 .title {
   font-size: 22px;
-  margin-bottom: 24px;
   font-weight: 600;
   text-align: center;
-  white-space: pre-line;
+  white-space: pre-line; 
+  border-radius: 4px;
+ margin-bottom: 30px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 /* --- GAME AREA --- */
@@ -117,7 +125,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #0b4f71;
+  color: #0b8a1c;
   font-weight: 800;
   font-size: 16px;
   margin: 10px auto 20px auto;
@@ -262,7 +270,7 @@
 
 /* --- WORD BANK OPTIONS (Pinned to bottom) --- */
 .wordBank {
-  padding: 10px;
+  padding: 10px 10px;
   background: rgba(255, 255, 255, 0.7);
   border-radius: 12px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
@@ -271,10 +279,11 @@
   justify-content: center;
   gap: 12px;
   flex-shrink: 0;
+  
 }
 
 .option {
-  background: var(--accent);
+  background: rgb(17, 156, 28);
   color: white;
   padding: 10px 20px;
   border-radius: 8px;
@@ -291,17 +300,28 @@
 }
 .option.used {
   opacity: 0.4;
-  pointer-events: none;
-  background: #9ca3af;
+
+  background: #21b44d;
   box-shadow: none;
 }
-
+.score {
+  margin-left: 20px;
+  color: #555;
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
+}
 /* --- Result Controls --- */
 .controlsRow {
   display: flex;
-  justify-content: center;
-  padding-top: 15px;
+  justify-content: end;
+  padding-top: 10px;
   flex-shrink: 0;
+  margin-top:auto;
 }
 .nextBtn {
   background: var(--success);

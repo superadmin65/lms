@@ -1,0 +1,995 @@
+{
+  "label": "Grammar (P3)",
+  "id": "grammar_p3",
+  "type": "nested",
+  "cardView": true,
+  "collapseRest": true,
+  "iconStyle": {
+    "width": 120,
+    "height": 120
+  },
+  "cardStyle": {
+    "width": 430,
+    "margin": "15px",
+    "padding": "15px",
+    "borderRadius": 10,
+    "boxShadow": "var(--shadow)",
+    "border": "1px solid #999"
+  },
+  "list": [
+    {
+      "type": "chapter",
+      "label": "संज्ञा",
+      "altLabel": "Noun",
+      "id": "chap-1",
+      "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+      "icon": "kon/reading.png",
+      "style": {
+        "backgroundColor": "#8eccf5"
+      },
+      "list": [
+        {
+          "label": "Identify Noun",
+          "id": "1755024790478",
+          "type": "classifySentence",
+          "data": {
+            "title": "वाक्य पढ़ो और रेखांकित शब्द की संज्ञा का प्रकार बताओ। \n(Read the sentence and identify the type of the underlined noun)",
+            "types": [
+              {
+                "name": "जातिवाचक संज्ञा",
+                "text": "मेरा *दोस्त* बहुत मददगार है।\nहमारा *स्कूल* बहुत बड़ा है।\nहमारा *देश* बहुत सुंदर है।\nबगीचे में बहुत सुंदर *फूल* खिले हैं।"
+              },
+              {
+                "name": "व्यक्तिवाचक संज्ञा",
+                "text": "*दिल्ली* भारत की राजधानी है।\n*गंगा* भारत की एक पवित्र नदी है।\n*मोहन* मेरा सबसे अच्छा मित्र है।"
+              },
+              {
+                "name": "भाववाचक संज्ञा",
+                "text": "माँ का *प्यार* सबसे अनमोल है।\nउसकी आँखों में *ख़ुशी* चमक रही थी।\nहमें *ईमानदारी* से काम करना चाहिए।"
+              }
+            ]
+          },
+          "btnLabel": "Classify Sentence"
+        },
+        {
+          "authored": true,
+          "id": "1755026434004",
+          "label": "Match the Noun",
+          "type": "dragAndDrop",
+          "data": {
+            "width": 400,
+            "words": [
+              {
+                "x": 243,
+                "word": " जातिवाचक संज्ञा",
+                "y": 28
+              },
+              {
+                "x": 245,
+                "word": "व्यक्तिवाचक संज्ञा",
+                "y": 119
+              },
+              {
+                "x": 241,
+                "word": "भाववाचक संज्ञा ",
+                "y": 220
+              }
+            ],
+            "wordWidth": 70,
+            "title": "नीचे दिए गए चित्रों का मिलन उपयुक्त संज्ञा से कीजिए।\n(Match the given pictures with the appropriate nouns)",
+            "svg": {
+              "paths": [
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/apple.jpg",
+                  "x": 4,
+                  "width": 75.177783746651,
+                  "y": 15,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 61.13332949572171
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/png-architecture-building-landmark-tomb (1).png",
+                  "x": 8,
+                  "width": 65.06667073567708,
+                  "y": 91,
+                  "maintainAR": false,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 67.79999796549481
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/mother.jpg",
+                  "x": 8,
+                  "width": 65.06667073567708,
+                  "y": 190,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 77.06666676203412
+                }
+              ],
+              "props": {
+                "fill": "none",
+                "strokeWidth": 1,
+                "stroke": "black"
+              }
+            },
+            "height": 400
+          }
+        },
+        {
+          "label": " Fill in the Noun",
+          "id": "1755027663037",
+          "type": "matchByDragDrop",
+          "data": {
+            "dashWidth": 70,
+            "fontSize": "1rem",
+            "text": "*राम* बाज़ार जा रहा है।\nवह कल *मुंबई* गया था।\nअलमारी में *किताब* रखी है।\n*मोर* अपने पंख फैला रहा है।\nवह भी उसी *स्कूल* में पढ़ती हैं।\n*नदी* में मछली तैर रही है।\n*कुत्ता* सड़क पर दौड़ रहा है।",
+            "title": "रिक्त स्थान में सही संज्ञा लिखो।\n(Fill in the blank with the correct noun)"
+          },
+          "btnLabel": "Fill Up by Drag"
+        },
+        {
+          "label": "Sort the Noun",
+          "id": "1755686107625",
+          "type": "group",
+          "data": {
+            "title": "दिए गए शब्दों को सही संज्ञा से जोड़ो।\n(Match the given words with the correct nouns)",
+            "types": [
+              {
+                "name": "भाववाचक संज्ञा",
+                "text": "ख़ुशी,दुःख,प्रेम,ईमानदारी,डर"
+              },
+              {
+                "name": "जातिवाचक संज्ञा",
+                "text": "लड़का, कुत्ता, जानवर, पेड़, फूल"
+              }
+            ]
+          },
+          "btnLabel": "Group"
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "label": "सर्वनाम",
+      "altLabel": "Pronoun",
+      "id": "chap-2",
+      "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+      "icon": "kon/reading.png",
+      "style": {
+        "backgroundColor": "#b9ffe1"
+      },
+      "list": [
+        {
+          "label": "Pick and Fill",
+          "id": "1755028947428",
+          "type": "fillup",
+          "data": {
+            "text": "मोहन विद्यालय जा रहा था। चलते- चलते *वह (ये,यह)* रास्ते में गाना गा रहा था। रास्ते में *उसने (उसका,उसके)* एक फूल देखा, फूल बहुत सुंदर था। स्कूल के मैदान में कई बच्चे खेल रहे थे। *वे(उस,वह)* सभी बहुत ख़ुश थे।अध्यापक आए और बोले कि खेलने के साथ-साथ *तुम(हम,उसका)* सब ध्यान से पढ़ाई भी किया करो। बच्चों ने कहा *हम(तुम,वह)* सब ध्यान से पढ़ेंगे।फिर मोहन में पार्क गया। वहाँ एक पेड़ था। *उस(उन्हें,उसकी)* पेड़ पर चिड़िया बैठी थी।\n",
+            "type": "variableOptions",
+            "lang": "hi",
+            "title": "रिक्त स्थान में सही सर्वनाम लिखो।\n(Fill in the blanks with the correct pronouns)"
+          },
+          "btnLabel": "Fill Up"
+        },
+        {
+          "label": "Choose the Correct pronoun",
+          "id": "1755032135605",
+          "type": "selectWord",
+          "data": {
+            "title": "सर्वनाम की पहचान कीजिए।\n(Identify the pronoun)",
+            "text": "*आप* बहुत अच्छा गाते हैं।\n*ये* आम बहुत मीठे हैं।\n*मैं* स्कूल जा रहा हूँ।\nमोहन *उसे* बहुत अच्छी तरह जानता है।\n*वे* खेत में काम कर रहे हैं।"
+          },
+          "btnLabel": "Select Word"
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "label": "विशेषण",
+      "altLabel": "Adjective",
+      "id": "chap-3",
+      "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+      "icon": "kon/reading.png",
+      "style": {
+        "backgroundColor": "#efd284"
+      },
+      "list": [
+        {
+          "label": "Pick and Fill",
+          "id": "1755033275294",
+          "type": "matchByDragDrop",
+          "data": {
+            "dashWidth": 70,
+            "fontSize": "1rem",
+            "text": "दीवार पर *सुंदर* तस्वीर लगी है।\nउसने *नए* जूते खरीदे।\nयह बच्चा बहुत *शरारती* है।\nआसमान में *काले* बादल हैं।\nमेरी घड़ी बहुत *महंगी* है।\nउस पेड़ के सभी आम *मीठे* हैं।\nआज मौसम *ठंडा* है।\nवह कपड़ा बहुत *रंगीन* है।",
+            "title": "कोष्ठक में उपयुक्त विशेषण का प्रयोग करके रिक्त स्थान की पूर्ति कीजिए।\n(Fill in the blanks using the appropriate adjective)"
+          },
+          "btnLabel": "Fill Up by Drag"
+        },
+        {
+          "label": "Choose the Adjective",
+          "id": "1755033915391",
+          "type": "selectWord",
+          "data": {
+            "title": "वाक्यों में विशेषण का चयन करें।\n(Select the adjectives in the sentences)",
+            "text": "पार्टी के लिए सीता ने *नीली* ड्रेस पहनी।\nउसके पास *बड़ी* छतरी है।\nमैं *मीठी* खीर खा रहा हूँ।\nदादी का चेहरा *शांत* था।\nसूरज की रोशनी *हल्की* थी।\nयह आम *खट्टा* है।\nउसके जूते *गंदे* हैं।\nबगीचा *हरा-भरा* लग रहा है।\nहमने *सुंदर* चित्र बनाया।\nबच्चे ने खेलने के लिए *पतला* डंडा लिया।"
+          },
+          "btnLabel": "Select Word"
+        },
+        {
+          "authored": true,
+          "id": "1755596748224",
+          "label": "Match Adjective to Picture",
+          "type": "dragAndDrop",
+          "data": {
+            "width": 400,
+            "words": [
+              {
+                "x": 251,
+                "word": "मीठा",
+                "y": 24
+              },
+              {
+                "x": 248,
+                "word": "मोटी",
+                "y": 130
+              },
+              {
+                "x": 247,
+                "word": "नन्हा",
+                "y": 180
+              },
+              {
+                "x": 246,
+                "word": "बड़ा",
+                "y": 291
+              },
+              {
+                "x": 246,
+                "word": "गोल",
+                "y": 235
+              },
+              {
+                "x": 245,
+                "word": "चौड़ी",
+                "y": 355
+              },
+              {
+                "x": 252,
+                "word": "गुलाबी",
+                "y": 69
+              }
+            ],
+            "wordWidth": 70,
+            "title": "चित्रों को उनके विशेषण से मिलाओ।\n(Match the pictures with their adjectives)",
+            "svg": {
+              "paths": [
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/apple.jpg",
+                  "x": 1,
+                  "width": 45.666666666666664,
+                  "y": 13,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 35.666666666666664
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/tulip.jpg",
+                  "x": 7,
+                  "width": 34,
+                  "y": 58,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 35
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/book.jpg",
+                  "x": 10,
+                  "width": 42,
+                  "y": 108,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 50.77777777777777
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/baby.jpg",
+                  "x": 16,
+                  "width": 41.666666666666664,
+                  "y": 167,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 38.33333333333334
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/moon.jpg",
+                  "x": 18,
+                  "width": 34.333333333333336,
+                  "y": 226,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 37
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/house.jpg",
+                  "x": 16,
+                  "width": 45.66666666666667,
+                  "y": 273,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 45.333333333333314
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/18474 (1).jpg",
+                  "x": 11,
+                  "width": 60.111111111111114,
+                  "y": 326,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 59.66666666666671
+                }
+              ],
+              "props": {
+                "fill": "none",
+                "strokeWidth": 1,
+                "stroke": "black"
+              }
+            },
+            "height": 400
+          }
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "label": "क्रिया",
+      "altLabel": "Verb",
+      "id": "chap-4",
+      "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+      "icon": "kon/reading.png",
+      "style": {
+        "backgroundColor": "#f993a5"
+      },
+      "list": [
+        {
+          "label": "Pick and Fill",
+          "id": "1755033275294",
+          "type": "matchByDragDrop",
+          "data": {
+            "dashWidth": 70,
+            "fontSize": "1rem",
+            "text": "दीवार पर *सुंदर* तस्वीर लगी है।\nउसने *नए* जूते खरीदे।\nयह बच्चा बहुत *शरारती* है।\nआसमान में *काले* बादल हैं।\nमेरी घड़ी बहुत *महंगी* है।\nउस पेड़ के सभी आम *मीठे* हैं।\nआज मौसम *ठंडा* है।\nवह कपड़ा बहुत *रंगीन* है।",
+            "title": "कोष्ठक में उपयुक्त विशेषण का प्रयोग करके रिक्त स्थान की पूर्ति कीजिए।\n(Fill in the blanks using the appropriate adjective)"
+          },
+          "btnLabel": "Fill Up by Drag"
+        },
+        {
+          "label": "Choose the Adjective",
+          "id": "1755033915391",
+          "type": "selectWord",
+          "data": {
+            "title": "वाक्यों में विशेषण का चयन करें।\n(Select the adjectives in the sentences)",
+            "text": "पार्टी के लिए सीता ने *नीली* ड्रेस पहनी।\nउसके पास *बड़ी* छतरी है।\nमैं *मीठी* खीर खा रहा हूँ।\nदादी का चेहरा *शांत* था।\nसूरज की रोशनी *हल्की* थी।\nयह आम *खट्टा* है।\nउसके जूते *गंदे* हैं।\nबगीचा *हरा-भरा* लग रहा है।\nहमने *सुंदर* चित्र बनाया।\nबच्चे ने खेलने के लिए *पतला* डंडा लिया।"
+          },
+          "btnLabel": "Select Word"
+        },
+        {
+          "authored": true,
+          "id": "1755596748224",
+          "label": "Match Adjective to Picture",
+          "type": "dragAndDrop",
+          "data": {
+            "width": 400,
+            "words": [
+              {
+                "x": 251,
+                "word": "मीठा",
+                "y": 24
+              },
+              {
+                "x": 248,
+                "word": "मोटी",
+                "y": 130
+              },
+              {
+                "x": 247,
+                "word": "नन्हा",
+                "y": 180
+              },
+              {
+                "x": 246,
+                "word": "बड़ा",
+                "y": 291
+              },
+              {
+                "x": 246,
+                "word": "गोल",
+                "y": 235
+              },
+              {
+                "x": 245,
+                "word": "चौड़ी",
+                "y": 355
+              },
+              {
+                "x": 252,
+                "word": "गुलाबी",
+                "y": 69
+              }
+            ],
+            "wordWidth": 70,
+            "title": "चित्रों को उनके विशेषण से मिलाओ।\n(Match the pictures with their adjectives)",
+            "svg": {
+              "paths": [
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/apple.jpg",
+                  "x": 1,
+                  "width": 45.666666666666664,
+                  "y": 13,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 35.666666666666664
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/tulip.jpg",
+                  "x": 7,
+                  "width": 34,
+                  "y": 58,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 35
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/book.jpg",
+                  "x": 10,
+                  "width": 42,
+                  "y": 108,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 50.77777777777777
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/baby.jpg",
+                  "x": 16,
+                  "width": 41.666666666666664,
+                  "y": 167,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 38.33333333333334
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/moon.jpg",
+                  "x": 18,
+                  "width": 34.333333333333336,
+                  "y": 226,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 37
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/house.jpg",
+                  "x": 16,
+                  "width": 45.66666666666667,
+                  "y": 273,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 45.333333333333314
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/18474 (1).jpg",
+                  "x": 11,
+                  "width": 60.111111111111114,
+                  "y": 326,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 59.66666666666671
+                }
+              ],
+              "props": {
+                "fill": "none",
+                "strokeWidth": 1,
+                "stroke": "black"
+              }
+            },
+            "height": 400
+          }
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "label": "काल",
+      "altLabel": "Tense",
+      "id": "chap-5",
+      "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+      "icon": "kon/reading.png",
+      "style": {
+        "backgroundColor": "#bdbdbd"
+      },
+      "list": [
+        {
+          "label": "Match with Tense",
+          "id": "1755034274265",
+          "type": "match",
+          "data": {
+            "title": "सही काल से मिलाओ।\n(Match the correct tense)",
+            "text": "Present Tense,वर्तमान काल\nPast Tense,भूत काल\nFuture Tense,भविष्य काल\n"
+          },
+          "btnLabel": "Match"
+        },
+        {
+          "label": "Identify the Tense",
+          "id": "1755034847809",
+          "type": "classifySentence",
+          "data": {
+            "title": "वाक्य पढ़ो और उसमें प्रयुक्त काल बताओ।\n(Read the sentence and identify the tense used)",
+            "types": [
+              {
+                "name": "वर्तमान काल",
+                "text": "मैं रोज़ सुबह दूध पीता हूँ।\nबच्चे खेल रहे हैं।\nवह रोज़ अख़बार पढ़ता है।\nमैं पढ़ रहा हूँ।"
+              },
+              {
+                "name": "भूतकाल",
+                "text": "सीमा कल बाज़ार गई थी।\nमैंने गाना गाया था।\nराम पिछले साल दिल्ली गया था।\nवे कल मेला देखने गए थे।"
+              },
+              {
+                "name": "भविष्य काल",
+                "text": "तुम कल आओगे ना?\nहम अगले रविवार पिकनिक पर जाएँगे।"
+              }
+            ]
+          },
+          "btnLabel": "Classify Sentence"
+        },
+        {
+          "label": "Choose the Tense",
+          "id": "1755035227470",
+          "type": "mcq",
+          "data": {
+            "title": "वाक्यों में से सही विकल्प चुनो। (Choose the correct option from the sentences)",
+            "questions": [
+              {
+                "options": "बच्चे पार्क में खेल रहे हैं।\n बच्चे कल पार्क में खेलने आए हुए थे।\nबच्चे कल पार्क में खेलेंगे।",
+                "qText": "*खेलना* (वर्तमान काल)"
+              },
+              {
+                "options": "मैं किताब पढ़ रहा हूँ।\nमैंने किताब पढ़ी।\nमैं कल किताब पढ़ूँगा।",
+                "qText": "*पढ़ना* (वर्तमान काल)"
+              },
+              {
+                "options": "वह खाना खा रहा है।\nवह खाना खाएगा।\nउसने खाना खाया।\n",
+                "qText": "*खाना* (वर्तमान काल)"
+              },
+              {
+                "options": "अमित ने कल कहानी लिखी।\nअमित रोज़ डायरी लिखता है।\nअमित कल कहानी लिखेगा।",
+                "qText": "*लिखना* (भूतकाल)"
+              },
+              {
+                "options": "बच्चे कल मैदान में दौड़ रहे थे।\nबच्चे कल मैदान में दौड़ेंगे।\nबच्चे मैदान में दौड़ रहे हैं।",
+                "qText": "*दौड़ना* (भूतकाल)"
+              },
+              {
+                "options": "मोहन ने कल दूध पिया।\nमोहन रोज़ दूध पीता है।\nमोहन कल दूध पिएगा।\n",
+                "qText": "*पीना* (भूतकाल)"
+              },
+              {
+                "options": "रीता कल गाना गाएगी। \nरीता रोज़ गाना गाती है।\nरीता ने कल गाना गाया।",
+                "qText": "*गाना* (भविष्य काल)"
+              },
+              {
+                "options": "सभी छात्र अगले हफ्ते मंच पर नाचेंगे।\nसभी छात्र रोज़ मंच पर नाचते हैं।\nसभी छात्र कल मंच पर नाचे।",
+                "qText": "*नाचना* (भविष्य काल)"
+              },
+              {
+                "options": "लोग यात्रा पर चलेंगे। \nलोग पैदल चलते हैं।\nलोग पैदल चल रहे थे।",
+                "qText": "*चलना* (भविष्य काल)"
+              }
+            ]
+          },
+          "btnLabel": "MCQ"
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "label": "लिंग",
+      "altLabel": "Gender",
+      "id": "chap-6",
+      "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+      "icon": "kon/reading.png",
+      "style": {
+        "backgroundColor": "#c0f3f3"
+      },
+      "list": [
+        {
+          "authored": true,
+          "id": "1755035918677",
+          "label": "Choose the Gender",
+          "type": "dragAndDrop",
+          "data": {
+            "wordWidth": 70,
+            "svg": {
+              "paths": [
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/boy.jpg",
+                  "x": 2,
+                  "width": 120,
+                  "y": 12,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 1.0871221715515205,
+                  "src": "https://asset.pschool.in/stockimg/girl.jpg",
+                  "x": 121,
+                  "width": 121,
+                  "y": 16,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/peacock.jpg",
+                  "x": 400,
+                  "width": 120,
+                  "y": 8,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/man.jpg",
+                  "x": 11,
+                  "width": 120,
+                  "y": 257,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/woman.jpg",
+                  "x": 142,
+                  "width": 120,
+                  "y": 260,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/cow.jpg",
+                  "x": 473,
+                  "width": 120,
+                  "y": 270,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/pngtree-traditional-ox-cart-vector-image-transparent-png-image_20277269 (1).png",
+                  "x": 348,
+                  "width": 120,
+                  "y": 252,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/grandma.jpg",
+                  "x": 316,
+                  "width": 120,
+                  "y": 103,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "none",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://asset.pschool.in/stockimg/grandfather.jpg",
+                  "x": 211,
+                  "width": 120,
+                  "y": 102,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                },
+                {
+                  "rotate": 0,
+                  "src": "https://pschool-asset.s3.ap-south-1.amazonaws.com/abhisheknid99@gmail.com/40aee06ec2f40dd15c5f3a59e82ea9f4__1_-removebg-preview.png",
+                  "x": 482,
+                  "width": 120,
+                  "y": 6,
+                  "maintainAR": true,
+                  "type": "image",
+                  "fill": "none",
+                  "stroke": "#0d3756",
+                  "height": 120
+                }
+              ],
+              "props": {
+                "fill": "none",
+                "strokeWidth": 1,
+                "stroke": "black"
+              }
+            },
+            "width": 600,
+            "words": [
+              {
+                "x": 19,
+                "word": "लड़का",
+                "y": 140
+              },
+              {
+                "x": 143,
+                "word": "लड़की",
+                "y": 140
+              },
+              {
+                "x": 426,
+                "word": "मोर",
+                "y": 115
+              },
+              {
+                "x": 517,
+                "word": "मोरनी",
+                "y": 114
+              },
+              {
+                "x": 55,
+                "word": "आदमी",
+                "y": 381
+              },
+              {
+                "x": 170,
+                "word": "औरत",
+                "y": 383
+              },
+              {
+                "x": 489,
+                "word": "गाय",
+                "y": 378
+              },
+              {
+                "x": 369,
+                "word": "बैल",
+                "y": 379
+              },
+              {
+                "x": 242,
+                "word": "बूढ़ा",
+                "y": 223
+              },
+              {
+                "x": 331,
+                "word": "बुढ़िया ",
+                "y": 227
+              }
+            ],
+            "bgData": {
+              "imgWidth": 928,
+              "top": 20,
+              "left": 300,
+              "width": 600,
+              "bgImg": "konzeptes/spelling.jpg",
+              "imgHeight": 700,
+              "height": 650
+            },
+            "title": "चित्र के लिए सही लिंग शब्द का चयन करें।(Choose the correct gender word for the picture)",
+            "height": 430
+          }
+        },
+        {
+          "label": "Match Correct Gender Pair",
+          "id": "1755036544225",
+          "type": "match",
+          "data": {
+            "title": "पुल्लिंग-स्त्रीलिंग का सही मिलान कीजिए।\nMatch the correct masculine and feminine forms",
+            "bgData": {
+              "imgWidth": 928,
+              "top": 50,
+              "left": 250,
+              "width": 500,
+              "bgImg": "konzeptes/vocabulary.jpg",
+              "imgHeight": 700,
+              "height": 600
+            },
+            "text": "हिरण,हिरणी\nअभिनेता,अभिनेत्री\nसेठ,सेठानी\nपाठक,पाठिका\nचाचा,चाची\nगुड्डा,गुड़िया"
+          },
+          "btnLabel": "Match"
+        },
+        {
+          "label": "Fill the Blank with Proper Gender",
+          "id": "1755036684063",
+          "type": "fillup",
+          "data": {
+            "options": "भाई,लड़की,दादा,बहन,शेर",
+            "bgData": {
+              "imgWidth": 928,
+              "top": 50,
+              "left": 350,
+              "width": 400,
+              "bgImg": "konzeptes/idiom.jpg",
+              "imgHeight": 700,
+              "height": 600
+            },
+            "text": "मेरे *भाई*ने मुझे नई किताब दी।\nबगीचे में एक *लड़की* फूल तोड़ रही है।\nमेरे *दादा* जी बहुत नेक इंसान हैं।\nमेरी *बहन* बहुत अच्छा गीत गाती है।\nजंगल में एक *शेर* जोर से दहाड़ रहा था।\n",
+            "type": "fixedOptions",
+            "lang": "en",
+            "title": "वाक्य में सही लिंग भरकर उसे पूरा करो।\n(Fill in the correct gender to complete the sentence)"
+          },
+          "btnLabel": "Fill Up"
+        }
+      ]
+    },
+    {
+      "type": "chapter",
+      "label": "वचन",
+      "altLabel": "Plural",
+      "id": "chap-7",
+      "desc": "Nouns are words that name people, places, things, or ideas. They can be common or proper, singular or plural, and act as subjects or objects in sentences.",
+      "icon": "kon/reading.png",
+      "style": {
+        "backgroundColor": "#cfaff3"
+      },
+      "list": [
+        {
+          "label": "Match Singular to Plural",
+          "id": "1754540600310",
+          "type": "match",
+          "data": {
+            "title": "एकवचन को उसके बहुवचन से मिलाओ।\n(Match the singular with its plural)",
+            "text": "किताब,किताबें\nबच्ची,बच्चियाँ\nलड़का,लड़के\nनदी, नदियाँ\nकुर्सी,कुर्सियाँ"
+          },
+          "btnLabel": "Match"
+        },
+        {
+          "label": "Spot Singular",
+          "id": "1754541208998",
+          "type": "rightOne",
+          "data": {
+            "title": "नीचे दिए गए शब्दों में से एकवचन शब्द चुनिए।\n(Choose the singular words from the given list)",
+            "text": "बच्चा,बच्चे\n\nकुत्ता,कुत्ते\n\nखिलौना,खिलौने\n\nसाइकिल,साइकिलें\n\nदरवाज़ा,दरवाज़े"
+          },
+          "btnLabel": "Right Option"
+        },
+        {
+          "label": "Pick the Right Word",
+          "id": "1754542340889",
+          "type": "matchByDragDrop",
+          "data": {
+            "dashWidth": 70,
+            "fontSize": "1rem",
+            "text": "*लड़का* खेत में खेल रहा है।\nमेरे पास एक *किताब* है।\nपेड़ पर एक *चिड़िया* बैठी है।\nस्कूल में नई *शिक्षिका* आई है।\nआँगन में एक *पौधा* लगा हुआ है।\n*किसान* खेत में काम कर रहा है। \n\n",
+            "title": "रिक्त स्थान में सही एकवचन शब्द लिखो।\n(Fill in the blanks with the correct singular word)"
+          },
+          "btnLabel": "Fill Up by Drag"
+        },
+        {
+          "label": "Choose Plural",
+          "id": "1754543639544",
+          "type": "mcq",
+          "data": {
+            "title": "नीचे दिए गए वाक्यों में सही बहुवचन शब्द चुनिए।\n(Choose the correct plural words in the given sentences)",
+            "questions": [
+              {
+                "options": "पतंगें\nपतंग\nपतंगे\n",
+                "qText": "बाजार में रंग-बिरंगी ______ सजी हुई हैं।"
+              },
+              {
+                "options": "खिलौने\nखिलौना\nखेल",
+                "qText": "बच्चा बाज़ार की दुकान से  ______ खरीद रहा है।"
+              },
+              {
+                "options": "मछलियाँ\nमछली\nमछलीयों",
+                "qText": " झील में कई ______ तैर रही थीं।\n"
+              },
+              {
+                "options": "बच्चे\nबच्चा\nबच्चों",
+                "qText": "कक्षा में कुछ नए ______ आ गए हैं।"
+              },
+              {
+                "options": "चीजें\nचीजा\nचीज़ों",
+                "qText": "मेले में तरह-तरह की ______ बिक रही थीं।"
+              }
+            ]
+          },
+          "btnLabel": "MCQ"
+        },
+        {
+          "label": "Select the Correct Plural",
+          "id": "1754548777282",
+          "type": "classifySentence",
+          "data": {
+            "title": "नीचे दिए गए प्रत्येक शब्द के लिए सही वचन पहचानिए।\n(Identify the correct number singular/plural for each of the given words)",
+            "types": [
+              {
+                "name": "एकवचन",
+                "text": "पत्ता\nछात्रा\nचित्र\nघोड़ा\nटोपी"
+              },
+              {
+                "name": "बहुवचन",
+                "text": "पक्षियों\nलड़कों\nकिताबें\nकुर्सियाँ\nपंक्तियाँ"
+              }
+            ]
+          },
+          "btnLabel": "Classify Sentence"
+        }
+      ]
+    }
+  ]
+}

@@ -75,6 +75,8 @@ const Styled = styled.div`
     text-align: center;
     letter-spacing: -1px;
     text-shadow: 2px 2px 0px rgba(43, 125, 16, 0.05);
+    background: none;
+    
   }
 
   .tagline {

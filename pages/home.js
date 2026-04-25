@@ -14,7 +14,7 @@ export default function HomeView() {
   // Define your exact static style configuration here
   const staticConfig = {
     iconsLoc: "konzeptes/icons",
-    label: " Konzeptes",
+    label: "Konzeptes",
     type: "curriculumIcon",
     style: {
       fontSize: "2.4rem",

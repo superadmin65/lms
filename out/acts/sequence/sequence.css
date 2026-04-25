@@ -1,0 +1,190 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fafc;
+  margin: 0;
+  padding: 20px;
+  color: #1e293b;
+  user-select: none; 
+  background-color: transparent !important;
+  overflow: hidden;
+  height: 100%;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.container.show-results {
+  overflow-y: auto !important;
+  display: block; /* Changes from flex to block to allow natural document flow */
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end; /* align buttons to right */
+  align-items: center; /* vertically center buttons */
+  gap: 10px; /* space between buttons */
+  margin-top: 20px; /* spacing from above */
+}
+
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#title { font-size: 20px; margin: 0; color: #334155; background: #fafafa;}
+
+.score {
+  font-weight: 700;
+  color: #0f172a;
+  background: #f1f5f9;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+
+.canvas-area {
+  position: relative;
+  flex-grow: 1; /* This tells the game board to take up available space */
+  min-height: 300px; /* Minimum space for the game */
+  background: transparent !important; 
+  border-radius: 12px;
+  overflow: hidden;
+  touch-action: none;
+}
+
+#svgLayer {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; 
+  z-index: 1; /* Lines are at the very bottom */
+}
+
+.word-block {
+  position: absolute;
+  min-width: 40px;
+  height: 45px;
+  padding: 0 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ff8a65; 
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  cursor: pointer;
+  
+  
+  z-index: 10; 
+  
+  white-space: nowrap; 
+  transition: transform 0.2s, background-color 0.3s, left 0.5s ease, top 0.5s ease;
+}
+
+.word-block:hover { transform: scale(1.05); background: #ff7043; }
+.word-block.active { outline: 3px solid #60a5fa; box-shadow: 0 0 15px #60a5fa; }
+.word-block.completed { background: #4ade80 !important; box-shadow: 0 0 0 2px #22c55e; pointer-events: none; }
+
+
+
+.btn-group { display: flex; gap: 10px; }
+.btn { padding: 10px 20px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px; transition: all 0.2s; }
+
+.secondary { background: #e2e8f0; color: #475569; }
+.secondary:hover { background: #cbd5e1; }
+.danger { background: #fee2e2; color: #991b1b; }
+.danger:hover { background: #fecaca; }
+.primary { background: #0f172a; color: white; }
+.primary:hover { background: #334155; }
+.big-btn { font-size: 18px; padding: 12px 30px; margin-top: 20px; }
+
+.result-message {
+  text-align: center; margin-top: 15px; font-size: 18px; font-weight: bold; color: #059669; min-height: 27px;
+}
+
+
+.final-title { color: #059669; font-size: 32px; margin-bottom: 10px; margin-top: -27px;}
+.final-score { font-size: 48px; font-weight: 800; color: #3b82f6; margin: 10px 0; margin-top: -8px;}
+
+
+.final-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align to top so it scrolls downward */
+  padding: 20px 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* .result-list {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: visible; 
+  background: white;
+} */
+
+/* 
+.result-item {
+  display: flex; justify-content: space-between; padding: 12px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #f8fafc;
+} */
+
+
+.result-list {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px 0;
+  /* Use a semi-transparent white border */
+  border: 1px solid rgba(226, 232, 240, 0.5);
+  border-radius: 12px; /* Slightly softer corners look better with transparency */
+  overflow: hidden; /* Changed to hidden so children don't spill out of rounded corners */
+  
+  /* THE KEY CHANGES: */
+  /* 0.85 alpha means 85% opaque white. Adjust between 0.7 and 0.95 to taste */
+  background: rgba(255, 255, 255, 0.85);
+  /* This blurs whatever is behind the box, improving text readability */
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Adds depth */
+}
+
+
+.result-item {
+  display: flex; justify-content: space-between; padding: 12px 20px;
+  /* Make the separator border semi-transparent */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  /* Make background transparent so the parent container's background shows */
+  background: transparent;
+  transition: background 0.2s;
+}
+
+/* Optional: Add a slight hover effect for better interactivity */
+.result-item:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+
+
+.result-item:last-child { border-bottom: none; }
+.result-item span.points { font-weight: bold; }
+
+.status-perfect { color: #16a34a; }
+.status-hint { color: #d97706; }
+.status-fail { color: #dc2626; }

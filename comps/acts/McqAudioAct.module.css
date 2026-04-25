@@ -14,7 +14,7 @@
 
 /* 🟢 The Identical Floating Glass Card Container */
 .mainCard {
-  --accent: #0b4f71;
+  --accent: #0b8a1c;
   --accent-light: #2a5c6d;
   --text: #222;
   --success: #2ecc71;
@@ -22,7 +22,7 @@
 
   border: 1px solid rgba(255, 255, 255, 0.6);
   width: 85%;
-  max-width: 100%; /*Pankaj Sharma */
+  max-width: 800px; /*Pankaj Sharma */
   height: 96%;
   border-radius: 15px;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); /*Pankaj Sharma */
@@ -74,6 +74,7 @@
   align-items: center;
   margin-bottom: 20px;
   width: 100%;
+  padding: 20px 10px;
 }
 
 .imageWrap img {

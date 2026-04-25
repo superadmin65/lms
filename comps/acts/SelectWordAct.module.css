@@ -10,6 +10,7 @@
 .container {
   width: 85%;
   max-width: 800px;
+  height: 96%;
   margin: 15px auto;
   padding: 30px;
   border-radius: 15px;
@@ -19,13 +20,15 @@
 }
 
 .main {
- 
-  padding: 30px;
-  border-radius: 12px;
-
+  border-radius: 4px;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
-
 
 .hindiTitle {
   font-size: 22px;
@@ -34,8 +37,6 @@
   text-align: center;
   white-space: pre-line;
 }
-
-
 
 .sentenceDisplay {
   display: flex;
@@ -52,12 +53,12 @@
   border-radius: 8px;
   background: white;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
 .word:hover:not(.highlightCorrect):not(.highlightWrong) {
-  background: #0b4f71;
+  background: #0b8a1c;
   color: white;
   transform: translateY(-2px);
 }
@@ -79,12 +80,12 @@
 }
 
 .footer {
+  position: sticky;
+  bottom: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-top: 50px;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  padding-top: 20px;
+  justify-content: space-between;
+  margin-top: auto;
 }
 
 .progress {
@@ -92,10 +93,20 @@
   font-weight: 600;
 }
 
+.score{
+   color: #555;
+  background: #ffffffe6;
+  border: 1px solid #0000001a;
+  border-radius: 4px;
+  padding: 0 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 1px 1px 3px #0000001a;
+}
 .nextBtn {
-  background: #0b4f71;
+  background: #0b8a1c;
   color: white;
-   padding: 0 24px;
+  padding: 0 24px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
@@ -114,9 +125,14 @@
   opacity: 0.9;
 }
 
+.nextBtn:disabled{
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .selectedWord {
-  background: #d6eaf8;   /* light blue */
-  color: #0b4f71;
+  background: #d6eaf8; /* light blue */
+  color: #0b8a1c;
   font-weight: 600;
   transform: scale(1.05);
 }

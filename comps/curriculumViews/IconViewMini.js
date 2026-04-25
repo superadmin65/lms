@@ -254,7 +254,7 @@ export default function IconView(props) {
                         }}
                       ></div>
                       <div className="label" style={data.labelStyle || {}}>
-                        {item.label}
+                        {item.label?.split(" - ")[0]}
                       </div>
                       {item.smLabel && (
                         <div
